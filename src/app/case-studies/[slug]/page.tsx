@@ -1,9 +1,16 @@
-"use client"
-
 import * as React from "react"
 import Link from "next/link"
 import { StatNumber } from "@/components/ui/StatNumber"
 import { Card, CardContent } from "@/components/ui/Card"
+
+export async function generateStaticParams() {
+  return [
+    { slug: "techcorp-tracking-disaster" },
+    { slug: "agencyx-efficiency" },
+    { slug: "ecommerce-fatigue" },
+    { slug: "b2b-whatsapp-intent" },
+  ];
+}
 
 // In a real app, this would be fetched from a CMS based on params.slug
 export default function CaseStudyDetailPage() {
