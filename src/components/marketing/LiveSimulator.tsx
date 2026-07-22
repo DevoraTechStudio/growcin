@@ -19,11 +19,16 @@ export function LiveSimulator() {
   const [buttonLoading, setButtonLoading] = React.useState(false)
 
   const initializedRef = React.useRef(false)
-  const logsEndRef = React.useRef<HTMLDivElement>(null)
+  const containerRef = React.useRef<HTMLDivElement>(null)
 
   // Auto scroll to bottom when logs change
   React.useEffect(() => {
-    logsEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    if (containerRef.current) {
+      containerRef.current.scrollTo({
+        top: containerRef.current.scrollHeight,
+        behavior: "smooth",
+      })
+    }
   }, [logs])
 
   // Simulation steps timer
@@ -158,7 +163,7 @@ export function LiveSimulator() {
       </div>
 
       {/* Terminal Log Output */}
-      <div className="flex-1 p-6 font-mono text-xs overflow-y-auto space-y-3 bg-[var(--color-base)]/40 flex flex-col justify-start">
+      <div ref={containerRef} className="flex-1 p-6 font-mono text-xs overflow-y-auto space-y-3 bg-[var(--color-base)]/40 flex flex-col justify-start">
         <AnimatePresence>
           {logs.map((log) => (
             <motion.div
@@ -184,7 +189,6 @@ export function LiveSimulator() {
             </motion.div>
           ))}
         </AnimatePresence>
-        <div ref={logsEndRef} />
       </div>
 
       {/* Interactive Trigger Control Bar */}
