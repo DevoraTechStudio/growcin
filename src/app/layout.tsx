@@ -11,8 +11,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Growcin | AI-Powered Growth Platform",
-  description: "Your growth is leaking potential. Growcin is an AI growth platform for founders and marketing agencies.",
+  title: "Growcin | Calm Systems for Paid Campaigns",
+  description: "Let Growcin find what's leaking in your ad accounts. Get a free, programmatic Meta audit with automated warnings for CPA drift, creative fatigue, and budget leaks.",
 };
 
 export default function RootLayout({

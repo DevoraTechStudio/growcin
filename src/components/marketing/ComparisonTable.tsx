@@ -2,15 +2,56 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 const COMPARISON_DATA = [
-  { feature: "Targeting", without: "Manual audience building based on hunches", with: "Real-time lookalikes based on intent signals" },
-  { feature: "Budget allocation", without: "Set and forget monthly, reactive shifts", with: "Dynamic 24/7 shifting based on CPA velocity" },
-  { feature: "Timing", without: "Campaigns run while you sleep, burning cash", with: "Auto-pauses during inefficient hours" },
-  { feature: "Lead response", without: "Batch exports, delayed follow-ups", with: "Instant multi-channel qualification" },
-  { feature: "Follow-up", without: "Generic drip sequences, low conversion", with: "Context-aware conversational paths" },
-  { feature: "Creative analysis", without: "Looking at CTRs at the end of the week", with: "Fatigue detection before performance drops" },
-  { feature: "Reporting", without: "Static dashboards that need interpretation", with: "Ranked list of plain-English actions" },
-  { feature: "Personalization", without: "Segment-based broad messaging", with: "Individual context across all touchpoints" },
-  { feature: "Consistency", without: "Human error, skipped daily checks", with: "Flawless execution of your growth protocol" },
+  {
+    feature: "Pricing",
+    without: "High retainer, plus ad spend, paid regardless of consistency",
+    with: "Low flat fee, plus ad spend, with the full system included"
+  },
+  {
+    feature: "Audience targeting",
+    without: "Set manually, revisited occasionally based on gut feel",
+    with: "AI audience builder refines continuously from live performance data"
+  },
+  {
+    feature: "Balancing budget",
+    without: "Fixed split, manually rebalanced when someone notices an issue",
+    with: "Automatically shifts toward what's converting in real time"
+  },
+  {
+    feature: "Timing",
+    without: "Runs on a flat schedule, rarely tuned to actual audience activity",
+    with: "Time-slot optimisation based on when the audience is actually active"
+  },
+  {
+    feature: "Chat assistant",
+    without: "Depends on staff availability, often hours or next business day",
+    with: "AI chat assistant responds instantly, 24/7"
+  },
+  {
+    feature: "Pacing",
+    without: "Manual or bulk-blasted, high risk of spam flags and number bans",
+    with: "Paced broadcasting with automatic throttling to protect the number"
+  },
+  {
+    feature: "Creative scoring",
+    without: "Reviewed periodically, often subjectively",
+    with: "Continuous, data-driven creative scoring"
+  },
+  {
+    feature: "Reports",
+    without: "Monthly PDF or call, format varies by agency",
+    with: "Account audit, campaign, and weekly reports as standard, every month"
+  },
+  {
+    feature: "Custom templates",
+    without: "Generic templates reused across clients",
+    with: "Content adapts to each business's specific USP automatically"
+  },
+  {
+    feature: "Consistency",
+    without: "Depends on the individual manager's bandwidth and attention that week",
+    with: "Same level of monitoring and optimisation applied every day, automatically"
+  }
 ]
 
 export function ComparisonTable() {

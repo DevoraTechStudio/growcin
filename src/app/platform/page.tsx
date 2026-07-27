@@ -4,14 +4,13 @@ import * as React from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/Card"
 import { Accordion } from "@/components/ui/Accordion"
-import { StatusPill } from "@/components/ui/StatusPill"
 import { Button } from "@/components/ui/Button"
 import Link from "next/link"
 
 const FAQS = [
   { 
     title: "Do I need to replace Meta Ads Manager to use the platform?", 
-    content: "No. Growcin connects to your existing ad accounts and layers campaign intelligence and automation on top. Your team keeps full access to Meta Ads Manager." 
+    content: "No. Growcin connects to your existing ad accounts and layers campaign intelligence on top via AI Chat Assist. Your team keeps full access to Meta Ads Manager." 
   },
   { 
     title: "How long does platform setup usually take?", 
@@ -37,7 +36,7 @@ export default function PlatformPage() {
       {/* Hero Section */}
       <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-36 px-6 overflow-hidden">
         {/* Background elements */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+        <div className="absolute inset-0 hero-grid-pattern pointer-events-none opacity-40" />
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[var(--color-brand-blue)]/5 blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-[var(--color-brand-cyan)]/5 blur-[100px] rounded-full pointer-events-none" />
 
@@ -52,17 +51,17 @@ export default function PlatformPage() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-alt)] border border-[var(--color-border-subtle)] text-xs font-semibold uppercase tracking-widest text-[var(--color-brand-cyan)]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-brand-cyan)] animate-pulse" />
-                Growth Orchestration Layer
+                Programmatic Audits & Campaign Intelligence
               </div>
               
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white leading-[1.1]">
                 This is what happens <br />
                 when paid ads <br />
-                <span className="brand-gradient-text">stop being manual.</span>
+                <span className="brand-gradient-text">meet Calm Systems.</span>
               </h1>
               
               <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-lg">
-                Most growth teams still run campaigns by sheer human effort. Growcin runs them by programmatic design.
+                Most growth teams still manage campaigns under constant friction and stress. Growcin introduces programmatic design, giving you absolute oversight and automatic safety guardrails.
               </p>
               
               <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -130,7 +129,7 @@ export default function PlatformPage() {
               Designed for Scale
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white max-w-2xl mx-auto leading-tight">
-              Agencies And Serious Operators <br /> Don't Scale Manually
+              Agencies And Serious Operators <br /> Don&apos;t Tolerate Silent Leaks
             </h2>
           </div>
           
@@ -140,9 +139,9 @@ export default function PlatformPage() {
                 <div className="h-12 w-12 rounded-xl bg-[var(--color-surface-alt)] border border-[var(--color-border-subtle)] flex items-center justify-center text-[var(--color-brand-cyan)]">
                   <span className="material-symbols-outlined text-2xl">hub</span>
                 </div>
-                <h3 className="text-xl font-bold text-white">Unified Command Hierarchy</h3>
+                <h3 className="text-xl font-bold text-white">AI Chat Assist</h3>
                 <p className="text-[var(--color-text-secondary)] leading-relaxed">
-                  Establish an immutable hierarchy for enterprise accounts, ensuring data integrity remains absolute across every layer of your global operation.
+                  Real-time monitoring of Meta ad accounts, flagging anomalies and warning your team before spend compounds.
                 </p>
               </CardContent>
             </Card>
@@ -152,9 +151,33 @@ export default function PlatformPage() {
                 <div className="h-12 w-12 rounded-xl bg-[var(--color-surface-alt)] border border-[var(--color-border-subtle)] flex items-center justify-center text-[var(--color-brand-cyan)]">
                   <span className="material-symbols-outlined text-2xl">balance</span>
                 </div>
-                <h3 className="text-xl font-bold text-white">Smart Balancing</h3>
+                <h3 className="text-xl font-bold text-white">Smart Budget Optimization</h3>
                 <p className="text-[var(--color-text-secondary)] leading-relaxed">
-                  Autonomous allocation protocols that shift capital to high-yield segments in real-time, maintaining equilibrium across entire portfolios.
+                  Autonomous allocation systems that shift capital to high-performance windows and campaigns in real-time, preventing wasted budget.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card hoverable className="p-8 bg-[var(--color-surface)] border border-[var(--color-border-subtle)]">
+              <CardContent className="space-y-4">
+                <div className="h-12 w-12 rounded-xl bg-[var(--color-surface-alt)] border border-[var(--color-border-subtle)] flex items-center justify-center text-[var(--color-brand-cyan)]">
+                  <span className="material-symbols-outlined text-2xl">shield</span>
+                </div>
+                <h3 className="text-xl font-bold text-white">CPA Guardrails</h3>
+                <p className="text-[var(--color-text-secondary)] leading-relaxed">
+                  Establish maximum Cost-Per-Lead safety limits that pause runaway campaigns instantly when benchmarks are breached.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card hoverable className="p-8 bg-[var(--color-surface)] border border-[var(--color-border-subtle)]">
+              <CardContent className="space-y-4">
+                <div className="h-12 w-12 rounded-xl bg-[var(--color-surface-alt)] border border-[var(--color-border-subtle)] flex items-center justify-center text-[var(--color-brand-cyan)]">
+                  <span className="material-symbols-outlined text-2xl">trending_down</span>
+                </div>
+                <h3 className="text-xl font-bold text-white">Creative Fatigue Tracking</h3>
+                <p className="text-[var(--color-text-secondary)] leading-relaxed">
+                  Measure conversion rate decay and frequency velocity to flag creative saturation before it impacts acquisition cost.
                 </p>
               </CardContent>
             </Card>
@@ -176,7 +199,7 @@ export default function PlatformPage() {
                 <span className="brand-gradient-text font-serif italic font-normal">Until It Breaks</span>
               </h2>
               <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed">
-                A missed checkbox, a delayed bid adjustment, or a silent tracking drop. Small human errors compound into massive ad budget waste. Growcin acts as your programmatic shield.
+                A missed checkbox, a delayed bid adjustment, or a silent tracking drop. Small human errors compound into massive ad budget waste. Our Calm Systems act as your programmatic shield, detecting leaks in real-time.
               </p>
               
               <ul className="space-y-4 pt-4">
@@ -251,11 +274,11 @@ export default function PlatformPage() {
                 Component Verification
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
-                Campaigns Aren't Built, <br />
-                <span className="font-serif italic text-white font-normal">They're Assembled</span>
+                Campaigns Aren&apos;t Built, <br />
+                <span className="font-serif italic text-white font-normal">They&apos;re Assembled</span>
               </h2>
               <p className="text-[var(--color-text-secondary)] leading-relaxed">
-                Stop setting up ad ad-sets from zero every time. Assemble your growth assets using pre-verified structural blocks, ensuring complete schema consistency before budget is allocated.
+                Stop setting up ad-sets from zero every time. Assemble your growth assets using pre-verified structural blocks, ensuring complete schema consistency before budget is allocated.
               </p>
             </div>
 
@@ -276,7 +299,7 @@ export default function PlatformPage() {
                 Nothing Runs Unchecked
               </h2>
               <p className="text-[var(--color-text-secondary)] leading-relaxed">
-                Our platform provides constant runtime oversight. It doesn't log off or get tired. Every campaign parameter is continuous calibrated against your real business goals, keeping spend aligned.
+                The Growcin system provides constant runtime oversight. It doesn&apos;t log off or get tired. Every campaign parameter is continuously calibrated against your real business goals, keeping spend aligned.
               </p>
               <div className="flex gap-8 pt-4">
                 <div className="flex items-center gap-2 text-xs font-bold text-[var(--color-text-muted)] uppercase tracking-wider">
@@ -352,7 +375,7 @@ export default function PlatformPage() {
                 <div>
                   <div className="text-[10px] font-bold text-[var(--color-text-muted)] uppercase tracking-wider mb-2">Strategy Hold Recommendation</div>
                   <div className="text-lg text-white font-medium leading-relaxed">
-                    "Maintain current bid ceilings. <span className="text-[var(--color-brand-cyan)] font-bold">Action: Hold.</span> CPC inflation volatility remains outside statistical safety parameters."
+                    &quot;Maintain current bid ceilings. <span className="text-[var(--color-brand-cyan)] font-bold">Action: Hold.</span> CPC inflation volatility remains outside statistical safety parameters.&quot;
                   </div>
                 </div>
 
@@ -370,7 +393,7 @@ export default function PlatformPage() {
                 <div className="bg-[var(--color-surface-alt)]/50 p-4 rounded-xl border border-[var(--color-border-subtle)] flex items-start gap-3">
                   <span className="material-symbols-outlined text-[var(--color-brand-cyan)] text-sm mt-0.5 animate-pulse">info</span>
                   <div className="text-xs text-[var(--color-text-secondary)] leading-relaxed font-mono">
-                    System scanned CPC spikes on Meta node 'B2B_Prospects'. High variance identified. Hold rules applied to preserve margin allocation.
+                    System scanned CPC spikes on Meta node &apos;B2B_Prospects&apos;. High variance identified. Hold rules applied to preserve margin allocation.
                   </div>
                 </div>
               </div>
@@ -391,7 +414,7 @@ export default function PlatformPage() {
               Reporting That <br /> <span className="font-serif italic text-white font-normal">Defends Decisions</span>
             </h2>
             <p className="text-base text-[var(--color-text-secondary)] mt-4">
-              Your clients and teams don't want spreadsheets of raw numbers. They want clean, transparent context behind every optimization.
+              Your clients and teams don&apos;t want spreadsheets of raw numbers. They want clean, transparent context behind every optimization.
             </p>
           </div>
 

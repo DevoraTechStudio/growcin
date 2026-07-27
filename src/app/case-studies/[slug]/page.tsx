@@ -32,7 +32,7 @@ export default function CaseStudyDetailPage() {
             Stopping a $20k tracking disaster before Monday morning
           </h1>
           <p className="text-xl text-[var(--color-text-secondary)] leading-relaxed">
-            How Growcin's automated guardrails caught a broken event tag that caused Meta to optimize for zero-intent traffic over a holiday weekend.
+            How Growcin&apos;s AI Chat Assist and automated guardrails caught a broken event tag that caused Meta to optimize for zero-intent traffic over a holiday weekend.
           </p>
         </div>
       </div>
@@ -73,22 +73,22 @@ export default function CaseStudyDetailPage() {
         <div className="container mx-auto max-w-3xl prose prose-invert prose-lg prose-p:text-[var(--color-text-secondary)] prose-headings:text-white prose-a:text-[var(--color-brand-cyan)]">
           <h2 className="text-2xl font-bold text-white mt-0 mb-6">The Situation</h2>
           <p className="mb-10 text-[var(--color-text-secondary)] leading-relaxed">
-            TechCorp launched a massive Black Friday weekend push across Meta and Google. On Saturday morning, a seemingly innocuous code release on their main marketing site inadvertently broke the primary conversion pixel. Meta's algorithm, desperate to find conversions, started optimizing for a soft event (page views) instead of actual signups. The algorithm perceived this as highly successful because it was generating thousands of "conversions" for pennies, but none of them were real intent.
+            TechCorp launched a massive Black Friday weekend push across Meta and Google. On Saturday morning, a seemingly innocuous code release on their main marketing site inadvertently broke the primary conversion pixel. Meta&apos;s algorithm, desperate to find conversions, started optimizing for a soft event (page views) instead of actual signups. The algorithm perceived this as highly successful because it was generating thousands of &quot;conversions&quot; for pennies, but none of them were real intent.
           </p>
           
-          <h2 className="text-2xl font-bold text-white mb-6">What Growcin Caught</h2>
+          <h2 className="text-2xl font-bold text-white mb-6">What AI Chat Assist Caught</h2>
           <p className="mb-10 text-[var(--color-text-secondary)] leading-relaxed">
-            Because human media buyers don't typically refresh dashboards at 2:00 AM on a Sunday, this would normally run until Monday morning, burning through tens of thousands of dollars. However, Growcin's continuous monitoring detected a massive statistical anomaly: a 400% spike in intent-to-conversion disparity. The volume of top-of-funnel activity was entirely disconnected from the historical baseline of down-funnel progression.
+            Because human media buyers don&apos;t typically refresh dashboards at 2:00 AM on a Sunday, this would normally run until Monday morning, burning through tens of thousands of dollars. However, Growcin&apos;s continuous calibration node detected a massive statistical anomaly: a 400% spike in intent-to-conversion disparity. The volume of top-of-funnel activity was entirely disconnected from the historical baseline of down-funnel progression.
           </p>
           
           <h2 className="text-2xl font-bold text-white mb-6">Action Taken</h2>
           <p className="mb-10 text-[var(--color-text-secondary)] leading-relaxed">
-            Growcin's defensive guardrails triggered automatically. It didn't just send an email that would be ignored until Monday; it utilized its API access to gracefully pause the runaway ad sets in Meta, capping the damage. It then sent a high-priority Slack alert to the growth lead with the exact reason for the pause.
+            Growcin&apos;s automated guardrails triggered automatically. It didn&apos;t just send an email that would be ignored until Monday; it utilized its API access to gracefully pause the runaway ad sets in Meta, capping the damage. It then sent a high-priority Slack alert to the growth lead with the exact reason for the pause.
           </p>
           
           <h2 className="text-2xl font-bold text-white mb-6">Result</h2>
           <p className="mb-10 text-[var(--color-text-secondary)] leading-relaxed">
-            The client fixed the pixel by 8:00 AM Sunday and reactivated the campaigns. Growcin prevented what would have been a catastrophic budget drain, saving an estimated $12,450 that would have otherwise been spent on zero-intent traffic. The client hit their Black Friday goals with their remaining, correctly-optimizing budget.
+            The client fixed the pixel by 8:00 AM Sunday and reactivated the campaigns. The Growcin system prevented what would have been a catastrophic budget drain, saving an estimated $12,450 that would have otherwise been spent on zero-intent traffic. The client hit their Black Friday goals with their remaining, correctly-optimizing budget.
           </p>
         </div>
       </section>

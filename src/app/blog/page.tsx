@@ -48,8 +48,8 @@ export default function BlogPage() {
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
             Growcin <span className="brand-gradient-text">Insights.</span>
           </h1>
-          <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-lg mx-auto">
-            Deep dives into programmatic ad design, creative decay analysis, and growth orchestration.
+          <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-lg mx-auto font-light">
+            Deep dives into programmatic campaign auditing, creative decay analysis, and calm systems operation.
           </p>
         </div>
       </section>

@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-base: #070B18;
-  --color-surface: #0F1629;
-  --color-surface-alt: #121A30;
+  --color-base: #00081C;
+  --color-surface: #030F26;
+  --color-surface-alt: #05193B;
   --color-border-subtle: rgba(255, 255, 255, 0.08);
   --color-border-strong: rgba(255, 255, 255, 0.16);
 
@@ -11,14 +11,29 @@
   --color-text-secondary: #94A3B8;
   --color-text-muted: #64748B;
 
-  --color-brand-blue: #2563EB;
-  --color-brand-cyan: #22D3EE;
+  --color-brand-blue: #0052FF;
+  --color-brand-cyan: #00E5FF;
+  --color-brand-text: #00A3FF;
 
   --color-status-good: #10B981;
   --color-status-warn: #F59E0B;
   --color-status-bad: #EF4444;
 
   --font-sans: var(--font-inter), sans-serif;
+
+  --animate-orb-1: orb-move-1 15s ease-in-out infinite;
+  --animate-orb-2: orb-move-2 18s ease-in-out infinite;
+
+  @keyframes orb-move-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.05); }
+    66% { transform: translate(-20px, 15px) scale(0.95); }
+  }
+  @keyframes orb-move-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-25px, 20px) scale(1.1); }
+    66% { transform: translate(15px, -25px) scale(0.9); }
+  }
 }
 
 @utility brand-gradient-text {
@@ -115,5 +130,12 @@ body {
 @utility animate-shimmer {
   background-size: 200% 100%;
   animation: shimmer 2.5s linear infinite;
+}
+
+@utility hero-grid-pattern {
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
 

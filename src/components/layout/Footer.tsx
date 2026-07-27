@@ -1,5 +1,6 @@
 import * as React from "react"
 import Link from "next/link"
+import { Logo } from "./Logo"
 
 const FOOTER_LINKS = [
   {
@@ -55,16 +56,13 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 mb-16">
           <div className="col-span-2 lg:col-span-2">
             <Link href="/" className="inline-block mb-6">
-              <span className="text-2xl font-bold tracking-tight">
-                <span className="text-white">grow</span>
-                <span className="brand-gradient-text">cin</span>
-              </span>
-              <div className="text-[10px] uppercase tracking-widest text-[var(--color-text-muted)] font-semibold mt-1">
+              <Logo iconClassName="w-8 h-8" />
+              <div className="text-[10px] uppercase tracking-widest text-[var(--color-text-muted)] font-semibold mt-1 ml-11">
                 AI-Powered Growth Platform
               </div>
             </Link>
             <p className="text-[var(--color-text-secondary)] text-sm max-w-xs mb-8">
-              Turning raw performance data into ranked, explainable actions so you don't have to babysit your growth engine.
+              Turning raw performance data into ranked, explainable actions so you don&apos;t have to babysit your growth engine.
             </p>
             <div className="flex gap-4">
               <a href="#" className="text-[var(--color-text-secondary)] hover:text-white transition-colors">

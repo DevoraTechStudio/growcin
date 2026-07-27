@@ -23,7 +23,7 @@ export default function LoginPage() {
           <CardContent className="p-8 md:p-10 space-y-6">
             <div className="text-center space-y-2">
               <h1 className="text-3xl font-bold tracking-tight text-white">Welcome back</h1>
-              <p className="text-sm text-[var(--color-text-secondary)]">Log in to your Growcin console.</p>
+              <p className="text-sm text-[var(--color-text-secondary)] font-light">Log in to your Growcin console.</p>
             </div>
 
             <form className="space-y-4">
@@ -47,13 +47,13 @@ export default function LoginPage() {
                 />
               </div>
               
-              <Button className="w-full bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] text-white hover:opacity-95 mt-6 py-2.5 rounded-xl font-bold" type="button">
+              <Button className="w-full bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] text-white hover:opacity-95 mt-6 py-2.5 rounded-xl font-bold cursor-pointer" type="button">
                 Log In
               </Button>
             </form>
 
             <div className="text-center text-xs text-[var(--color-text-muted)] border-t border-[var(--color-border-subtle)] pt-6">
-              Don't have access?{" "}
+              Don&apos;t have access?{" "}
               <Link href="/signup" className="text-[var(--color-brand-cyan)] hover:text-white transition-colors font-semibold">
                 Request console access
               </Link>

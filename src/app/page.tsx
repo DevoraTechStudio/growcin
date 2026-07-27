@@ -4,11 +4,10 @@ import * as React from "react"
 import Link from "next/link"
 import { motion, useScroll, useTransform, Variants, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/Button"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/Card"
+import { Card, CardContent } from "@/components/ui/Card"
 import { DashboardCard } from "@/components/marketing/DashboardCard"
 import { LogoMarquee } from "@/components/marketing/LogoMarquee"
 import { ComparisonTable } from "@/components/marketing/ComparisonTable"
-import { LiveSimulator } from "@/components/marketing/LiveSimulator"
 import { StatNumber } from "@/components/ui/StatNumber"
 import { TestimonialCard } from "@/components/ui/TestimonialCard"
 import { Accordion } from "@/components/ui/Accordion"
@@ -33,28 +32,28 @@ const CYCLING_WORDS = ["Revenue", "Budget", "ROAS", "Profit"]
 
 const FAQS = [
   {
-    title: "How does the detection actually work?",
-    content: "Growcin continuously analyzes real-time API feeds from your ad accounts and chat channels, identifying statistical anomalies and intent decay patterns before they surface in standard 24-hour reporting windows."
+    title: "How does budget risk detection work?",
+    content: "AI Chat Assist monitors CPA movement, spend anomalies, creative fatigue, and lead quality signals across your Meta campaigns. When budget is exposed, the platform flags the affected campaign and explains what changed."
   },
   {
-    title: "What exactly is a guardrail?",
-    content: "A guardrail is an automated safety mechanism. For example, if CPA spikes by 30% in a 4-hour window, the guardrail automatically pauses the campaign and alerts you, preventing budget burn while you sleep."
+    title: "What is a CPA guardrail?",
+    content: "A CPA guardrail is a maximum cost-per-lead threshold you set. When actual CPA moves beyond that threshold, AI Chat Assist surfaces the risk early so your team can review the campaign before spend compounds."
   },
   {
-    title: "How does fatigue monitoring work?",
-    content: "We track the velocity of engagement and conversion rate decay. When the system detects the early mathematical signs of creative or audience fatigue, it recommends a refresh before performance completely flatlines."
+    title: "How does creative fatigue monitoring work?",
+    content: "The platform watches signals such as CTR decline, frequency increases, hook-rate decay, and CPA movement. When a creative starts deteriorating, it shows the likely cause and recommended next action."
   },
   {
     title: "What does lead qualification do?",
-    content: "Growcin monitors conversations on WhatsApp and your website chat, scoring leads in real-time based on their intent signals and routing high-value prospects immediately."
+    content: "Every lead passes through an AI qualification layer. The platform asks pre-set questions via chatbot, and only routes high-intent leads to your sales team."
   },
   {
-    title: "Does this replace my existing ad tools?",
-    content: "No. Growcin sits on top of your existing platforms (Meta, Google, etc.) as an orchestration and intelligence layer. It tells you what to do within those platforms."
+    title: "Does AI Chat Assist replace my Meta Ads Manager?",
+    content: "No. AI Chat Assist connects to your existing Meta Ads Manager account - it does not replace it. You keep full access to Ads Manager while adding a campaign intelligence layer on top."
   },
   {
-    title: "Why not just use native platform alerts?",
-    content: "Native alerts are often delayed, platform-biased, and lack cross-channel context. Growcin provides a unified, objective view of your entire growth ecosystem."
+    title: "Why not just use Meta alerts?",
+    content: "Meta alerts tell you something happened. AI Chat Assist adds context by explaining why it happened, which campaigns are affected, and what action your team should consider next."
   }
 ]
 
@@ -71,29 +70,54 @@ export default function Home() {
     return () => clearInterval(interval)
   }, [])
 
+  // State for WhatsApp chat animation
+  const [chatStep, setChatStep] = React.useState(0)
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setChatStep((prev) => (prev + 1) % 5)
+    }, 3000)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <div className="flex flex-col w-full overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6">
-        <div className="container mx-auto max-w-7xl relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* 1. Hero Section */}
+      <section className="relative overflow-hidden pt-24 pb-16 md:pt-36 md:pb-24 px-6">
+        {/* Background Patterns & Grid */}
+        <div className="absolute inset-0 hero-grid-pattern pointer-events-none opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-base)] to-[var(--color-base)] pointer-events-none" />
+        
+        {/* Animated Background Glowing Orbs */}
+        <div className="absolute top-20 left-[10%] w-[400px] h-[400px] bg-gradient-to-br from-[var(--color-brand-blue)]/5 to-[var(--color-brand-cyan)]/5 rounded-full blur-[120px] animate-orb-1 pointer-events-none" />
+        <div className="absolute top-40 right-[5%] w-[350px] h-[350px] bg-gradient-to-bl from-[var(--color-brand-cyan)]/5 to-[var(--color-brand-blue)]/5 rounded-full blur-[100px] animate-orb-2 pointer-events-none" />
+        <div className="absolute bottom-20 left-[30%] w-[300px] h-[300px] bg-gradient-to-tr from-[var(--color-brand-blue)]/5 to-[var(--color-brand-cyan)]/5 rounded-full blur-[90px] animate-orb-1 pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gradient-to-b from-[var(--color-brand-blue)]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+
+        <div className="container mx-auto max-w-7xl relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_350px] xl:grid-cols-[1fr_480px] gap-12 lg:gap-10 xl:gap-16 items-center">
             
             <motion.div
               style={{ opacity: heroOpacity, y: heroY }}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="max-w-2xl z-10"
+              className="max-w-2xl z-10 lg:text-left text-center"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-alt)] border border-[var(--color-border-subtle)] text-xs font-semibold uppercase tracking-widest text-[var(--color-brand-cyan)] mb-6">
-                <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-brand-cyan)] animate-pulse" />
-                Meta Campaign Intelligence
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[var(--color-surface)] border border-[var(--color-border-subtle)] shadow-sm mb-4">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-brand-cyan)] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-brand-cyan)]"></span>
+                </span>
+                <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[var(--color-brand-cyan)]">
+                  Meta Campaign Intelligence
+                </span>
               </div>
               
-              <h1 className="text-[44px] md:text-[64px] font-bold leading-[1.08] tracking-tight text-white mb-6">
+              <h1 className="text-[38px] md:text-[52px] lg:text-[56px] xl:text-[64px] font-bold leading-[1.08] tracking-tight text-white mb-5">
                 Your campaigns <br className="hidden sm:block" />
                 are leaking <br />
-                <span className="inline-block overflow-hidden align-bottom h-[1.2em] relative min-w-[200px]">
+                <span className="inline-block overflow-hidden align-bottom h-[1.2em] relative min-w-[200px] lg:text-left text-center">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={CYCLING_WORDS[wordIndex]}
@@ -101,7 +125,7 @@ export default function Home() {
                       animate={{ y: 0, opacity: 1 }}
                       exit={{ y: -24, opacity: 0 }}
                       transition={{ duration: 0.4, ease: "easeOut" }}
-                      className="absolute left-0 font-serif italic font-normal bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] bg-clip-text text-transparent"
+                      className="absolute left-0 right-0 lg:left-0 lg:right-auto pr-3 pb-1 font-serif italic font-normal bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] bg-clip-text text-transparent"
                     >
                       {CYCLING_WORDS[wordIndex]}
                     </motion.span>
@@ -109,57 +133,83 @@ export default function Home() {
                 </span>
               </h1>
               
-              <p className="text-lg text-[var(--color-text-secondary)] mb-8 leading-relaxed max-w-xl">
-                While others target by age and interest, we read real buying behaviour—so your ads reach people already in motion, not people who might be someday.
+              <p className="text-base md:text-lg text-slate-300 mb-6 leading-relaxed max-w-xl lg:mx-0 mx-auto font-medium">
+                While others target by age and interest, we read real buying behaviour — so your ads reach people already in motion, not people who might be someday.
               </p>
               
-              <div className="flex flex-col sm:flex-row items-center gap-4 mb-8">
-                <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] hover:opacity-95 text-white" asChild>
-                  <Link href="/signup">Audit My Campaigns</Link>
-                </Button>
-                <Button variant="secondary" size="lg" className="w-full sm:w-auto" asChild>
-                  <Link href="#simulator">See how it works</Link>
-                </Button>
+              <div className="flex flex-col sm:flex-row items-center lg:justify-start justify-center gap-4 pt-2 mb-6">
+                <Link 
+                  href="/signup" 
+                  className="group relative h-12 pl-6 pr-2 w-full sm:w-auto bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] text-white text-[14px] font-bold rounded-full shadow-lg shadow-[var(--color-brand-blue)]/25 hover:shadow-xl hover:shadow-[var(--color-brand-blue)]/35 hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-between sm:justify-start gap-3 overflow-hidden"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer pointer-events-none" />
+                  <span className="relative z-10">Audit My Campaigns</span>
+                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 group-hover:rotate-45 transition-all duration-300 shrink-0">
+                    <span className="material-symbols-outlined text-[16px]">arrow_outward</span>
+                  </div>
+                </Link>
+                
+                <Link 
+                  href="#demo" 
+                  className="group flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors duration-300"
+                >
+                  <span className="w-8 h-8 rounded-full border border-[var(--color-border-subtle)] flex items-center justify-center group-hover:border-[var(--color-brand-cyan)]/30 group-hover:bg-[var(--color-brand-cyan)]/10 transition-all duration-300 shrink-0">
+                    <span className="material-symbols-outlined text-[14px] text-[var(--color-brand-cyan)]">play_arrow</span>
+                  </span>
+                  See how it works
+                </Link>
               </div>
               
-              <div className="flex items-center gap-6 text-sm text-[var(--color-text-muted)] font-medium">
+              <div className="flex flex-wrap items-center lg:justify-start justify-center gap-x-4 gap-y-2 text-xs text-slate-300 font-medium mb-3">
                 <div className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-[var(--color-status-good)] text-base">check_circle</span>
+                  <span className="material-symbols-outlined text-[var(--color-status-good)] text-sm">check_circle</span>
                   Real behaviour signals
                 </div>
+                <div className="hidden sm:block text-[var(--color-border-subtle)]">|</div>
                 <div className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-[var(--color-status-good)] text-base">check_circle</span>
+                  <span className="material-symbols-outlined text-[var(--color-status-good)] text-sm">check_circle</span>
                   Not demographics
                 </div>
+                <div className="hidden sm:block text-[var(--color-border-subtle)]">|</div>
                 <div className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-[var(--color-status-good)] text-base">check_circle</span>
-                  CPA Guardrails
+                  <span className="material-symbols-outlined text-[var(--color-status-good)] text-sm">check_circle</span>
+                  CPA Guardrails Built In
                 </div>
               </div>
+              
+              <p className="text-[13px] text-slate-400 lg:text-left text-center font-semibold">
+                Free Meta account audit · No credit card · Results in 24 hours
+              </p>
             </motion.div>
             
             {/* Hero Visuals */}
-            <div className="relative h-[400px] lg:h-[600px] w-full hidden md:block">
-              <DashboardCard type="suggestion" className="top-4 left-4 lg:top-8 lg:left-8 z-20" delay={0.5} />
-              <DashboardCard type="intent" className="top-8 right-4 lg:top-16 lg:right-8 z-20" delay={1.8} />
-              <DashboardCard type="alert" className="bottom-16 left-8 lg:bottom-24 lg:left-16 z-30" delay={1.2} />
-              <DashboardCard type="health" className="bottom-4 right-4 lg:bottom-8 lg:right-12 z-10" delay={0} />
-              
-              {/* Decorative Background Elements */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--color-brand-blue)]/5 blur-[100px] rounded-full pointer-events-none" />
-              <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-[var(--color-brand-cyan)]/10 blur-[80px] rounded-full pointer-events-none" />
+            <div className="relative hidden lg:block">
+              <div className="w-[350px] xl:w-[480px] h-[437px] xl:h-[600px] relative">
+                <div className="absolute top-0 right-0 w-[480px] h-[600px] lg:scale-[0.73] xl:scale-100 lg:origin-top-right xl:origin-center transition-all duration-300">
+                  <div className="absolute inset-[-10%] bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+                  
+                  <DashboardCard type="suggestion" className="top-[135px] left-[-8%] w-[270px] z-30" delay={0.5} />
+                  <DashboardCard type="health" className="top-[10px] right-[-6%] w-[250px] z-10" delay={0} />
+                  <DashboardCard type="alert" className="bottom-[18%] left-[-10%] w-[270px] z-40" delay={1.2} />
+                  <DashboardCard type="intent" className="bottom-[0%] right-[0%] w-[250px] z-20" delay={1.8} />
+                </div>
+              </div>
             </div>
             
           </div>
         </div>
       </section>
 
-      {/* Logo Marquee */}
+      {/* 2. Logo Marquee */}
       <LogoMarquee />
 
-      {/* Problem Section */}
-      <section className="py-24 px-6 relative">
-        <div className="container mx-auto max-w-7xl">
+      {/* 3. Problem Section */}
+      <section className="py-24 px-6 bg-[var(--color-base)] border-y border-[var(--color-border-subtle)] relative overflow-hidden">
+        {/* Subtle background glows */}
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[var(--color-brand-blue)]/5 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[var(--color-brand-cyan)]/5 rounded-full blur-[110px] pointer-events-none" />
+
+        <div className="container mx-auto max-w-7xl relative z-10">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -167,12 +217,17 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             className="flex flex-col items-center text-center mb-16"
           >
-            <div className="text-xs font-bold uppercase tracking-widest text-[var(--color-text-muted)] mb-4">
-              The Invisible Drain
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white max-w-2xl">
-              Growth doesn't break. <br className="hidden md:block" /> It slowly drifts.
+            <h2 className="text-4xl md:text-5xl lg:text-[54px] font-extrabold text-white tracking-tight leading-[1.1] max-w-4xl">
+              Agencies And Serious Operators <br />
+              Don&apos;t Scale{" "}
+              <span className="font-serif italic font-normal bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] bg-clip-text text-transparent">
+                Manually
+              </span>
             </h2>
+            <p className="text-[10px] md:text-xs font-bold tracking-[0.25em] text-[var(--color-text-muted)] uppercase max-w-3xl leading-relaxed mt-6">
+              It starts with a spreadsheet. Then a script. Then a shattered team. <br className="hidden sm:block" />
+              We built the destination you&apos;re trying to reach.
+            </p>
           </motion.div>
           
           <motion.div
@@ -180,127 +235,260 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
             {[
-              { icon: "trending_down", stat: "+5.2% Drift", title: "Invisible Inefficiency", desc: "Small, daily increases in CPA that go unnoticed until they've compounded into major budget waste over the month." },
-              { icon: "warning", stat: "34% Missed", title: "Delayed Interventions", desc: "By the time a human checks the dashboard, the opportunity has passed or the budget has already burned." },
-              { icon: "group_remove", stat: "2.5x Cost", title: "Audience Fatigue", desc: "Creative decay happens logarithmically. Continuing to spend on a burned-out audience destroys your ROAS." },
-            ].map((card, i) => (
-              <motion.div key={i} variants={itemVariants}>
-                <Card hoverable className="h-full">
-                  <CardHeader>
-                    <div className="h-12 w-12 rounded-xl bg-[var(--color-surface-alt)] flex items-center justify-center border border-[var(--color-border-subtle)] mb-4 text-[var(--color-text-secondary)]">
-                      <span className="material-symbols-outlined text-2xl">{card.icon}</span>
+              {
+                title: "The CPA Creep",
+                pill: "+5.2% Drift",
+                metric: "METRIC: EFFICIENCY DRIFT",
+                desc: "Micro-fluctuations across high-spend sets. Undetectable by manual review until budget exhaustion.",
+                visual: (
+                  <div className="flex items-end gap-2.5 h-14 pt-2">
+                    <div className="w-8 h-4 bg-[var(--color-surface-alt)] rounded-md" />
+                    <div className="w-12 h-7 bg-[var(--color-surface-alt)] rounded-md" />
+                    <div className="w-9 h-5 bg-[var(--color-surface-alt)] rounded-md" />
+                    <div className="w-12 h-9 bg-[var(--color-surface-alt)] rounded-md" />
+                    <div className="w-9 h-14 bg-gradient-to-t from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] rounded-md shadow-lg shadow-[var(--color-brand-cyan)]/20" />
+                  </div>
+                )
+              },
+              {
+                title: "Invisible Fatigue",
+                pill: "FREQ > 3.8",
+                metric: "METRIC: CREATIVE HEALTH",
+                desc: "Audience saturation triggers CTR decay. Spend remains constant while conversion probability drops.",
+                visual: (
+                  <div className="flex items-center w-full h-14 pt-2 overflow-visible">
+                    <svg viewBox="0 0 300 60" className="w-full h-10 overflow-visible">
+                      <path 
+                        d="M 10,12 C 80,12 120,22 180,32 T 290,47" 
+                        fill="none" 
+                        stroke="var(--color-brand-cyan)" 
+                        strokeWidth="3.5" 
+                        strokeDasharray="6 8" 
+                        strokeLinecap="round" 
+                      />
+                    </svg>
+                  </div>
+                )
+              },
+              {
+                title: "The Silent Drop",
+                pill: "-40% ROI",
+                metric: "METRIC: ATTRIBUTION LINK",
+                desc: "Backend tracking failure causes optimization towards ghost conversions. Immediate capital drain.",
+                visual: (
+                  <div className="flex items-center justify-between w-full h-14 pt-2 relative">
+                    <div className="h-[2px] w-[60%] bg-[var(--color-surface-alt)] rounded-full" />
+                    <div className="px-3.5 py-1.5 rounded-full bg-[var(--color-status-bad)]/10 border border-[var(--color-status-bad)]/25 text-[var(--color-status-bad)] text-[10px] font-extrabold shadow-sm tracking-wide shrink-0">
+                      Losing money
                     </div>
-                    <div className="text-sm font-bold text-[var(--color-status-bad)] mb-2">{card.stat}</div>
-                    <CardTitle>{card.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base">{card.desc}</CardDescription>
-                  </CardContent>
-                </Card>
+                  </div>
+                )
+              }
+            ].map((card, i) => (
+              <motion.div key={i} variants={itemVariants} className="h-full">
+                <div className="h-full bg-[var(--color-surface)]/80 border border-[var(--color-border-subtle)] rounded-[2rem] p-8 shadow-2xl hover:shadow-[var(--color-brand-blue)]/5 hover:border-[var(--color-border-strong)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+                  <div className="flex flex-col gap-4">
+                    {/* Header */}
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-bold text-[17px] text-white leading-tight">
+                        {card.title}
+                      </h3>
+                      <span className="text-[10px] font-extrabold tracking-wide uppercase px-2.5 py-1 rounded-full bg-[var(--color-brand-cyan)]/10 text-[var(--color-brand-cyan)] border border-[var(--color-brand-cyan)]/25">
+                        {card.pill}
+                      </span>
+                    </div>
+                    
+                    {/* Metric */}
+                    <div className="text-[9px] font-extrabold tracking-wider text-[var(--color-text-muted)] uppercase">
+                      {card.metric}
+                    </div>
+                    
+                    {/* Visual Graphic */}
+                    <div className="my-2 h-14 flex items-center">
+                      {card.visual}
+                    </div>
+                  </div>
+                  
+                  {/* Description */}
+                  <p className="text-[var(--color-text-secondary)] text-[13px] leading-relaxed font-medium mt-4">
+                    {card.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Proof Story Panel */}
+      {/* 4. Real Estate Case Study */}
       <section className="py-24 px-6 bg-[var(--color-surface-alt)]/30 border-y border-[var(--color-border-subtle)] relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[800px] h-full bg-gradient-to-l from-[var(--color-brand-blue)]/5 to-transparent pointer-events-none" />
         <div className="container mx-auto max-w-7xl relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="text-center mb-16 max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-white mb-6">
+              A Real Estate Agency Running <br />
+              <span className="font-serif italic font-normal bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] bg-clip-text text-transparent">
+                22 Meta Campaigns.
+              </span>
+            </h2>
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-text-muted)] leading-relaxed">
+              CPA drifted from $10 to $16 — silently, over 18 days.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-start max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
+              className="bg-[var(--color-surface)]/80 border border-[var(--color-border-subtle)] rounded-[2rem] p-8 md:p-12 shadow-2xl backdrop-blur"
             >
-              <div className="text-xs font-bold uppercase tracking-widest text-[var(--color-brand-cyan)] mb-4">
-                Real-World Impact
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Caught before anyone even noticed.
-              </h2>
-              <div className="space-y-6 text-[var(--color-text-secondary)] text-lg leading-relaxed">
-                <p>
-                  <strong>Situation:</strong> An agency's client launched a Black Friday weekend push. A sudden tracking failure caused Meta to optimize for the wrong event, rapidly spending budget on zero-intent traffic.
-                </p>
-                <p>
-                  <strong>What we caught:</strong> At 2:00 AM, Growcin detected a <span className="text-white font-medium">400% spike in intent-to-conversion disparity</span>.
-                </p>
-                <p>
-                  <strong>Outcome:</strong> Growcin automatically engaged the guardrail, pausing the specific ad set and alerting the team. The campaign was fixed by 8:00 AM.
-                </p>
+              <div className="flex gap-6 items-start">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[var(--color-brand-blue)]/10 border border-[var(--color-brand-blue)]/20">
+                  <span className="material-symbols-outlined text-2xl text-[var(--color-brand-cyan)]">analytics</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-4">The Situation</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[var(--color-text-secondary)] text-[15px] leading-relaxed">
+                    <p>
+                      The creative had not changed. The targeting had not changed. But frequency had moved from <span className="font-semibold text-white">1.8 to 4.3</span> and hook rate had dropped <span className="font-semibold text-white">31%</span> — signals that were visible in the data the whole time.
+                    </p>
+                    <p>
+                      AI Chat Assist flagged the drift on day two. The campaign was paused, the creative rotated, and spend was shifted to the two performing ad sets before the client saw a single report.
+                    </p>
+                  </div>
+                  <div className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-[var(--color-brand-blue)]/10 border border-[var(--color-brand-blue)]/20 px-4 py-3">
+                    <span className="material-symbols-outlined text-[var(--color-brand-cyan)] text-lg">check_circle</span>
+                    <span className="text-sm font-medium text-white">Proactive intervention, not reactive damage control</span>
+                  </div>
+                </div>
               </div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+              className="flex flex-col gap-4 w-full"
             >
-              <Card className="bg-[var(--color-surface)] sm:col-span-2">
-                <CardContent className="p-8 flex items-center justify-between">
-                  <div>
-                    <div className="text-sm text-[var(--color-text-secondary)] font-medium mb-1">Time to detection</div>
-                    <div className="text-3xl font-bold text-white">Day 2</div>
+              {[
+                { label: "Flagged before client noticed", val: "Day 2", desc: "Proactive intervention, not reactive damage control." },
+                { label: "Estimated spend saved", val: "$140K", desc: "Prevented from bleeding into a failing ad set." },
+                { label: "Client escalations that month", val: "0", desc: "Trust maintained through silent optimization." }
+              ].map((card, idx) => (
+                <div 
+                  key={idx} 
+                  className="group rounded-[2rem] border border-[var(--color-border-subtle)] bg-[var(--color-surface)]/80 p-6 shadow-2xl backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-border-strong)] text-center flex flex-col items-center justify-center"
+                >
+                  <div className="bg-[var(--color-brand-blue)]/20 text-[var(--color-brand-cyan)] border border-[var(--color-brand-blue)]/30 inline-flex items-center justify-center px-4 py-1.5 rounded-full text-sm font-bold mb-3">
+                    {card.val}
                   </div>
-                  <div className="h-12 w-12 rounded-full bg-[var(--color-brand-blue)]/20 flex items-center justify-center">
-                    <span className="material-symbols-outlined text-[var(--color-brand-cyan)]">timer</span>
-                  </div>
-                </CardContent>
-              </Card>
-              <Card className="bg-[var(--color-surface)]">
-                <CardContent className="p-8">
-                  <div className="text-sm text-[var(--color-text-secondary)] font-medium mb-1">Budget saved</div>
-                  <div className="text-3xl font-bold text-[var(--color-status-good)]">
-                    $<StatNumber value={12450} duration={1500} />
-                  </div>
-                  <div className="text-xs text-[var(--color-text-muted)] mt-2">Illustrative example</div>
-                </CardContent>
-              </Card>
-              <Card className="bg-[var(--color-surface)]">
-                <CardContent className="p-8">
-                  <div className="text-sm text-[var(--color-text-secondary)] font-medium mb-1">Escalations</div>
-                  <div className="text-3xl font-bold text-white">
-                    <StatNumber value={0} />
-                  </div>
-                  <div className="text-xs text-[var(--color-text-muted)] mt-2">Seamless mitigation</div>
-                </CardContent>
-              </Card>
+                  <p className="text-base font-semibold text-white mb-1">{card.label}</p>
+                  <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{card.desc}</p>
+                </div>
+              ))}
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Live Anomaly Simulator Section */}
-      <section id="simulator" className="py-24 px-6 relative overflow-hidden bg-[var(--color-surface-alt)]/20 border-b border-[var(--color-border-subtle)]">
-        <div className="container mx-auto max-w-4xl relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Defend your budget in real time
+      {/* 5. Dashboard Alerts Section */}
+      <section className="py-24 px-6 bg-[var(--color-base)] relative overflow-hidden">
+        <div className="container mx-auto max-w-7xl relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4">
+              What Your Team Sees <br />
+              <span className="font-serif italic font-normal bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] bg-clip-text text-transparent">
+                Before Money Leaks
+              </span>
             </h2>
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-text-muted)] leading-relaxed mb-4">
+              Real-time signals surfaced before the client sees a single report.
+            </p>
             <p className="text-base md:text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto">
-              Run the interactive console below to watch our live indexer scan active ad sets, flag unexpected CPA drift, and execute API guardrails instantly.
+              Most reporting tools tell you what happened yesterday. AI Chat Assist shows you what is starting to go wrong today — with the context to act on it before spend compounds.
             </p>
           </div>
-          <LiveSimulator />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {/* Card 1: Campaign Health */}
+            <div className="bg-[var(--color-surface)] rounded-2xl p-6 border border-[var(--color-border-subtle)] shadow-xl flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="font-bold text-white text-[17px]">Campaign health</h3>
+                  <span className="text-[10px] font-mono font-bold bg-[var(--color-surface-alt)] border border-[var(--color-border-subtle)] px-2 py-0.5 rounded text-[var(--color-text-secondary)]">RISK RANKED</span>
+                </div>
+                <p className="text-sm text-[var(--color-text-secondary)] mb-6">Campaigns that need a decision surface first.</p>
+              </div>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center text-sm border-b border-[var(--color-border-subtle)] pb-2">
+                  <span className="text-[var(--color-text-secondary)]">Prospecting – Broad</span>
+                  <span className="font-mono text-white">CPA $10</span>
+                  <span className="text-xs bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] px-2 py-0.5 rounded">Watch</span>
+                </div>
+                <div className="flex justify-between items-center text-sm border-b border-[var(--color-border-subtle)] pb-2">
+                  <span className="text-[var(--color-text-secondary)]">Retargeting – 7D</span>
+                  <span className="font-mono text-white">CPA $8</span>
+                  <span className="text-xs bg-[var(--color-brand-blue)]/20 text-[var(--color-brand-cyan)] px-2 py-0.5 rounded border border-[var(--color-brand-blue)]/30">Healthy</span>
+                </div>
+                <div className="flex justify-between items-center text-sm">
+                  <span className="text-white font-semibold">Lead Form – LAL</span>
+                  <span className="font-mono text-white font-semibold">CPA $15</span>
+                  <span className="text-xs bg-[var(--color-status-bad)] text-white px-2 py-0.5 rounded font-semibold animate-pulse">Review now</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: Creative Fatigue */}
+            <div className="bg-[var(--color-surface)] rounded-2xl p-6 border border-[var(--color-border-subtle)] shadow-xl flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="font-bold text-white text-[17px]">Creative fatigue alert</h3>
+                  <span className="text-[10px] font-mono font-bold bg-[var(--color-status-warn)]/10 border border-[var(--color-status-warn)]/20 px-2 py-0.5 rounded text-[var(--color-status-warn)]">DECAY DETECTED</span>
+                </div>
+                <p className="text-sm text-[var(--color-text-secondary)] mb-6">CTR down 28% over 5 days. Frequency moved from 1.9 to 4.1. Hook rate falling.</p>
+              </div>
+              <div className="bg-[var(--color-surface-alt)] p-4 rounded-xl border border-[var(--color-border-subtle)]">
+                <p className="text-[10px] font-bold text-[var(--color-text-muted)] uppercase mb-1">Recommended action</p>
+                <p className="text-sm text-white font-medium">Pause Ad 3. Refresh the hook. Move spend to Ad 5.</p>
+              </div>
+            </div>
+
+            {/* Card 3: CPA Spike */}
+            <div className="bg-[var(--color-surface)] rounded-2xl p-6 border border-[var(--color-border-subtle)] shadow-xl flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="font-bold text-white text-[17px]">CPA spike — act now</h3>
+                  <span className="text-[10px] font-mono font-bold bg-[var(--color-status-bad)]/15 border border-[var(--color-status-bad)]/25 px-2 py-0.5 rounded text-[var(--color-status-bad)]">URGENT</span>
+                </div>
+                <p className="text-sm text-[var(--color-text-secondary)] mb-6">CPA moved from $10 to $16 overnight. $500 spent since the signal appeared.</p>
+              </div>
+              <div className="bg-[var(--color-surface-alt)] p-4 rounded-xl border border-[var(--color-border-subtle)]">
+                <p className="text-[10px] font-bold text-[var(--color-text-muted)] uppercase mb-1">Cause identified</p>
+                <p className="text-sm text-white font-medium">Audience overlap with Retargeting set. Budget redistribution recommended.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Comparison Section */}
-      <section className="py-24 px-6 relative">
+      {/* 6. Comparison Section */}
+      <section className="py-24 px-6 relative border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-alt)]/10">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Manual growth work vs Growcin
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4">
+              Every Team Has Ad Manager. <br />
+              <span className="font-serif italic font-normal bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] bg-clip-text text-transparent">
+                Few Have Intelligence
+              </span>
             </h2>
-            <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto">
-              We build the system so you don't have to babysit it. Here is what changes when you move from execution to orchestration.
+            <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto leading-relaxed">
+              AI Chat Assist vs Manual Campaign Manager — side by side across the dimensions that actually affect client outcomes and retention.
             </p>
           </div>
           
@@ -308,272 +496,290 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Core Feature Grid */}
-      <section className="py-24 px-6">
+      {/* 7. Decision Package Section */}
+      <section className="py-24 px-6 bg-[var(--color-base)] relative overflow-hidden border-t border-[var(--color-border-subtle)]">
+        <div className="container mx-auto max-w-7xl relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4">
+              When Something Breaks, <br />
+              <span className="font-serif italic font-normal bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] bg-clip-text text-transparent">
+                You Get the Next Move.
+              </span>
+            </h2>
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-[var(--color-text-muted)] leading-relaxed mb-4">
+              Most tools send an alert. AI Chat Assist sends a decision package.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto text-left">
+            <div className="bg-[var(--color-surface)] p-6 rounded-2xl border border-[var(--color-border-subtle)] shadow-xl">
+              <div className="text-[var(--color-brand-cyan)] font-mono text-[11px] font-bold tracking-wider mb-2">01 ALERT</div>
+              <h3 className="font-bold text-white text-lg mb-2">What changed</h3>
+              <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed">Creative fatigue detected. CTR down 28% over 5 days while spend stayed flat.</p>
+            </div>
+            
+            <div className="bg-[var(--color-surface)] p-6 rounded-2xl border border-[var(--color-border-subtle)] shadow-xl">
+              <div className="text-[var(--color-brand-cyan)] font-mono text-[11px] font-bold tracking-wider mb-2">02 CAUSE</div>
+              <h3 className="font-bold text-white text-lg mb-2">Why it happened</h3>
+              <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed">Frequency increased from 1.9 to 4.1 over the same period. Hook rate is falling. The audience has seen this ad too many times.</p>
+            </div>
+
+            <div className="bg-[var(--color-surface)] p-6 rounded-2xl border border-[var(--color-brand-blue)] shadow-xl shadow-[var(--color-brand-blue)]/5 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)]" />
+              <div className="text-[var(--color-brand-cyan)] font-mono text-[11px] font-bold tracking-wider mb-2">03 RECOMMENDATION</div>
+              <h3 className="font-bold text-white text-lg mb-2">What to do</h3>
+              <p className="text-white text-sm font-medium leading-relaxed">Pause Ad 3. Refresh the hook. Move budget toward Ad 5, which is performing at $7 CPA with 3x lower frequency.</p>
+            </div>
+          </div>
+          
+          <p className="mt-10 text-center text-[var(--color-text-muted)] text-sm font-medium max-w-xl mx-auto leading-relaxed">
+            Your media buyer reads it, makes the call, and moves on. No dashboard archaeology. One clear signal with the context to act.
+          </p>
+        </div>
+      </section>
+
+      {/* 8. Campaign Intelligence Layer Does */}
+      <section className="py-24 px-6 border-t border-[var(--color-border-subtle)]">
         <div className="container mx-auto max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4">
+              What the Campaign <br />
+              <span className="font-serif italic font-normal bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] bg-clip-text text-transparent">
+                Intelligence Layer Does
+              </span>
+            </h2>
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-[var(--color-text-muted)] leading-relaxed">
+              Automate the response. Focus on the strategy.
+            </p>
+          </div>
+          
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
           >
             {[
-              { icon: "medical_services", title: "Campaign Triage", desc: "Instantly categorizes campaigns by health and urgency, showing exactly what needs attention right now." },
-              { icon: "security", title: "Automated Guardrails", desc: "Set bounds on CPA, spend velocity, and ROAS. Growcin acts defensively when limits are breached." },
-              { icon: "battery_charging_20", title: "Fatigue Detection", desc: "Mathematical modeling of creative decay, predicting performance cliffs before they happen." },
-              { icon: "account_balance_wallet", title: "Budget Risk Analysis", desc: "Real-time reallocation suggestions to shift spend from deteriorating channels to high-momentum ones." },
+              { title: "Campaign triage", desc: "Every active campaign ranked by deterioration and budget exposure. The ones that need a decision today are at the top." },
+              { title: "CPA guardrails", desc: "Set your maximum acceptable cost per lead. When actual CPA approaches that threshold, the system flags it with context." },
+              { title: "Creative fatigue detection", desc: "Tracks CTR, frequency, hook rate, and engagement decay simultaneously. You know the cause and the recommended next action." },
+              { title: "Budget risk detection", desc: "Spend anomalies flagged early, with the campaign context attached. An explanation of what moved, by how much, and what it means." },
             ].map((feature, i) => (
-              <motion.div key={i} variants={itemVariants}>
-                <Card hoverable className="h-full group">
-                  <CardContent className="p-8 flex items-start gap-6">
-                    <div className="h-14 w-14 shrink-0 rounded-2xl bg-[var(--color-surface-alt)] flex items-center justify-center border border-[var(--color-border-subtle)] group-hover:border-[var(--color-brand-cyan)] transition-colors">
-                      <span className="material-symbols-outlined text-3xl text-[var(--color-text-secondary)] group-hover:text-[var(--color-brand-cyan)] transition-colors">{feature.icon}</span>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
-                      <p className="text-[var(--color-text-secondary)] leading-relaxed">{feature.desc}</p>
-                    </div>
-                  </CardContent>
-                </Card>
+              <motion.div key={i} variants={itemVariants} className="h-full">
+                <div className="p-6 bg-[var(--color-surface)] border border-[var(--color-border-subtle)] rounded-xl h-full shadow-lg hover:border-[var(--color-border-strong)] transition-all">
+                  <h3 className="font-bold text-white mb-2 text-base">{feature.title}</h3>
+                  <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{feature.desc}</p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
-        </div>
-      </section>
 
-      {/* Differentiator Section */}
-      <section className="py-24 px-6 bg-[var(--color-surface-alt)]/30 border-y border-[var(--color-border-subtle)]">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Unprecedented <br /> cross-channel qualification.
-              </h2>
-              <p className="text-lg text-[var(--color-text-secondary)] mb-8 leading-relaxed">
-                The hardest part of growth is connecting ad spend to actual lead quality. Growcin qualifies leads across WhatsApp and web chat natively.
-              </p>
-              
-              <ul className="space-y-4 mb-8">
-                {[
-                  "Captures conversational intent nuance",
-                  "Scores leads instantly in real-time",
-                  "Feeds quality signals back to ad platforms",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="material-symbols-outlined text-[var(--color-brand-cyan)]">check</span>
-                    <span className="text-[var(--color-text-secondary)]">{item}</span>
+          {/* Lead Qualification Block with WA Simulator */}
+          <div className="bg-[var(--color-brand-blue)]/5 border border-[var(--color-brand-blue)]/20 rounded-[2rem] p-8 md:p-12">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <span className="text-[var(--color-brand-cyan)] font-semibold text-xs uppercase tracking-widest">The Unreplicable Feature</span>
+                <h3 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">Lead Qualification</h3>
+                <p className="text-[var(--color-text-secondary)] mb-6 leading-relaxed text-[15px]">
+                  Meta sees a lead click. It cannot see what happens in the conversation that follows. AI Chat Assist routes every new lead from your Meta campaigns directly into a WhatsApp qualification flow. Before your sales team speaks to anyone, the system has already asked the right questions, scored their intent, and separated genuine buyers from tyre-kickers.
+                </p>
+                <ul className="space-y-3 text-sm text-[var(--color-text-secondary)]">
+                  <li className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-[var(--color-brand-cyan)] text-lg">check_circle</span>
+                    What the lead actually needs and when
                   </li>
-                ))}
-              </ul>
-              
-              {/* Timeline */}
-              <div className="flex items-center justify-between border-t border-[var(--color-border-subtle)] pt-8">
-                <div>
-                  <div className="text-xs font-bold text-[var(--color-text-muted)] uppercase mb-1">Month 1</div>
-                  <div className="font-semibold text-white">Detection</div>
-                </div>
-                <div className="flex-1 h-px bg-[var(--color-border-subtle)] mx-4" />
-                <div>
-                  <div className="text-xs font-bold text-[var(--color-text-muted)] uppercase mb-1">Month 3</div>
-                  <div className="font-semibold text-white">Prevention</div>
-                </div>
-                <div className="flex-1 h-px bg-[var(--color-border-subtle)] mx-4" />
-                <div>
-                  <div className="text-xs font-bold text-[var(--color-brand-cyan)] uppercase mb-1">Month 6</div>
-                  <div className="font-semibold text-[var(--color-brand-cyan)]">Compounding</div>
-                </div>
+                  <li className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-[var(--color-brand-cyan)] text-lg">check_circle</span>
+                    Whether they have the budget and decision authority
+                  </li>
+                </ul>
               </div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
-              className="relative rounded-2xl border border-[var(--color-border-strong)] bg-[var(--color-surface)] shadow-2xl overflow-hidden p-6"
-            >
-              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[var(--color-border-subtle)]">
-                <span className="material-symbols-outlined text-[var(--color-status-good)]">forum</span>
-                <span className="font-semibold text-white">WhatsApp Intel</span>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="bg-[var(--color-surface-alt)] p-4 rounded-xl rounded-tl-sm w-4/5">
-                  <div className="text-sm text-[var(--color-text-secondary)]">Hi, I need an enterprise solution for 50 seats.</div>
-                </div>
-                <div className="flex justify-end">
-                  <div className="bg-[var(--color-brand-blue)]/20 border border-[var(--color-brand-blue)]/30 p-4 rounded-xl rounded-tr-sm w-4/5">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-xs font-medium text-[var(--color-brand-cyan)]">Growcin Analysis</span>
-                      <span className="text-xs bg-[var(--color-status-good)]/20 text-[var(--color-status-good)] px-2 py-0.5 rounded-full">High Intent</span>
+
+              {/* WA Simulator Column */}
+              <div className="relative w-full">
+                <div className="relative rounded-2xl border border-[var(--color-border-strong)] bg-[var(--color-surface)] shadow-2xl overflow-hidden p-6 max-w-md mx-auto w-full">
+                  {/* WA Header */}
+                  <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[var(--color-border-subtle)]">
+                    <div className="h-10 w-10 rounded-full bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] flex items-center justify-center text-white text-xs font-bold shadow-md shadow-[var(--color-brand-blue)]/20 shrink-0">
+                      WA
                     </div>
-                    <div className="text-sm text-white">Route to Senior AE. Feeding signal back to Meta Campaign 'B2B_Prospecting'.</div>
+                    <div>
+                      <p className="text-sm font-bold text-white">AI Qualification Bot</p>
+                      <p className="text-xs text-[var(--color-brand-cyan)] flex items-center gap-1">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-status-good)] animate-pulse" />
+                        Online
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* WA Chat Messages */}
+                  <div className="space-y-4 min-h-[260px] flex flex-col justify-start">
+                    {chatStep >= 0 && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="bg-[var(--color-surface-alt)] text-white p-4 rounded-xl rounded-tl-sm w-4/5 text-sm leading-relaxed self-start border border-[var(--color-border-subtle)]"
+                      >
+                        Hi! Thanks for your interest. May I know which service you&apos;re looking for?
+                      </motion.div>
+                    )}
+                    
+                    {chatStep >= 1 && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="bg-[var(--color-brand-blue)]/25 border border-[var(--color-brand-blue)]/40 text-white p-4 rounded-xl rounded-tr-sm w-4/5 text-sm leading-relaxed self-end"
+                      >
+                        We need <span className="border border-[var(--color-brand-cyan)]/40 bg-[var(--color-brand-cyan)]/10 px-1 rounded font-medium text-[var(--color-brand-cyan)]">marketing</span> <span className="border border-[var(--color-brand-cyan)]/40 bg-[var(--color-brand-cyan)]/10 px-1 rounded font-medium text-[var(--color-brand-cyan)]">services</span> for our new project <span className="border border-[var(--color-brand-cyan)]/40 bg-[var(--color-brand-cyan)]/10 px-1 rounded font-medium text-[var(--color-brand-cyan)]">launch</span>.
+                      </motion.div>
+                    )}
+
+                    {chatStep >= 2 && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="bg-[var(--color-surface-alt)] text-white p-4 rounded-xl rounded-tl-sm w-4/5 text-sm leading-relaxed self-start border border-[var(--color-border-subtle)]"
+                      >
+                        Great! Are you looking for this service?
+                      </motion.div>
+                    )}
+
+                    {chatStep >= 3 && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="bg-[var(--color-surface-alt)] p-4 rounded-xl border border-[var(--color-brand-cyan)]/25 bg-[var(--color-brand-cyan)]/5 w-4/5 text-xs leading-relaxed self-start flex flex-col gap-2"
+                      >
+                        <div className="text-[10px] font-bold text-[var(--color-brand-cyan)] uppercase tracking-wider">INTENT DETECTION</div>
+                        <div className="flex gap-1.5 flex-wrap">
+                          <span className="px-2 py-0.5 rounded bg-[var(--color-brand-cyan)]/10 border border-[var(--color-brand-cyan)]/20 text-[var(--color-brand-cyan)] font-medium">[marketing]</span>
+                          <span className="px-2 py-0.5 rounded bg-[var(--color-brand-cyan)]/10 border border-[var(--color-brand-cyan)]/20 text-[var(--color-brand-cyan)] font-medium">[services]</span>
+                          <span className="px-2 py-0.5 rounded bg-[var(--color-brand-cyan)]/10 border border-[var(--color-brand-cyan)]/20 text-[var(--color-brand-cyan)] font-medium">[launch]</span>
+                        </div>
+                      </motion.div>
+                    )}
+
+                    {chatStep === 4 && (
+                      <div className="text-[10px] text-[var(--color-text-muted)] text-center w-full mt-2 italic animate-pulse">
+                        Analyzing intent and route signals...
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
+
+            {/* WA Timeline */}
+            <div className="mt-16 pt-12 border-t border-[var(--color-border-subtle)]">
+              <h4 className="font-bold text-white mb-6 text-lg">The timeline your customers experience:</h4>
+              <div className="grid md:grid-cols-3 gap-8 text-left">
+                <div>
+                  <span className="text-[var(--color-brand-cyan)] font-bold text-base">Month 1</span>
+                  <p className="text-sm text-[var(--color-text-secondary)] mt-2 leading-relaxed">
+                    You see which campaigns are wasting budget and why — with the cause and recommended action.
+                  </p>
+                </div>
+                <div>
+                  <span className="text-[var(--color-brand-cyan)] font-bold text-base">Month 3</span>
+                  <p className="text-sm text-[var(--color-text-secondary)] mt-2 leading-relaxed">
+                    You see which conversation patterns produce your best buyers. Your sales team talks to fewer leads and closes more.
+                  </p>
+                </div>
+                <div>
+                  <span className="text-[var(--color-brand-cyan)] font-bold text-base">Month 6</span>
+                  <p className="text-sm text-[var(--color-text-secondary)] mt-2 leading-relaxed">
+                    You have a buyer intelligence model built entirely on your own conversations. No competitor can replicate it.
+                  </p>
+                </div>
+              </div>
+              <p className="mt-10 text-center font-semibold text-white italic text-base leading-relaxed">
+                &quot;A competitor can copy software. They cannot copy the intelligence your business has built.&quot;
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Strip */}
-      <section className="py-20 px-6 border-b border-[var(--color-border-subtle)]">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+      {/* 9. Spot Performance Problems stats strip */}
+      <section className="py-16 bg-[var(--color-surface-alt)]/30 border-y border-[var(--color-border-subtle)] text-center">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-white mb-8">Spot performance problems before they drain your budget</h2>
+          <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                <StatNumber value={99.9} decimals={1} suffix="%" />
-              </div>
-              <div className="text-sm text-[var(--color-text-secondary)] font-medium">Uptime Guarantee</div>
+              <div className="text-4xl font-extrabold text-[var(--color-brand-cyan)] mb-2">24/7</div>
+              <p className="text-sm font-medium text-[var(--color-text-secondary)]">Continuous signal monitoring</p>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                <StatNumber value={24} suffix="/7" />
-              </div>
-              <div className="text-sm text-[var(--color-text-secondary)] font-medium">Monitoring Cadence</div>
+              <div className="text-4xl font-extrabold text-[var(--color-brand-cyan)] mb-2">99.9%</div>
+              <p className="text-sm font-medium text-[var(--color-text-secondary)]">Platform uptime reliability</p>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                <StatNumber value={3} suffix="m" />
-              </div>
-              <div className="text-sm text-[var(--color-text-secondary)] font-medium">Time-to-Signal</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                $<StatNumber value={2.4} decimals={1} suffix="M+" />
-              </div>
-              <div className="text-sm text-[var(--color-text-secondary)] font-medium">Spend Managed</div>
+              <div className="text-4xl font-extrabold text-[var(--color-brand-cyan)] mb-2">&lt; 2 hrs</div>
+              <p className="text-sm font-medium text-[var(--color-text-secondary)]">Average time to first signal</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Demo Video Section */}
-      <section className="py-24 px-6">
-        <div className="container mx-auto max-w-5xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">
-            See it in action
+      {/* 10. Demo Video Section */}
+      <section id="demo" className="py-24 px-6 bg-[var(--color-base)] border-b border-[var(--color-border-subtle)]">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            See it in 3 minutes
           </h2>
+          <p className="text-[var(--color-text-secondary)] mb-8 max-w-2xl mx-auto leading-relaxed text-base">
+            Watch how the system flagged a creative fatigue event, identified the cause, and surfaced the recommended action — before a single rupee of additional budget was wasted.
+          </p>
           
-          <div className="aspect-video w-full rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border-strong)] flex flex-col items-center justify-center mb-10 shadow-2xl relative overflow-hidden group cursor-pointer">
-            {/* Mock Dashboard Visual Elements */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-base)] via-[var(--color-surface-alt)]/60 to-[var(--color-brand-blue)]/10 opacity-70 pointer-events-none" />
-            
-            {/* Mock Grid Lines */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
-
-            {/* Mock Chart Paths */}
-            <svg className="absolute bottom-20 left-0 w-full h-1/2 opacity-20 pointer-events-none" viewBox="0 0 1000 200" preserveAspectRatio="none">
-              <path d="M0,150 Q150,50 300,120 T600,40 T900,100 L1000,80 L1000,200 L0,200 Z" fill="url(#grad)" />
-              <defs>
-                <linearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="var(--color-brand-cyan)" stopOpacity="0.4" />
-                  <stop offset="100%" stopColor="var(--color-brand-blue)" stopOpacity="0.0" />
-                </linearGradient>
-              </defs>
-            </svg>
-
-            {/* Glassmorphic Mock Metric Panels */}
-            <div className="absolute top-8 left-8 right-8 flex justify-between pointer-events-none opacity-50 group-hover:opacity-75 transition-opacity duration-500">
-              <div className="bg-[var(--color-surface)]/80 backdrop-blur-md border border-[var(--color-border-subtle)] rounded-xl p-4 flex flex-col gap-1 shadow-lg text-left">
-                <span className="text-[10px] text-[var(--color-text-muted)] font-bold uppercase tracking-wider">Active Guardrails</span>
-                <span className="text-sm md:text-lg font-mono font-bold text-[var(--color-status-good)]">14 Operational</span>
-              </div>
-              <div className="bg-[var(--color-surface)]/80 backdrop-blur-md border border-[var(--color-border-subtle)] rounded-xl p-4 flex flex-col gap-1 shadow-lg text-left hidden sm:flex">
-                <span className="text-[10px] text-[var(--color-text-muted)] font-bold uppercase tracking-wider">Live CPA Velocity</span>
-                <span className="text-sm md:text-lg font-mono font-bold text-[var(--color-status-warn)]">-12.4% Decay</span>
-              </div>
-              <div className="bg-[var(--color-surface)]/80 backdrop-blur-md border border-[var(--color-border-subtle)] rounded-xl p-4 flex flex-col gap-1 shadow-lg text-left">
-                <span className="text-[10px] text-[var(--color-text-muted)] font-bold uppercase tracking-wider">Wasted Spend Blocked</span>
-                <span className="text-sm md:text-lg font-mono font-bold text-white">$4,820</span>
-              </div>
-            </div>
-
-            {/* Overlay Gradient on Hover */}
-            <div className="absolute inset-0 bg-[var(--color-base)]/40 transition-colors group-hover:bg-[var(--color-base)]/20 z-10" />
-            
-            {/* Play Button Container */}
-            <div className="relative z-20 flex flex-col items-center gap-4">
-              <div className="h-20 w-20 rounded-full bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] flex items-center justify-center pl-2 shadow-2xl transition-transform group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]">
-                <span className="material-symbols-outlined text-4xl text-white">play_arrow</span>
-              </div>
-            </div>
-            
-            {/* Premium Video Control Bar */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[var(--color-base)]/90 to-transparent z-20 flex items-center justify-between border-t border-[var(--color-border-subtle)]/50 backdrop-blur-xs">
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-white text-base">play_arrow</span>
-                <span className="text-[11px] font-mono text-[var(--color-text-secondary)]">0:00 / 2:15</span>
-              </div>
-              <div className="text-[11px] font-semibold text-white tracking-wide uppercase flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-brand-cyan)] animate-pulse" />
-                Growcin Platform Demo
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-[var(--color-text-secondary)] hover:text-white text-base">volume_up</span>
-                <span className="material-symbols-outlined text-[var(--color-text-secondary)] hover:text-white text-base">fullscreen</span>
-              </div>
-            </div>
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-[#030F26] border border-[var(--color-border-strong)] aspect-video group cursor-pointer">
+            <iframe 
+              id="hero-yt-iframe" 
+              src="https://www.youtube.com/embed/i2UuGd84ZJU?autoplay=0&rel=0&modestbranding=1" 
+              title="How It Works Demo" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+              className="w-full h-full border-0 absolute inset-0 z-10"
+            />
           </div>
           
-          <Button size="lg" asChild>
-            <Link href="/signup">Book a personalized walkthrough</Link>
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+            <Button size="lg" className="bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] hover:opacity-95 text-white" asChild>
+              <Link href="/signup">Get a Free Audit</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* 11. Testimonials */}
       <section className="py-24 px-6 bg-[var(--color-surface-alt)]/30 border-y border-[var(--color-border-subtle)]">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white">
-              Trusted by the best
+              Trusted by teams that needed predictable growth.
             </h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <TestimonialCard
-              quote="Growcin is like having a senior media buyer that never sleeps. It caught a massive tracking bug on a weekend that would have cost us thousands before Monday morning."
-              name="Jane Doe"
-              title="VP of Growth, TechCorp"
+              quote="We were running 18 campaigns across three client accounts. AI Chat Assist flagged a CPA spike on a real estate campaign within 36 hours of it starting. We'd have caught it in the weekly review — four days later. That's the difference between a professional conversation and a difficult one."
+              name="Avtar Singh"
+              title="CEO, AI Soch Studio"
             />
             <TestimonialCard
-              quote="We manage 40+ client accounts. The dashboard gives us a prioritized triage list every morning. Our team's efficiency has doubled because we aren't clicking through endless Ads Manager tabs."
-              name="John Smith"
-              title="Founder, AgencyX"
+              quote="Before AI Chat Assist, creative refresh decisions were gut feel and spreadsheets. Now I can see exactly when frequency is hurting performance and rotate before CTR falls. My clients see more consistent CPA and I spend less time explaining variance."
+              name="Abhishek Dhakoliya"
+              title="Marketing Head, Best Prop Deal"
             />
           </div>
         </div>
       </section>
 
-      {/* Channels Strip */}
-      <section className="py-16 px-6 border-b border-[var(--color-border-subtle)] text-center">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-sm font-semibold text-[var(--color-text-muted)] uppercase tracking-widest mb-8">
-            Natively Integrated
-          </div>
-          <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-            {/* Placeholder chips for channels */}
-            {["Meta Ads", "Google Ads", "LinkedIn", "TikTok Ads", "WhatsApp", "Intercom"].map((channel) => (
-              <div key={channel} className="px-6 py-3 rounded-full bg-[var(--color-surface)] border border-[var(--color-border-subtle)] text-[var(--color-text-secondary)] font-medium text-sm flex items-center gap-2 transition-colors hover:text-white hover:border-[var(--color-border-strong)]">
-                {channel}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-24 px-6">
+      {/* 12. FAQ */}
+      <section className="py-24 px-6 bg-[var(--color-base)]">
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold text-white">Questions About the System.</h2>
           </div>
           <Accordion items={FAQS} />
         </div>

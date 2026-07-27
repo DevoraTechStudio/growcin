@@ -23,7 +23,7 @@ export default function SignupPage() {
           <CardContent className="p-8 md:p-10 space-y-6">
             <div className="text-center space-y-2">
               <h1 className="text-3xl font-bold tracking-tight text-white">Request Access</h1>
-              <p className="text-sm text-[var(--color-text-secondary)]">Set up a workspace audit or walk-through.</p>
+              <p className="text-sm text-[var(--color-text-secondary)] font-light">Set up a workspace audit or walk-through.</p>
             </div>
 
             <form className="space-y-4">
@@ -44,7 +44,7 @@ export default function SignupPage() {
                 />
               </div>
               
-              <Button className="w-full bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] text-white hover:opacity-95 mt-6 py-2.5 rounded-xl font-bold" type="button">
+              <Button className="w-full bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] text-white hover:opacity-95 mt-6 py-2.5 rounded-xl font-bold cursor-pointer" type="button">
                 Request Access
               </Button>
             </form>

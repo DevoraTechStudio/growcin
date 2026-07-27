@@ -24,7 +24,7 @@ export function TestimonialCard({ name, title, quote, className }: TestimonialCa
         
         {/* Quote */}
         <p className="text-[17px] leading-relaxed text-[var(--color-text-primary)] mb-8 flex-grow">
-          "{quote}"
+          &quot;{quote}&quot;
         </p>
         
         {/* Author */}

@@ -3,7 +3,6 @@
 import * as React from "react"
 import { motion, TargetAndTransition } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/Card"
-import { StatusPill } from "@/components/ui/StatusPill"
 import { cn } from "@/lib/utils"
 
 export type DashboardCardType = "alert" | "health" | "suggestion" | "intent"
@@ -44,7 +43,7 @@ export function DashboardCard({ type, delay = 0, className }: DashboardCardProps
     switch (type) {
       case "alert":
         return (
-          <div className="flex flex-col gap-3 w-64">
+          <div className="flex flex-col gap-3 w-full">
             <div className="flex items-center justify-between border-b border-[var(--color-border-subtle)] pb-2 mb-1">
               <div className="flex items-center gap-1.5 font-bold text-white text-xs">
                 <span className="material-symbols-outlined text-[var(--color-status-bad)] text-sm">notifications_active</span>
@@ -65,7 +64,7 @@ export function DashboardCard({ type, delay = 0, className }: DashboardCardProps
         )
       case "health":
         return (
-          <div className="flex flex-col w-56 p-1">
+          <div className="flex flex-col w-full p-1">
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-bold text-white">Campaign Health</span>
               <span className="text-[10px] bg-[var(--color-status-good)]/10 text-[var(--color-status-good)] px-2 py-0.5 rounded-full font-semibold">Nominal</span>
@@ -106,7 +105,7 @@ export function DashboardCard({ type, delay = 0, className }: DashboardCardProps
         )
       case "suggestion":
         return (
-          <div className="flex flex-col gap-3 w-72">
+          <div className="flex flex-col gap-3 w-full">
             <div className="flex items-center justify-between border-b border-[var(--color-border-subtle)] pb-2">
               <div className="flex items-center gap-1.5 font-bold text-white text-xs">
                 <span className="material-symbols-outlined text-[var(--color-brand-cyan)] text-sm">auto_awesome</span>
@@ -116,7 +115,7 @@ export function DashboardCard({ type, delay = 0, className }: DashboardCardProps
             </div>
             <div className="font-semibold text-white text-sm">Shift 15% budget to Reels</div>
             <div className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
-              Reels placement is driving 3x higher ROAS for 'Summer Collection' vs standard feed.
+              Reels placement is driving 3x higher ROAS for &apos;Summer Collection&apos; vs standard feed.
             </div>
             <button className="mt-1 w-full rounded-lg bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] py-2 text-xs font-bold text-white transition-opacity hover:opacity-90 active:scale-98">
               Apply Change
@@ -125,7 +124,7 @@ export function DashboardCard({ type, delay = 0, className }: DashboardCardProps
         )
       case "intent":
         return (
-          <div className="flex flex-col gap-3 w-64 p-1">
+          <div className="flex flex-col gap-3 w-full p-1">
             <div className="flex items-center justify-between border-b border-[var(--color-border-subtle)] pb-2 mb-1">
               <div className="flex items-center gap-1.5 font-bold text-white text-xs">
                 <span className="material-symbols-outlined text-[var(--color-brand-cyan)] text-sm">local_fire_department</span>
