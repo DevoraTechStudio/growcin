@@ -1,7 +1,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { StatNumber } from "@/components/ui/StatNumber"
-import { Card, CardContent } from "@/components/ui/Card"
+import { Button } from "@/components/ui/Button"
 
 export async function generateStaticParams() {
   return [
@@ -9,87 +9,107 @@ export async function generateStaticParams() {
     { slug: "agencyx-efficiency" },
     { slug: "ecommerce-fatigue" },
     { slug: "b2b-whatsapp-intent" },
-  ];
+  ]
 }
 
-// In a real app, this would be fetched from a CMS based on params.slug
 export default function CaseStudyDetailPage() {
   return (
-    <div className="flex flex-col w-full overflow-hidden pt-24">
-      <div className="container mx-auto max-w-4xl px-6 py-12">
-        <Link href="/case-studies" className="inline-flex items-center gap-2 text-sm text-[var(--color-text-secondary)] hover:text-white transition-colors mb-12">
+    <div className="flex flex-col w-full overflow-hidden">
+      <div className="container mx-auto max-w-4xl px-4 sm:px-6 pt-32 pb-12">
+        <Link
+          href="/case-studies"
+          className="inline-flex items-center gap-2 text-sm text-body hover:text-[var(--color-ink)] transition-colors mb-10 font-medium"
+        >
           <span className="material-symbols-outlined text-base">arrow_back</span>
-          Back to all case studies
+          Back to case studies
         </Link>
-        
-        {/* Header */}
-        <div className="mb-16">
-          <div className="flex flex-wrap items-center gap-4 mb-6">
-            <span className="text-xs font-semibold uppercase tracking-widest text-[var(--color-brand-cyan)]">SaaS</span>
-            <span className="px-3 py-1 bg-[var(--color-surface-alt)] border border-[var(--color-border-subtle)] rounded-full text-xs font-medium text-[var(--color-text-secondary)]">2 min read</span>
+
+        <div className="mb-12">
+          <div className="flex flex-wrap items-center gap-3 mb-5">
+            <span className="text-[11px] font-bold uppercase tracking-widest text-[var(--color-brand-blue)]">
+              SaaS
+            </span>
+            <span className="px-3 py-1 bg-[var(--color-surface-alt)] border border-[var(--color-border-subtle)] rounded-full text-xs font-medium text-body">
+              2 min read
+            </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-8">
+          <h1 className="font-display text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] mb-6 leading-[1.1]">
             Stopping a $20k tracking disaster before Monday morning
           </h1>
-          <p className="text-xl text-[var(--color-text-secondary)] leading-relaxed">
-            How Growcin&apos;s AI Chat Assist and automated guardrails caught a broken event tag that caused Meta to optimize for zero-intent traffic over a holiday weekend.
+          <p className="text-lg md:text-xl text-body leading-relaxed font-medium">
+            How Growcin caught a broken event tag that caused Meta to optimize for zero-intent
+            traffic over a holiday weekend — and saved the budget.
           </p>
         </div>
       </div>
 
-      {/* Stats Callouts */}
-      <section className="py-12 bg-[var(--color-surface-alt)]/30 border-y border-[var(--color-border-subtle)]">
-        <div className="container mx-auto max-w-4xl px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <Card className="bg-[var(--color-surface)]">
-              <CardContent className="p-6">
-                <div className="text-sm text-[var(--color-text-secondary)] font-medium mb-1">Time to detection</div>
-                <div className="text-3xl font-bold text-white">4 Hours</div>
-              </CardContent>
-            </Card>
-            <Card className="bg-[var(--color-surface)]">
-              <CardContent className="p-6">
-                <div className="text-sm text-[var(--color-text-secondary)] font-medium mb-1">Budget saved</div>
-                <div className="text-3xl font-bold text-[var(--color-status-good)]">
-                  $<StatNumber value={12450} duration={1500} />
+      <section className="py-12 bg-white border-y border-[var(--color-border-subtle)]">
+        <div className="container mx-auto max-w-4xl px-4 sm:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {[
+              { label: "Time to detection", value: <>4 Hours</> },
+              {
+                label: "Budget saved",
+                value: (
+                  <span className="text-[var(--color-status-good)]">
+                    $<StatNumber value={12450} duration={1500} />
+                  </span>
+                ),
+              },
+              { label: "Escalations", value: <StatNumber value={0} /> },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-base)] p-6"
+              >
+                <div className="text-sm text-body-muted font-medium mb-1">{stat.label}</div>
+                <div className="font-display text-3xl font-extrabold text-[var(--color-ink)]">
+                  {stat.value}
                 </div>
-              </CardContent>
-            </Card>
-            <Card className="bg-[var(--color-surface)]">
-              <CardContent className="p-6">
-                <div className="text-sm text-[var(--color-text-secondary)] font-medium mb-1">Escalations</div>
-                <div className="text-3xl font-bold text-white">
-                  <StatNumber value={0} />
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+            ))}
           </div>
-          <div className="text-center mt-4 text-xs text-[var(--color-text-muted)]">* Numbers used are illustrative placeholders</div>
+          <p className="text-center mt-4 text-xs text-body-muted">
+            * Numbers used are illustrative placeholders
+          </p>
         </div>
       </section>
 
-      {/* Body */}
-      <section className="py-24 px-6">
-        <div className="container mx-auto max-w-3xl prose prose-invert prose-lg prose-p:text-[var(--color-text-secondary)] prose-headings:text-white prose-a:text-[var(--color-brand-cyan)]">
-          <h2 className="text-2xl font-bold text-white mt-0 mb-6">The Situation</h2>
-          <p className="mb-10 text-[var(--color-text-secondary)] leading-relaxed">
-            TechCorp launched a massive Black Friday weekend push across Meta and Google. On Saturday morning, a seemingly innocuous code release on their main marketing site inadvertently broke the primary conversion pixel. Meta&apos;s algorithm, desperate to find conversions, started optimizing for a soft event (page views) instead of actual signups. The algorithm perceived this as highly successful because it was generating thousands of &quot;conversions&quot; for pennies, but none of them were real intent.
-          </p>
-          
-          <h2 className="text-2xl font-bold text-white mb-6">What AI Chat Assist Caught</h2>
-          <p className="mb-10 text-[var(--color-text-secondary)] leading-relaxed">
-            Because human media buyers don&apos;t typically refresh dashboards at 2:00 AM on a Sunday, this would normally run until Monday morning, burning through tens of thousands of dollars. However, Growcin&apos;s continuous calibration node detected a massive statistical anomaly: a 400% spike in intent-to-conversion disparity. The volume of top-of-funnel activity was entirely disconnected from the historical baseline of down-funnel progression.
-          </p>
-          
-          <h2 className="text-2xl font-bold text-white mb-6">Action Taken</h2>
-          <p className="mb-10 text-[var(--color-text-secondary)] leading-relaxed">
-            Growcin&apos;s automated guardrails triggered automatically. It didn&apos;t just send an email that would be ignored until Monday; it utilized its API access to gracefully pause the runaway ad sets in Meta, capping the damage. It then sent a high-priority Slack alert to the growth lead with the exact reason for the pause.
-          </p>
-          
-          <h2 className="text-2xl font-bold text-white mb-6">Result</h2>
-          <p className="mb-10 text-[var(--color-text-secondary)] leading-relaxed">
-            The client fixed the pixel by 8:00 AM Sunday and reactivated the campaigns. The Growcin system prevented what would have been a catastrophic budget drain, saving an estimated $12,450 that would have otherwise been spent on zero-intent traffic. The client hit their Black Friday goals with their remaining, correctly-optimizing budget.
-          </p>
+      <section className="py-16 md:py-24 px-4 sm:px-6 bg-[var(--color-base)]">
+        <div className="container mx-auto max-w-3xl space-y-10">
+          {[
+            {
+              title: "The situation",
+              body: "TechCorp launched a Black Friday push across Meta and Google. A code release broke the primary conversion pixel. Meta started optimizing for page views instead of signups — looking successful while generating zero real intent.",
+            },
+            {
+              title: "What Growcin caught",
+              body: "Growcin detected a statistical anomaly: a 400% spike in intent-to-conversion disparity. Top-of-funnel volume disconnected from historical down-funnel progression — at 2 AM on a Sunday.",
+            },
+            {
+              title: "Action taken",
+              body: "Guardrails paused the runaway ad sets via API and sent a high-priority Slack alert with the exact reason — so the team fixed the pixel before Monday.",
+            },
+            {
+              title: "Result",
+              body: "The pixel was fixed by 8 AM Sunday. Estimated $12,450 saved from zero-intent traffic. The remaining budget hit Black Friday goals with correct optimization.",
+            },
+          ].map((section) => (
+            <div key={section.title}>
+              <h2 className="font-display text-2xl font-extrabold text-[var(--color-ink)] mb-3">
+                {section.title}
+              </h2>
+              <p className="text-[15px] md:text-base text-body leading-relaxed">
+                {section.body}
+              </p>
+            </div>
+          ))}
+
+          <div className="pt-6">
+            <Button size="lg" asChild>
+              <Link href="/signup">Start Free Trial</Link>
+            </Button>
+          </div>
         </div>
       </section>
     </div>

@@ -1,5 +1,4 @@
 import * as React from "react"
-import { Card, CardContent } from "@/components/ui/Card"
 import { cn } from "@/lib/utils"
 
 interface TestimonialCardProps {
@@ -10,35 +9,44 @@ interface TestimonialCardProps {
 }
 
 export function TestimonialCard({ name, title, quote, className }: TestimonialCardProps) {
+  const initials = name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .slice(0, 2)
+
   return (
-    <Card hoverable className={cn("h-full flex flex-col", className)}>
-      <CardContent className="p-8 flex flex-col h-full">
-        {/* Stars */}
-        <div className="flex gap-1 mb-6 text-yellow-400">
-          {[...Array(5)].map((_, i) => (
-            <span key={i} className="material-symbols-outlined fill-current" style={{ fontVariationSettings: "'FILL' 1" }}>
-              star
-            </span>
-          ))}
+    <div
+      className={cn(
+        "h-full flex flex-col rounded-2xl border border-[var(--color-border-subtle)] bg-white p-5 sm:p-7 md:p-8 shadow-[0_1px_0_rgba(15,23,42,0.04)]",
+        className
+      )}
+    >
+      <div className="flex gap-0.5 mb-4 sm:mb-5 text-[var(--color-brand-blue)]">
+        {[...Array(5)].map((_, i) => (
+          <span
+            key={i}
+            className="material-symbols-outlined text-[16px] sm:text-[18px]"
+            style={{ fontVariationSettings: "'FILL' 1" }}
+          >
+            star
+          </span>
+        ))}
+      </div>
+
+      <p className="text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed text-body mb-6 sm:mb-8 flex-grow">
+        &quot;{quote}&quot;
+      </p>
+
+      <div className="flex items-center gap-3.5 mt-auto">
+        <div className="h-11 w-11 rounded-full brand-gradient-bg flex items-center justify-center text-white text-xs font-bold">
+          {initials}
         </div>
-        
-        {/* Quote */}
-        <p className="text-[17px] leading-relaxed text-[var(--color-text-primary)] mb-8 flex-grow">
-          &quot;{quote}&quot;
-        </p>
-        
-        {/* Author */}
-        <div className="flex items-center gap-4 mt-auto">
-          {/* Avatar Placeholder */}
-          <div className="h-12 w-12 rounded-full bg-[var(--color-surface-alt)] border border-[var(--color-border-strong)] flex items-center justify-center">
-            <span className="material-symbols-outlined text-[var(--color-text-secondary)]">person</span>
-          </div>
-          <div>
-            <div className="font-semibold text-white">{name}</div>
-            <div className="text-sm text-[var(--color-text-secondary)]">{title}</div>
-          </div>
+        <div>
+          <div className="font-semibold text-[var(--color-ink)] text-sm">{name}</div>
+          <div className="text-sm text-[var(--color-text-muted)]">{title}</div>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 }

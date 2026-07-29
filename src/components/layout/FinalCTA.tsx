@@ -4,35 +4,47 @@ import { Button } from "@/components/ui/Button"
 
 export function FinalCTA() {
   return (
-    <section className="py-24 px-6 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[var(--color-brand-blue)]/10 blur-[100px] rounded-full pointer-events-none" />
-      
-      <div className="container mx-auto relative z-10">
-        <div className="max-w-4xl mx-auto rounded-[2rem] p-1 bg-[var(--color-surface)] bg-gradient-to-br from-[var(--color-border-subtle)] via-transparent to-[var(--color-border-subtle)] overflow-hidden">
-          <div className="bg-[var(--color-surface)] rounded-[1.8rem] px-8 py-16 md:p-20 text-center relative overflow-hidden">
-            {/* Inner glow */}
-            <div className="absolute -top-32 -right-32 w-64 h-64 bg-[var(--color-brand-cyan)]/10 blur-[64px] rounded-full" />
-            
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
-              Find out what&apos;s leaking <br className="hidden md:block" />
-              <span className="brand-gradient-text">in your campaigns.</span>
-            </h2>
-            <p className="text-lg text-[var(--color-text-secondary)] mb-10 max-w-2xl mx-auto leading-relaxed">
-              Get a free Meta account audit. We analyse your active campaigns, flag the CPA drift, creative fatigue signals, and lead quality gaps currently costing you — and send you a prioritised list of what to fix first.
+    <section className="py-14 sm:py-20 md:py-28 px-4 sm:px-6 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(37,99,235,0.06)_50%,transparent_100%)] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(720px,100%)] h-[320px] sm:h-[420px] bg-[var(--color-brand-blue)]/15 blur-[100px] rounded-full pointer-events-none" />
+
+      <div className="container mx-auto relative z-10 max-w-5xl">
+        <div className="rounded-2xl sm:rounded-[2rem] overflow-hidden relative bg-[var(--color-ink)] px-5 py-12 sm:px-10 sm:py-16 md:px-16 md:py-20 text-center">
+          <div
+            className="absolute inset-0 opacity-40 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse 70% 80% at 20% 0%, rgba(37,99,235,0.55), transparent 55%), radial-gradient(ellipse 60% 70% at 90% 100%, rgba(96,165,250,0.35), transparent 50%)",
+            }}
+          />
+          <div className="relative z-10">
+            <p className="font-display text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-[var(--color-brand-accent)] mb-4 sm:mb-5">
+              Growcin
             </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] hover:opacity-95 text-white" asChild>
-                <Link href="/signup">Audit My Campaigns</Link>
+            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 sm:mb-5 leading-[1.1]">
+              Ready to grow with AI?
+            </h2>
+            <p className="text-[15px] sm:text-base md:text-lg text-slate-300 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
+              Start your free trial and automate SEO, social, ads, email, and analytics —
+              all from one AI marketing platform built by Devora.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto">
+              <Button size="lg" className="w-full sm:w-auto" asChild>
+                <Link href="/signup">Start Free Trial</Link>
               </Button>
-              <Button variant="secondary" size="lg" className="w-full sm:w-auto" asChild>
-                <Link href="/#demo">See how it works</Link>
+              <Button
+                variant="secondary"
+                size="lg"
+                className="w-full sm:w-auto bg-white/10 text-white border-white/20 hover:bg-white/15"
+                asChild
+              >
+                <Link href="/#demo">Book a Demo</Link>
               </Button>
             </div>
-            
-            <p className="text-sm text-[var(--color-text-muted)] mt-6">
-              No credit card · No sales call required · Results within 24 hours
+
+            <p className="text-xs sm:text-sm text-slate-400 mt-5 sm:mt-6">
+              14-day free trial · No credit card · Cancel anytime
             </p>
           </div>
         </div>

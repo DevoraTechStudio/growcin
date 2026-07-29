@@ -45,7 +45,7 @@ export function DashboardCard({ type, delay = 0, className }: DashboardCardProps
         return (
           <div className="flex flex-col gap-3 w-full">
             <div className="flex items-center justify-between border-b border-[var(--color-border-subtle)] pb-2 mb-1">
-              <div className="flex items-center gap-1.5 font-bold text-white text-xs">
+              <div className="flex items-center gap-1.5 font-bold text-[var(--color-ink)] text-xs">
                 <span className="material-symbols-outlined text-[var(--color-status-bad)] text-sm">notifications_active</span>
                 <span>Spike Alert</span>
               </div>
@@ -56,7 +56,7 @@ export function DashboardCard({ type, delay = 0, className }: DashboardCardProps
                 <span className="material-symbols-outlined text-[var(--color-status-bad)] text-[12px]">warning</span>
               </div>
               <div className="min-w-0 pt-0.5">
-                <p className="text-xs font-bold text-white leading-snug">Creative fatigue detected</p>
+                <p className="text-xs font-bold text-[var(--color-ink)] leading-snug">Creative fatigue detected</p>
                 <p className="text-[10px] text-[var(--color-text-secondary)] mt-0.5">Summer_V3 — frequency 4.2x</p>
               </div>
             </div>
@@ -66,7 +66,7 @@ export function DashboardCard({ type, delay = 0, className }: DashboardCardProps
         return (
           <div className="flex flex-col w-full p-1">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-bold text-white">Campaign Health</span>
+              <span className="text-xs font-bold text-[var(--color-ink)]">Campaign Health</span>
               <span className="text-[10px] bg-[var(--color-status-good)]/10 text-[var(--color-status-good)] px-2 py-0.5 rounded-full font-semibold">Nominal</span>
             </div>
             
@@ -107,13 +107,13 @@ export function DashboardCard({ type, delay = 0, className }: DashboardCardProps
         return (
           <div className="flex flex-col gap-3 w-full">
             <div className="flex items-center justify-between border-b border-[var(--color-border-subtle)] pb-2">
-              <div className="flex items-center gap-1.5 font-bold text-white text-xs">
+              <div className="flex items-center gap-1.5 font-bold text-[var(--color-ink)] text-xs">
                 <span className="material-symbols-outlined text-[var(--color-brand-cyan)] text-sm">auto_awesome</span>
                 <span>AI Suggestion</span>
               </div>
               <span className="text-[10px] bg-[var(--color-brand-cyan)]/10 text-[var(--color-brand-cyan)] px-2 py-0.5 rounded-full font-semibold">92% Match</span>
             </div>
-            <div className="font-semibold text-white text-sm">Shift 15% budget to Reels</div>
+            <div className="font-semibold text-[var(--color-ink)] text-sm">Shift 15% budget to Reels</div>
             <div className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
               Reels placement is driving 3x higher ROAS for &apos;Summer Collection&apos; vs standard feed.
             </div>
@@ -126,18 +126,18 @@ export function DashboardCard({ type, delay = 0, className }: DashboardCardProps
         return (
           <div className="flex flex-col gap-3 w-full p-1">
             <div className="flex items-center justify-between border-b border-[var(--color-border-subtle)] pb-2 mb-1">
-              <div className="flex items-center gap-1.5 font-bold text-white text-xs">
+              <div className="flex items-center gap-1.5 font-bold text-[var(--color-ink)] text-xs">
                 <span className="material-symbols-outlined text-[var(--color-brand-cyan)] text-sm">local_fire_department</span>
                 <span>Buying Intent</span>
               </div>
-              <span className="text-[10px] text-white bg-[var(--color-surface-alt)] border border-[var(--color-border-subtle)] px-2 py-0.5 rounded-full font-bold">78/100</span>
+              <span className="text-[10px] text-[var(--color-ink)] bg-[var(--color-surface-alt)] border border-[var(--color-border-subtle)] px-2 py-0.5 rounded-full font-bold">78/100</span>
             </div>
             
             <div className="space-y-2.5">
               <div className="space-y-1">
                 <div className="flex items-center justify-between text-[11px] font-semibold text-[var(--color-text-secondary)]">
                   <span>Hot leads</span>
-                  <span className="text-white font-bold">34%</span>
+                  <span className="text-[var(--color-ink)] font-bold">34%</span>
                 </div>
                 <div className="h-1.5 w-full rounded-full bg-[var(--color-surface-alt)] overflow-hidden">
                   <div className="h-full w-[34%] bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)]" />
@@ -147,7 +147,7 @@ export function DashboardCard({ type, delay = 0, className }: DashboardCardProps
               <div className="space-y-1">
                 <div className="flex items-center justify-between text-[11px] font-semibold text-[var(--color-text-secondary)]">
                   <span>Warm</span>
-                  <span className="text-white font-bold">44%</span>
+                  <span className="text-[var(--color-ink)] font-bold">44%</span>
                 </div>
                 <div className="h-1.5 w-full rounded-full bg-[var(--color-surface-alt)] overflow-hidden">
                   <div className="h-full w-[44%] bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)]" />
@@ -157,7 +157,7 @@ export function DashboardCard({ type, delay = 0, className }: DashboardCardProps
               <div className="space-y-1">
                 <div className="flex items-center justify-between text-[11px] font-semibold text-[var(--color-text-secondary)]">
                   <span>Cold</span>
-                  <span className="text-white font-bold">22%</span>
+                  <span className="text-[var(--color-ink)] font-bold">22%</span>
                 </div>
                 <div className="h-1.5 w-full rounded-full bg-[var(--color-surface-alt)] overflow-hidden">
                   <div className="h-full w-[22%] bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)]" />

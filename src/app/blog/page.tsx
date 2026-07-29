@@ -2,92 +2,129 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Card, CardContent } from "@/components/ui/Card"
-import { Button } from "@/components/ui/Button"
+import { motion } from "framer-motion"
 
 const ARTICLES = [
   {
     category: "Lead Quality",
-    title: "Stop Paying For Junk Leads in Meta Ads Forever",
+    title: "Stop paying for junk leads in Meta ads",
     date: "July 22, 2026",
     readTime: "5 min read",
-    excerpt: "How modern growth teams use automated lead qualification filtering to verify prospect intent before client database synchronization.",
-    id: "lead-quality-meta-ads"
+    excerpt:
+      "How growth teams use AI qualification to verify intent before leads hit the CRM.",
+    id: "lead-quality-meta-ads",
   },
   {
     category: "Optimization",
-    title: "Predicting Creative Fatigue Before the ROAS Cliff",
+    title: "Predict creative fatigue before the ROAS cliff",
     date: "July 18, 2026",
     readTime: "8 min read",
-    excerpt: "Understanding the mathematical exposure decay velocity curves that dictate when your target audience stops responding to winning creatives.",
-    id: "creative-fatigue-curves"
+    excerpt:
+      "The signals that show when your audience stops responding — and what to do next.",
+    id: "creative-fatigue-curves",
   },
   {
     category: "Strategy",
-    title: "Why CTR is the Wrong Metric to Scale Campaigns",
+    title: "Why CTR is the wrong metric to scale",
     date: "July 12, 2026",
     readTime: "6 min read",
-    excerpt: "A deep dive into why raw click-through rates mislead optimization loops, and why qualified pipeline yield is the only scalable target.",
-    id: "ctr-vs-qualified-yield"
-  }
+    excerpt:
+      "Why click-through rates mislead optimization loops — and what to track instead.",
+    id: "ctr-vs-qualified-yield",
+  },
+  {
+    category: "AI Marketing",
+    title: "What an AI marketing platform should actually do",
+    date: "July 5, 2026",
+    readTime: "7 min read",
+    excerpt:
+      "Beyond chatbots: content, campaigns, analytics, and automation in one system.",
+    id: "ai-marketing-platform",
+  },
+  {
+    category: "SEO",
+    title: "Using AI for SEO without losing brand voice",
+    date: "June 28, 2026",
+    readTime: "6 min read",
+    excerpt:
+      "How to generate briefs and drafts that rank — and still sound like your company.",
+    id: "ai-seo-brand-voice",
+  },
+  {
+    category: "Agencies",
+    title: "How agencies retain clients with proactive alerts",
+    date: "June 20, 2026",
+    readTime: "5 min read",
+    excerpt:
+      "Catch CPA spikes before the weekly report — and turn fire drills into trust.",
+    id: "agency-proactive-alerts",
+  },
 ]
 
 export default function BlogPage() {
   return (
-    <div className="flex flex-col w-full overflow-hidden pt-24 text-white">
-      {/* Hero Section */}
-      <section className="relative pt-20 pb-16 px-6 text-center">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[var(--color-brand-cyan)]/5 blur-[120px] rounded-full pointer-events-none" />
-        
-        <div className="container mx-auto max-w-3xl relative z-10 space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-alt)] border border-[var(--color-border-subtle)] text-xs font-semibold uppercase tracking-widest text-[var(--color-brand-cyan)]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-brand-cyan)]" />
-            Insights & Guides
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-            Growcin <span className="brand-gradient-text">Insights.</span>
-          </h1>
-          <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-lg mx-auto font-light">
-            Deep dives into programmatic campaign auditing, creative decay analysis, and calm systems operation.
-          </p>
+    <div className="flex flex-col w-full overflow-hidden">
+      <section className="relative hero-atmosphere pt-28 sm:pt-32 pb-12 sm:pb-16 md:pt-40 md:pb-20 px-4 sm:px-6 text-center overflow-hidden">
+        <div className="absolute inset-0 hero-grid-pattern pointer-events-none" />
+        <div className="container mx-auto max-w-3xl relative z-10">
+          <motion.div
+            initial={false}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--color-brand-blue)] mb-4">
+              Blog
+            </p>
+            <h1 className="font-display text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] mb-4">
+              Growcin Insights
+            </h1>
+            <p className="text-base md:text-lg text-body font-medium leading-relaxed max-w-xl mx-auto">
+              Practical guides on AI marketing, campaign intelligence, and building calm growth systems.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Article Grid */}
-      <section className="py-16 px-6">
-        <div className="container mx-auto max-w-5xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="py-16 md:py-24 px-4 sm:px-6 bg-white border-t border-[var(--color-border-subtle)]">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {ARTICLES.map((article, i) => (
-              <Card key={i} className="bg-[var(--color-surface)] border border-[var(--color-border-subtle)] hover:border-[var(--color-brand-cyan)]/30 transition-all duration-300 flex flex-col h-full">
-                <CardContent className="p-8 flex flex-col justify-between h-full space-y-6">
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--color-brand-cyan)] bg-[var(--color-brand-cyan)]/10 px-2.5 py-1 rounded-md">
-                        {article.category}
-                      </span>
-                      <span className="text-[10px] text-[var(--color-text-muted)] font-mono">
-                        {article.readTime}
-                      </span>
-                    </div>
-                    
-                    <h2 className="text-xl font-bold text-white leading-snug hover:text-[var(--color-brand-cyan)] transition-colors">
-                      {article.title}
-                    </h2>
-                    
-                    <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-                      {article.excerpt}
-                    </p>
-                  </div>
+              <motion.article
+                key={article.id}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.04 }}
+                className="flex flex-col h-full rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-base)] p-7 hover:border-[var(--color-brand-blue)]/30 hover:shadow-lg transition-all"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--color-brand-blue)] bg-[var(--color-brand-blue)]/10 px-2.5 py-1 rounded-md">
+                    {article.category}
+                  </span>
+                  <span className="text-[11px] text-body-muted font-medium">
+                    {article.readTime}
+                  </span>
+                </div>
 
-                  <div className="border-t border-[var(--color-border-subtle)] pt-4 flex items-center justify-between text-[11px] text-[var(--color-text-muted)]">
-                    <span>{article.date}</span>
-                    <Link href={`/blog/${article.id}`} className="text-[var(--color-brand-cyan)] hover:text-white transition-colors font-bold flex items-center gap-1">
-                      Read Post <span className="material-symbols-outlined text-xs">arrow_forward</span>
-                    </Link>
-                  </div>
-                </CardContent>
-              </Card>
+                <h2 className="font-display text-xl font-bold text-[var(--color-ink)] leading-snug mb-3">
+                  {article.title}
+                </h2>
+
+                <p className="text-sm text-body leading-relaxed flex-grow mb-6">
+                  {article.excerpt}
+                </p>
+
+                <div className="border-t border-[var(--color-border-subtle)] pt-4 flex items-center justify-between text-[12px] text-body-muted">
+                  <span>{article.date}</span>
+                  <Link
+                    href={`/blog`}
+                    className="text-[var(--color-brand-blue)] hover:text-[var(--color-ink)] transition-colors font-bold inline-flex items-center gap-1"
+                  >
+                    Read
+                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  </Link>
+                </div>
+              </motion.article>
             ))}
           </div>
         </div>

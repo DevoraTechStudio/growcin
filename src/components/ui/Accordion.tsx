@@ -16,13 +16,15 @@ export function AccordionItem({ title, content, isOpen, onClick }: AccordionItem
     <div className="border-b border-[var(--color-border-subtle)] last:border-0">
       <button
         onClick={onClick}
-        className="flex w-full items-center justify-between py-5 text-left transition-colors hover:text-white"
+        className="flex w-full items-center justify-between py-5 text-left transition-colors hover:text-[var(--color-brand-blue)] cursor-pointer"
       >
-        <span className="text-[17px] font-medium">{title}</span>
+        <span className="text-[16px] md:text-[17px] font-semibold text-[var(--color-ink)] pr-4">
+          {title}
+        </span>
         <motion.span
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
-          className="material-symbols-outlined text-[var(--color-text-secondary)]"
+          className="material-symbols-outlined text-body shrink-0"
         >
           expand_more
         </motion.span>
@@ -36,7 +38,7 @@ export function AccordionItem({ title, content, isOpen, onClick }: AccordionItem
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="pb-5 text-[var(--color-text-secondary)] leading-relaxed">
+            <div className="pb-5 text-body leading-relaxed text-[15px]">
               {content}
             </div>
           </motion.div>

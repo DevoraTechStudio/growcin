@@ -63,13 +63,13 @@ export function ComparisonTable() {
           {/* Header */}
           <div className="p-8 border-b border-[var(--color-border-subtle)]" />
           <div className="p-8 border-b border-[var(--color-border-subtle)] border-l border-[var(--color-border-subtle)] bg-[var(--color-surface-alt)]/50">
-            <h3 className="text-xl font-semibold text-[var(--color-text-secondary)]">Without Growcin</h3>
+            <h3 className="font-display text-xl font-semibold text-body-muted">Without Growcin</h3>
           </div>
           <div className="p-8 border-b border-[var(--color-border-subtle)] border-l border-[var(--color-border-subtle)] bg-[var(--color-brand-blue)]/5 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)]" />
-            <h3 className="text-xl font-semibold text-white flex items-center gap-2">
+            <h3 className="font-display text-xl font-semibold text-[var(--color-ink)] flex items-center gap-2">
               With Growcin
-              <span className="material-symbols-outlined text-[var(--color-brand-cyan)] text-xl">bolt</span>
+              <span className="material-symbols-outlined text-[var(--color-brand-blue)] text-xl">bolt</span>
             </h3>
           </div>
 
@@ -77,7 +77,7 @@ export function ComparisonTable() {
           {COMPARISON_DATA.map((row, i) => (
             <React.Fragment key={i}>
               <div className="p-6 md:p-8 border-b border-[var(--color-border-subtle)] flex items-center">
-                <span className="font-medium text-white">{row.feature}</span>
+                <span className="font-medium text-[var(--color-ink)]">{row.feature}</span>
               </div>
               <div className="p-6 md:p-8 border-b border-[var(--color-border-subtle)] md:border-l bg-[var(--color-surface-alt)]/30 flex items-start gap-3">
                 <span className="material-symbols-outlined text-[var(--color-status-bad)] mt-0.5 shrink-0 text-xl">close</span>
@@ -85,7 +85,7 @@ export function ComparisonTable() {
               </div>
               <div className="p-6 md:p-8 border-b border-[var(--color-border-subtle)] md:border-l bg-[var(--color-brand-blue)]/5 flex items-start gap-3">
                 <span className="material-symbols-outlined text-[var(--color-status-good)] mt-0.5 shrink-0 text-xl">check_circle</span>
-                <span className="text-white font-medium">{row.with}</span>
+                <span className="text-[var(--color-ink)] font-medium">{row.with}</span>
               </div>
             </React.Fragment>
           ))}
@@ -96,7 +96,7 @@ export function ComparisonTable() {
       <div className="md:hidden space-y-6">
         {COMPARISON_DATA.map((row, i) => (
           <div key={i} className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-6 space-y-4 text-left">
-            <h4 className="font-semibold text-white text-lg border-b border-[var(--color-border-subtle)] pb-2">{row.feature}</h4>
+            <h4 className="font-semibold text-[var(--color-ink)] text-lg border-b border-[var(--color-border-subtle)] pb-2">{row.feature}</h4>
             <div className="space-y-3">
               <div className="bg-[var(--color-surface-alt)]/30 p-4 rounded-xl flex items-start gap-3">
                 <span className="material-symbols-outlined text-[var(--color-status-bad)] mt-0.5 shrink-0 text-xl">close</span>
@@ -109,7 +109,7 @@ export function ComparisonTable() {
                 <span className="material-symbols-outlined text-[var(--color-status-good)] mt-0.5 shrink-0 text-xl">check_circle</span>
                 <div>
                   <div className="text-[10px] font-bold text-[var(--color-brand-cyan)] uppercase mb-1">With Growcin</div>
-                  <div className="text-white text-sm font-medium">{row.with}</div>
+                  <div className="text-[var(--color-ink)] text-sm font-medium">{row.with}</div>
                 </div>
               </div>
             </div>
