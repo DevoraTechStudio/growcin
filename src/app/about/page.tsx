@@ -7,34 +7,34 @@ import { Button } from "@/components/ui/Button"
 
 const PRINCIPLES = [
   {
-    title: "Product-first craft",
-    desc: "Growcin is built like a flagship SaaS — polished UX, clear hierarchy, and systems that feel calm under pressure.",
+    title: "Simple & clear design",
+    desc: "Growcin is built to be clean and effortless — easy menus, zero clutter, and clear information at a glance.",
   },
   {
-    title: "AI that earns trust",
-    desc: "Every recommendation comes with context: what changed, why it matters, and what to do next.",
+    title: "AI you can trust",
+    desc: "Every AI suggestion comes with simple explanations: what changed, why it matters, and what step to take next.",
   },
   {
-    title: "Built by Devora",
-    desc: "Growcin is the flagship product of Devora Tech Studio — the same premium engineering applied to our own platform.",
+    title: "Built by experts",
+    desc: "Growcin is created by Devora Tech Studio — bringing top-quality engineering to help your business scale safely.",
   },
 ]
 
 const TIMELINE = [
   {
     tag: "Origin",
-    title: "From agency chaos",
-    desc: "Years of managing campaigns manually showed the same leaks: fatigue, CPA drift, and scattered tools.",
+    title: "From marketing chaos",
+    desc: "Managing marketing manually created constant headaches: rising ad costs, repetitive work, and tools scattered everywhere.",
   },
   {
     tag: "Build",
     title: "The Growcin platform",
-    desc: "We unified content, ads, analytics, and lead workflows into one AI marketing system.",
+    desc: "We combined content writing, ad management, analytics, and sales leads into one easy, automated AI system.",
   },
   {
     tag: "Today",
     title: "Growth without the busywork",
-    desc: "Teams use Growcin to automate marketing operations and protect budget while they scale.",
+    desc: "Businesses use Growcin to run marketing automatically, avoid wasted ad budget, and grow without daily stress.",
   },
 ]
 
@@ -53,11 +53,10 @@ export default function AboutPage() {
               About Growcin
             </p>
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-[var(--color-ink)] leading-[1.05] mb-5">
-              AI marketing, built to actually grow businesses
+              AI marketing made simple for your business
             </h1>
             <p className="text-base md:text-lg text-body font-medium leading-relaxed max-w-2xl mx-auto mb-8">
-              Growcin is the AI marketing platform from Devora Tech Studio — designed to automate SEO,
-              social, ads, email, and analytics without the chaos.
+              Growcin is an easy-to-use AI platform that handles your social posts, ads, email, and reports automatically—so you can grow without the confusion.
             </p>
             <Button size="lg" asChild>
               <Link href="/signup">Start Free Trial</Link>
@@ -74,24 +73,23 @@ export default function AboutPage() {
                 Mission
               </p>
               <h2 className="font-display text-3xl md:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-[1.1] mb-5">
-                Replace marketing busywork with a calm growth system
+                Replace confusing marketing chores with clear, automated growth
               </h2>
               <p className="text-base md:text-lg text-body leading-relaxed">
-                Founders and teams shouldn&apos;t babysit campaigns, rewrite the same posts, or discover
-                budget leaks days late. Growcin turns that work into clear, automated next moves.
+                You shouldn&apos;t have to spend hours tweaking ads, writing repetitive posts, or decoding complex reports. Growcin turns all of that work into simple, automated next steps.
               </p>
             </div>
             <div className="grid sm:grid-cols-2 gap-6 lg:pt-8">
               <div className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-base)] p-6">
-                <h3 className="font-display font-bold text-[var(--color-ink)] mb-2">For founders</h3>
+                <h3 className="font-display font-bold text-[var(--color-ink)] mb-2">For business owners</h3>
                 <p className="text-sm text-body leading-relaxed">
-                  One platform to run marketing without hiring a full team on day one.
+                  Run all your marketing in one place without needing an expensive full team.
                 </p>
               </div>
               <div className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-base)] p-6">
                 <h3 className="font-display font-bold text-[var(--color-ink)] mb-2">For agencies</h3>
                 <p className="text-sm text-body leading-relaxed">
-                  Multi-account intelligence that protects client spend and retention.
+                  Manage multiple clients easily while protecting ad budgets and boosting results.
                 </p>
               </div>
             </div>
