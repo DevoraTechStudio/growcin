@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Syne } from "next/font/google";
+import { Golos_Text } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FinalCTA } from "@/components/layout/FinalCTA";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
+const golos = Golos_Text({
+  variable: "--font-golos",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -31,7 +25,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${jakarta.variable} ${syne.variable} h-full antialiased`}
+      className={`${golos.variable} h-full antialiased`}
     >
       <head>
         <link

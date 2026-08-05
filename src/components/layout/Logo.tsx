@@ -52,7 +52,7 @@ export function Logo({
       {!iconOnly && (
         <div className="flex flex-col justify-center">
           <span className="font-display text-[18px] sm:text-[22px] font-extrabold tracking-tight leading-none">
-            <span className={light ? "text-white" : "text-[var(--color-ink)]"}>grow</span>
+            <span className={light ? "text-white" : "text-[var(--color-ink)]"}>Grow</span>
             <span className={light ? "text-[var(--color-brand-accent)]" : "text-[var(--color-brand-blue)]"}>
               cin
             </span>

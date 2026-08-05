@@ -46,7 +46,7 @@ export function Navbar() {
         className={cn(
           "h-14 sm:h-[60px] lg:h-[64px] w-full max-w-[1120px] rounded-full flex items-center justify-between px-1.5 sm:px-2 transition-all duration-300 relative",
           scrolled || mobileMenuOpen
-            ? "bg-white/90 backdrop-blur-xl border border-[var(--color-border-subtle)] shadow-[0_8px_40px_-12px_rgba(15,23,42,0.18)]"
+            ? "bg-white/90 backdrop-blur-xl border border-[var(--color-border-subtle)] shadow-[0_8px_40px_-12px_rgba(34,36,51,0.18)]"
             : "bg-white/55 backdrop-blur-md border border-white/60 shadow-sm"
         )}
       >
@@ -82,7 +82,7 @@ export function Navbar() {
           </Link>
 
           <Link href="/signup" className="hidden md:block">
-            <button className="h-9 lg:h-10 px-4 lg:px-5 brand-gradient-bg text-white rounded-full text-[11px] lg:text-[12px] font-bold hover:-translate-y-0.5 transition-all shadow-[0_8px_20px_-6px_rgba(37,99,235,0.5)] active:scale-[0.98] cursor-pointer whitespace-nowrap">
+            <button className="h-9 lg:h-10 px-4 lg:px-5 brand-gradient-bg text-white rounded-full text-[11px] lg:text-[12px] font-bold hover:-translate-y-0.5 transition-all shadow-[0_8px_20px_-6px_rgba(144,48,248,0.5)] active:scale-[0.98] cursor-pointer whitespace-nowrap">
               Start Free Trial
             </button>
           </Link>

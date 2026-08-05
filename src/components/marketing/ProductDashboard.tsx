@@ -160,8 +160,8 @@ function DashboardView() {
           <svg viewBox="0 0 400 120" className="w-full h-[72px] sm:h-[100px]" preserveAspectRatio="none">
             <defs>
               <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#2563EB" stopOpacity="0.35" />
-                <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
+                <stop offset="0%" stopColor="#9030F8" stopOpacity="0.35" />
+                <stop offset="100%" stopColor="#9030F8" stopOpacity="0" />
               </linearGradient>
             </defs>
             <path
@@ -171,7 +171,7 @@ function DashboardView() {
             <path
               d="M0,90 C40,85 60,70 100,65 C140,60 160,78 200,55 C240,32 280,40 320,28 C360,16 380,22 400,18"
               fill="none"
-              stroke="#60A5FA"
+              stroke="#C830F8"
               strokeWidth="2.5"
               strokeLinecap="round"
             />

@@ -1,33 +1,33 @@
 @import "tailwindcss";
 
 @theme {
-  --color-base: #F8FAFC;
+  --color-base: #F5F2FA;
   --color-surface: #FFFFFF;
-  --color-surface-alt: #F1F5F9;
-  --color-ink: #0F172A;
-  --color-border-subtle: rgba(15, 23, 42, 0.08);
-  --color-border-strong: rgba(15, 23, 42, 0.14);
+  --color-surface-alt: #F4F3EF;
+  --color-ink: #222433;
+  --color-border-subtle: rgba(34, 36, 51, 0.08);
+  --color-border-strong: rgba(34, 36, 51, 0.14);
 
-  --color-text-primary: #0F172A;
-  --color-text-secondary: #334155;
-  --color-text-muted: #64748B;
+  --color-text-primary: #222433;
+  --color-text-secondary: #4A4E69;
+  --color-text-muted: #878795;
 
-  --color-brand-blue: #2563EB;
-  --color-brand-secondary: #3B82F6;
-  --color-brand-accent: #60A5FA;
-  --color-brand-cyan: #3B82F6;
-  --color-brand-text: #2563EB;
+  --color-brand-blue: #9030F8;
+  --color-brand-secondary: #A05CED;
+  --color-brand-accent: #C830F8;
+  --color-brand-cyan: #C830F8;
+  --color-brand-text: #9030F8;
 
-  --color-product: #0F172A;
-  --color-product-surface: #1E293B;
-  --color-product-elevated: #334155;
+  --color-product: #222433;
+  --color-product-surface: #2D2F42;
+  --color-product-elevated: #3E415B;
 
   --color-status-good: #10B981;
   --color-status-warn: #F59E0B;
   --color-status-bad: #EF4444;
 
-  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-syne), var(--font-jakarta), sans-serif;
+  --font-sans: var(--font-golos), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-golos), ui-sans-serif, sans-serif;
 
   --animate-orb-1: orb-move-1 15s ease-in-out infinite;
   --animate-orb-2: orb-move-2 18s ease-in-out infinite;
@@ -54,21 +54,21 @@
 
 /* Body copy — always readable on light backgrounds (webview-safe) */
 @utility text-body {
-  color: #1e293b !important;
-  -webkit-text-fill-color: #1e293b !important;
+  color: #222433 !important;
+  -webkit-text-fill-color: #222433 !important;
 }
 
 @utility text-body-muted {
-  color: #475569 !important;
-  -webkit-text-fill-color: #475569 !important;
+  color: #4A4E69 !important;
+  -webkit-text-fill-color: #4A4E69 !important;
 }
 
 @utility brand-gradient-bg {
-  background: linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-secondary));
+  background: linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-accent));
 }
 
 @utility font-display {
-  font-family: var(--font-syne), var(--font-jakarta), ui-sans-serif, sans-serif;
+  font-family: var(--font-golos), ui-sans-serif, sans-serif;
 }
 
 :root {
@@ -84,7 +84,7 @@ html {
 body {
   background-color: var(--color-base);
   color: var(--color-text-primary);
-  font-family: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-golos), ui-sans-serif, system-ui, sans-serif;
   overflow-x: clip;
   -webkit-text-fill-color: currentColor;
 }
@@ -94,7 +94,7 @@ p, li, span, a, label, button, input, textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-syne), var(--font-jakarta), ui-sans-serif, sans-serif;
+  font-family: var(--font-golos), ui-sans-serif, sans-serif;
   color: var(--color-ink);
   letter-spacing: -0.02em;
   overflow-wrap: break-word;
@@ -183,16 +183,16 @@ img, video, iframe, svg {
 
 @utility hero-atmosphere {
   background:
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(37, 99, 235, 0.18), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 90% 20%, rgba(96, 165, 250, 0.14), transparent 50%),
-    radial-gradient(ellipse 40% 35% at 10% 40%, rgba(59, 130, 246, 0.1), transparent 45%),
-    linear-gradient(180deg, #EEF4FF 0%, var(--color-base) 55%, var(--color-base) 100%);
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(144, 48, 248, 0.18), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 90% 20%, rgba(200, 48, 248, 0.14), transparent 50%),
+    radial-gradient(ellipse 40% 35% at 10% 40%, rgba(160, 92, 237, 0.1), transparent 45%),
+    linear-gradient(180deg, #F8F3FF 0%, var(--color-base) 55%, var(--color-base) 100%);
 }
 
 @utility hero-grid-pattern {
   background-image:
-    linear-gradient(rgba(37, 99, 235, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37, 99, 235, 0.045) 1px, transparent 1px);
+    linear-gradient(rgba(144, 48, 248, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(144, 48, 248, 0.045) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: linear-gradient(180deg, black 0%, transparent 85%);
 }

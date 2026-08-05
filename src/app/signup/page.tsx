@@ -30,7 +30,7 @@ export default function SignupPage() {
           </p>
         </div>
 
-        <div className="rounded-2xl border border-[var(--color-border-subtle)] bg-white p-8 shadow-[0_20px_50px_-24px_rgba(15,23,42,0.2)] space-y-5">
+        <div className="rounded-2xl border border-[var(--color-border-subtle)] bg-white p-8 shadow-[0_20px_50px_-24px_rgba(34,36,51,0.2)] space-y-5">
           <form className="space-y-4">
             <div className="space-y-1.5">
               <label className="text-xs font-bold uppercase tracking-wider text-body-muted">

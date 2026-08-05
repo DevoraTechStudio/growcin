@@ -221,7 +221,7 @@ export default function PlatformPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="group relative rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-base)] p-6 md:p-7 hover:bg-white hover:border-[var(--color-brand-blue)]/40 hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.18)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between"
+                className="group relative rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-base)] p-6 md:p-7 hover:bg-white hover:border-[var(--color-brand-blue)]/40 hover:shadow-[0_20px_40px_-15px_rgba(144,48,248,0.18)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Top Badge & Icon Row */}

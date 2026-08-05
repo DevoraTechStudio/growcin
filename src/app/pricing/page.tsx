@@ -118,7 +118,7 @@ export default function PricingPage() {
                 className={cn(
                   "relative rounded-2xl p-8 flex flex-col border bg-white",
                   plan.featured
-                    ? "border-[var(--color-brand-blue)] shadow-[0_24px_60px_-28px_rgba(37,99,235,0.45)]"
+                    ? "border-[var(--color-brand-blue)] shadow-[0_24px_60px_-28px_rgba(144,48,248,0.45)]"
                     : "border-[var(--color-border-subtle)]"
                 )}
               >

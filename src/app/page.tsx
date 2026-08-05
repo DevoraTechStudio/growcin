@@ -189,7 +189,7 @@ export default function Home() {
 
             <p
               className="text-[15px] sm:text-base md:text-lg font-medium max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8 px-1 text-body"
-              style={{ color: "#1e293b", WebkitTextFillColor: "#1e293b" }}
+              style={{ color: "#222433", WebkitTextFillColor: "#222433" }}
             >
               Automate SEO, social media, ads, email, and analytics with one AI platform —
               built to turn marketing busywork into measurable growth.
@@ -208,7 +208,7 @@ export default function Home() {
                 <Link
                   href="#demo"
                   className="inline-flex items-center justify-center gap-2"
-                  style={{ color: "#0f172a", WebkitTextFillColor: "#0f172a" }}
+                  style={{ color: "#222433", WebkitTextFillColor: "#222433" }}
                 >
                   <span className="material-symbols-outlined text-[18px] text-[var(--color-brand-blue)]">
                     play_circle
@@ -343,7 +343,7 @@ export default function Home() {
                   setDashView(item.view)
                   document.getElementById("product-preview")?.scrollIntoView({ behavior: "smooth", block: "center" })
                 }}
-                className="group text-left rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-base)] p-5 sm:p-6 md:p-7 hover:border-[var(--color-brand-blue)]/35 hover:shadow-[0_20px_50px_-24px_rgba(37,99,235,0.35)] transition-all cursor-pointer"
+                className="group text-left rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-base)] p-5 sm:p-6 md:p-7 hover:border-[var(--color-brand-blue)]/35 hover:shadow-[0_20px_50px_-24px_rgba(144,48,248,0.35)] transition-all cursor-pointer"
               >
                 <div className="flex items-start justify-between gap-3 mb-3 sm:mb-4">
                   <h3 className="font-display text-base sm:text-lg md:text-xl font-bold text-[var(--color-ink)]">
@@ -389,7 +389,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: i * 0.04 }}
-                className="group relative rounded-2xl bg-white border border-[var(--color-border-subtle)] p-5 sm:p-6 hover:-translate-y-2 hover:border-[var(--color-brand-blue)]/40 hover:shadow-[0_16px_36px_-12px_rgba(37,99,235,0.18)] transition-all duration-300 flex flex-col justify-between"
+                className="group relative rounded-2xl bg-white border border-[var(--color-border-subtle)] p-5 sm:p-6 hover:-translate-y-2 hover:border-[var(--color-brand-blue)]/40 hover:shadow-[0_16px_36px_-12px_rgba(144,48,248,0.18)] transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -511,7 +511,7 @@ export default function Home() {
             Watch how AI drafts content, monitors campaigns, and surfaces the next best action — before budget leaks.
           </p>
 
-          <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-[var(--color-border-subtle)] shadow-[0_30px_80px_-40px_rgba(15,23,42,0.45)] aspect-video bg-[var(--color-product)]">
+          <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-[var(--color-border-subtle)] shadow-[0_30px_80px_-40px_rgba(34,36,51,0.45)] aspect-video bg-[var(--color-product)]">
             {demoPlaying ? (
               <iframe
                 src="https://www.youtube.com/embed/i2UuGd84ZJU?autoplay=1&rel=0&modestbranding=1"
@@ -529,7 +529,7 @@ export default function Home() {
                 <div className="absolute inset-0 opacity-60"
                   style={{
                     background:
-                      "radial-gradient(ellipse at 30% 20%, rgba(37,99,235,0.5), transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(96,165,250,0.3), transparent 45%)",
+                      "radial-gradient(ellipse at 30% 20%, rgba(144,48,248,0.5), transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(200,48,248,0.3), transparent 45%)",
                   }}
                 />
                 <div className="relative z-10 h-14 w-14 sm:h-16 sm:w-16 rounded-full bg-white text-[var(--color-brand-blue)] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
@@ -641,7 +641,7 @@ export default function Home() {
                 className={cn(
                   "relative rounded-2xl p-6 sm:p-7 md:p-8 flex flex-col border bg-white",
                   plan.featured
-                    ? "border-[var(--color-brand-blue)] shadow-[0_24px_60px_-28px_rgba(37,99,235,0.45)] lg:scale-[1.02] md:col-span-2 lg:col-span-1"
+                    ? "border-[var(--color-brand-blue)] shadow-[0_24px_60px_-28px_rgba(144,48,248,0.45)] lg:scale-[1.02] md:col-span-2 lg:col-span-1"
                     : "border-[var(--color-border-subtle)]"
                 )}
               >
