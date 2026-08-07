@@ -5,7 +5,5 @@ services:
     build: .
     ports:
       - "9459:9459"
-    volumes:
-      - ./out:/app/out
     environment:
       - NODE_ENV=production
