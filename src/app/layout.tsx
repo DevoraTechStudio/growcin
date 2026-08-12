@@ -12,9 +12,49 @@ const golos = Golos_Text({
 });
 
 export const metadata: Metadata = {
-  title: "Growcin | AI Marketing That Actually Grows Your Business",
+  metadataBase: new URL("https://growcin.com"),
+  title: {
+    default: "Growcin | AI Marketing That Actually Grows Your Business",
+    template: "%s | Growcin",
+  },
   description:
     "Growcin is the AI marketing platform that automates SEO, social media, ads, email, and analytics — so your business grows without the busywork.",
+  keywords: ["AI Marketing", "SEO Automation", "Social Media AI", "Smart Ads", "Marketing Analytics", "Growcin"],
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  openGraph: {
+    title: "Growcin | AI Marketing That Actually Grows Your Business",
+    description:
+      "Growcin is the AI marketing platform that automates SEO, social media, ads, email, and analytics — so your business grows without the busywork.",
+    url: "https://growcin.com",
+    siteName: "Growcin",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Growcin AI Marketing Platform",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Growcin | AI Marketing That Actually Grows Your Business",
+    description:
+      "Growcin is the AI marketing platform that automates SEO, social media, ads, email, and analytics — so your business grows without the busywork.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({
