@@ -74,12 +74,12 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-1.5 sm:gap-2 pr-1 sm:pr-1.5 shrink-0">
-          <Link
-            href="/login"
+          <a
+            href="https://app.aichatassist.com/auth/sign-in"
             className="hidden lg:block text-[13px] font-semibold text-[var(--color-text-secondary)] hover:text-[var(--color-ink)] transition-colors mr-1 px-3"
           >
             Log in
-          </Link>
+          </a>
 
           <Link href="/signup" className="hidden md:block">
             <button className="h-9 lg:h-10 px-4 lg:px-5 brand-gradient-bg text-white rounded-full text-[11px] lg:text-[12px] font-bold hover:-translate-y-0.5 transition-all shadow-[0_8px_20px_-6px_rgba(144,48,248,0.5)] active:scale-[0.98] cursor-pointer whitespace-nowrap">
@@ -119,11 +119,11 @@ export function Navbar() {
                 </Link>
               ))}
               <div className="flex flex-col gap-2.5 mt-2 pt-4 border-t border-[var(--color-border-subtle)]">
-                <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
+                <a href="https://app.aichatassist.com/auth/sign-in" onClick={() => setMobileMenuOpen(false)}>
                   <button className="w-full h-11 border border-slate-300 text-[var(--color-ink)] hover:bg-[var(--color-surface-alt)] rounded-full text-sm font-bold transition-all cursor-pointer">
                     Log in
                   </button>
-                </Link>
+                </a>
                 <Link href="/signup" onClick={() => setMobileMenuOpen(false)}>
                   <button className="w-full h-11 brand-gradient-bg text-white rounded-full text-sm font-bold transition-all cursor-pointer">
                     Start Free Trial

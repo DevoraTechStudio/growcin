@@ -60,12 +60,12 @@ export default function SignupPage() {
 
           <div className="text-center text-xs text-body-muted border-t border-[var(--color-border-subtle)] pt-5">
             Already have an account?{" "}
-            <Link
-              href="/login"
+            <a
+              href="https://app.aichatassist.com/auth/sign-in"
               className="text-[var(--color-brand-blue)] hover:text-[var(--color-ink)] transition-colors font-bold"
             >
               Log in
-            </Link>
+            </a>
           </div>
         </div>
       </motion.div>
