@@ -19,7 +19,7 @@ export function Logo({
   return (
     <div className={cn("flex items-center gap-2.5 select-none", className)}>
       <img
-        src="/logo-transparent.png"
+        src="/logo-v3.png"
         alt="Growcin Logo"
         className={cn("w-8 h-8 object-contain flex-shrink-0", iconClassName)}
       />
