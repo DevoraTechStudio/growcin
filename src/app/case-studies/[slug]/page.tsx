@@ -33,10 +33,10 @@ export default function CaseStudyDetailPage() {
               2 min read
             </span>
           </div>
-          <h1 className="font-display text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] mb-6 leading-[1.1]">
+          <h1 className="font-display text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-6 leading-[1.1]">
             Stopping a $20k tracking disaster before Monday morning
           </h1>
-          <p className="text-lg md:text-xl text-body leading-relaxed font-medium">
+          <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium">
             How Growcin caught a broken event tag that caused Meta to optimize for zero-intent
             traffic over a holiday weekend — and saved the budget.
           </p>
@@ -96,10 +96,10 @@ export default function CaseStudyDetailPage() {
             },
           ].map((section) => (
             <div key={section.title}>
-              <h2 className="font-display text-2xl font-extrabold text-[var(--color-ink)] mb-3">
+              <h2 className="font-display text-2xl font-extrabold text-slate-900 mb-3">
                 {section.title}
               </h2>
-              <p className="text-[15px] md:text-base text-body leading-relaxed">
+              <p className="text-[15px] md:text-base text-slate-600 leading-relaxed">
                 {section.body}
               </p>
             </div>

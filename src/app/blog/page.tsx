@@ -75,10 +75,10 @@ export default function BlogPage() {
             <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--color-brand-blue)] mb-4">
               Blog
             </p>
-            <h1 className="font-display text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] mb-4">
+            <h1 className="font-display text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
               Growcin Insights
             </h1>
-            <p className="text-base md:text-lg text-body font-medium leading-relaxed max-w-xl mx-auto">
+            <p className="text-base md:text-lg text-slate-600 font-medium leading-relaxed max-w-xl mx-auto">
               Practical guides on AI marketing, campaign intelligence, and building calm growth systems.
             </p>
           </motion.div>
@@ -95,30 +95,30 @@ export default function BlogPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.04 }}
-                className="flex flex-col h-full rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-base)] p-7 hover:border-[var(--color-brand-blue)]/30 hover:shadow-lg transition-all"
+                className="flex flex-col h-full rounded-2xl border border-[var(--color-border-subtle)] bg-[#FAF8FD] p-7 hover:border-purple-300 hover:shadow-lg transition-all"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--color-brand-blue)] bg-[var(--color-brand-blue)]/10 px-2.5 py-1 rounded-md">
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-[#A855F7] bg-purple-50 px-2.5 py-1 rounded-md">
                     {article.category}
                   </span>
-                  <span className="text-[11px] text-body-muted font-medium">
+                  <span className="text-[11px] text-slate-500 font-medium">
                     {article.readTime}
                   </span>
                 </div>
 
-                <h2 className="font-display text-xl font-bold text-[var(--color-ink)] leading-snug mb-3">
+                <h2 className="font-display text-xl font-bold text-slate-900 leading-snug mb-3">
                   {article.title}
                 </h2>
 
-                <p className="text-sm text-body leading-relaxed flex-grow mb-6">
+                <p className="text-sm text-slate-600 leading-relaxed flex-grow mb-6">
                   {article.excerpt}
                 </p>
 
-                <div className="border-t border-[var(--color-border-subtle)] pt-4 flex items-center justify-between text-[12px] text-body-muted">
+                <div className="border-t border-purple-100/60 pt-4 flex items-center justify-between text-[12px] text-slate-500">
                   <span>{article.date}</span>
                   <Link
                     href={`/blog`}
-                    className="text-[var(--color-brand-blue)] hover:text-[var(--color-ink)] transition-colors font-bold inline-flex items-center gap-1"
+                    className="text-[#A855F7] hover:text-purple-700 transition-colors font-bold inline-flex items-center gap-1"
                   >
                     Read
                     <span className="material-symbols-outlined text-sm">arrow_forward</span>

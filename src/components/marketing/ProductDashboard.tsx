@@ -55,31 +55,40 @@ export function ProductDashboard({ className, activeView = "dashboard" }: Produc
       </div>
 
       {/* Mobile view switcher */}
-      <div className="sm:hidden flex gap-1 p-2 border-b border-white/8 bg-[#0B1220] overflow-x-auto">
-        {NAV_ITEMS.map((item) => (
-          <button
-            key={item.label}
-            type="button"
-            onClick={() => setView(item.view)}
-            className={cn(
-              "flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-[11px] font-semibold whitespace-nowrap transition-colors cursor-pointer shrink-0",
-              view === item.view
-                ? "bg-[var(--color-brand-blue)]/25 text-white"
-                : "text-slate-400"
-            )}
-          >
-            <span className="material-symbols-outlined text-[14px]">{item.icon}</span>
-            {item.label}
-          </button>
-        ))}
+      <div className="sm:hidden flex items-center justify-between p-2 border-b border-white/8 bg-[#0B1220]">
+        <div className="flex items-center gap-1.5 pl-1 pr-2 shrink-0">
+          <img src="/growcin-logo.png?v=2" alt="Growcin" className="w-4 h-4 object-contain" />
+          <span className="font-display text-xs font-bold text-white">
+            Grow<span className="text-[#A855F7]">cin</span>
+          </span>
+        </div>
+        <div className="flex gap-1 overflow-x-auto">
+          {NAV_ITEMS.map((item) => (
+            <button
+              key={item.label}
+              type="button"
+              onClick={() => setView(item.view)}
+              className={cn(
+                "flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-[11px] font-semibold whitespace-nowrap transition-colors cursor-pointer shrink-0",
+                view === item.view
+                  ? "bg-[var(--color-brand-blue)]/25 text-white"
+                  : "text-slate-400"
+              )}
+            >
+              <span className="material-symbols-outlined text-[14px]">{item.icon}</span>
+              {item.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="flex min-h-[280px] sm:min-h-[360px] md:min-h-[440px]">
         {/* Sidebar — tablet+ */}
         <aside className="hidden sm:flex w-[160px] md:w-[180px] lg:w-[200px] flex-col gap-1 border-r border-white/8 p-2.5 md:p-3 bg-[#0B1220] shrink-0">
-          <div className="px-2 py-2 mb-1 md:mb-2">
-            <span className="font-display text-sm font-bold text-white tracking-tight">
-              grow<span className="text-[var(--color-brand-accent)]">cin</span>
+          <div className="px-2 py-2 mb-1 md:mb-2 flex items-center gap-2">
+            <img src="/growcin-logo.png?v=2" alt="Growcin" className="w-5 h-5 object-contain" />
+            <span className="font-display text-base font-bold text-white tracking-tight">
+              Grow<span className="text-[#A855F7]">cin</span>
             </span>
           </div>
           {NAV_ITEMS.map((item) => (
@@ -122,7 +131,7 @@ function DashboardView() {
     >
       <div className="flex items-center justify-between gap-2 sm:gap-3">
         <div className="min-w-0">
-          <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-body-muted">
+          <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-slate-400">
             Today
           </p>
           <h3 className="text-white font-semibold text-sm md:text-base truncate">
@@ -142,7 +151,7 @@ function DashboardView() {
             key={m.label}
             className="rounded-lg sm:rounded-xl border border-white/8 bg-white/[0.03] p-2.5 sm:p-3"
           >
-            <p className="text-[9px] sm:text-[10px] text-body-muted font-medium mb-1">{m.label}</p>
+            <p className="text-[9px] sm:text-[10px] text-slate-400 font-medium mb-1">{m.label}</p>
             <p className="text-white font-bold text-base sm:text-lg leading-none">{m.value}</p>
             <p className="text-[9px] sm:text-[10px] text-[var(--color-status-good)] font-semibold mt-1 sm:mt-1.5">
               {m.delta}
@@ -155,7 +164,7 @@ function DashboardView() {
         <div className="rounded-lg sm:rounded-xl border border-white/8 bg-white/[0.03] p-3 sm:p-3.5">
           <div className="flex items-center justify-between mb-2 sm:mb-3">
             <p className="text-xs font-semibold text-white">Performance</p>
-            <p className="text-[10px] text-body-muted">14 days</p>
+            <p className="text-[10px] text-slate-400">14 days</p>
           </div>
           <svg viewBox="0 0 400 120" className="w-full h-[72px] sm:h-[100px]" preserveAspectRatio="none">
             <defs>
@@ -194,7 +203,7 @@ function DashboardView() {
               </span>
               <div className="min-w-0">
                 <p className="text-[11px] font-semibold text-white leading-snug truncate">{a.title}</p>
-                <p className="text-[10px] text-body-muted mt-0.5 truncate">{a.meta}</p>
+                <p className="text-[10px] text-slate-400 mt-0.5 truncate">{a.meta}</p>
               </div>
             </div>
           ))}
@@ -220,7 +229,7 @@ function AnalyticsView() {
           { channel: "Email", traffic: "9.2k", conv: "6.4%" },
         ].map((c) => (
           <div key={c.channel} className="rounded-xl border border-white/8 bg-white/[0.03] p-3 sm:p-4">
-            <p className="text-[10px] text-body-muted uppercase tracking-wider font-semibold">
+            <p className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">
               {c.channel}
             </p>
             <p className="text-xl sm:text-2xl font-bold text-white mt-2">{c.traffic}</p>
@@ -270,7 +279,7 @@ function WriterView() {
         </span>
       </div>
       <div className="rounded-xl border border-white/8 bg-white/[0.03] p-3 sm:p-4 space-y-3">
-        <p className="text-[10px] font-semibold uppercase tracking-wider text-body-muted">
+        <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
           Blog draft · SEO optimized
         </p>
         <p className="text-white font-semibold text-sm leading-snug">
@@ -332,7 +341,7 @@ function CampaignsView() {
           >
             <div className="min-w-0">
               <p className="text-[11px] sm:text-[12px] font-semibold text-white truncate">{c.name}</p>
-              <p className="text-[10px] text-body-muted">CPA {c.cpa}</p>
+              <p className="text-[10px] text-slate-400">CPA {c.cpa}</p>
             </div>
             <span
               className={cn(

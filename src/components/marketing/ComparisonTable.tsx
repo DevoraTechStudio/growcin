@@ -1,115 +1,152 @@
+"use client"
+
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
 const COMPARISON_DATA = [
   {
-    feature: "Pricing",
-    without: "High retainer, plus ad spend, paid regardless of consistency",
-    with: "Low flat fee, plus ad spend, with the full system included"
+    feature: "Monthly cost",
+    without: "High agency retainer, plus ad spend, paid regardless of performance consistency",
+    with: "Low flat fee, plus ad spend, with the full autonomous intelligence layer included",
   },
   {
     feature: "Audience targeting",
-    without: "Set manually, revisited occasionally based on gut feel",
-    with: "AI audience builder refines continuously from live performance data"
+    without: "Set manually, revisited occasionally based on gut feel and old spreadsheets",
+    with: "AI audience engine refines continuously from live conversion and intent signals",
   },
   {
-    feature: "Balancing budget",
-    without: "Fixed split, manually rebalanced when someone notices an issue",
-    with: "Automatically shifts toward what's converting in real time"
+    feature: "Budget allocation",
+    without: "Fixed split, manually rebalanced only after someone notices spend burned",
+    with: "Automatically shifts budget toward what is converting in real time",
   },
   {
-    feature: "Timing",
-    without: "Runs on a flat schedule, rarely tuned to actual audience activity",
-    with: "Time-slot optimisation based on when the audience is actually active"
+    feature: "Ad timing & pacing",
+    without: "Runs on a flat schedule, rarely tuned to actual audience peak buying activity",
+    with: "Time-slot optimization based on when your buyers are actually active",
   },
   {
-    feature: "Chat assistant",
+    feature: "Lead response time",
     without: "Depends on staff availability, often hours or next business day",
-    with: "AI chat assistant responds instantly, 24/7"
+    with: "AI qualification assistant responds instantly on WhatsApp, 24/7",
   },
   {
-    feature: "Pacing",
-    without: "Manual or bulk-blasted, high risk of spam flags and number bans",
-    with: "Paced broadcasting with automatic throttling to protect the number"
+    feature: "WhatsApp follow-up",
+    without: "Manual or bulk-blasted, high risk of spam flags and phone number bans",
+    with: "Paced broadcasting with automatic throttling to protect phone reputation",
   },
   {
     feature: "Creative scoring",
-    without: "Reviewed periodically, often subjectively",
-    with: "Continuous, data-driven creative scoring"
+    without: "Reviewed periodically in weekly meetings, often subjectively",
+    with: "Continuous, data-driven creative fatigue and hook-rate decay scoring",
   },
   {
-    feature: "Reports",
-    without: "Monthly PDF or call, format varies by agency",
-    with: "Account audit, campaign, and weekly reports as standard, every month"
+    feature: "Reporting & alerts",
+    without: "Monthly PDF or call telling you what went wrong yesterday",
+    with: "Account audit, campaign triage, and decision packages delivered before budget leaks",
   },
   {
-    feature: "Custom templates",
-    without: "Generic templates reused across clients",
-    with: "Content adapts to each business's specific USP automatically"
+    feature: "Personalisation to USP",
+    without: "Generic copy templates reused across clients without differentiation",
+    with: "Messaging adapts to each business's unique USP and buyer intent automatically",
   },
   {
     feature: "Consistency",
-    without: "Depends on the individual manager's bandwidth and attention that week",
-    with: "Same level of monitoring and optimisation applied every day, automatically"
-  }
+    without: "Depends on individual manager's bandwidth, mood, and attention that week",
+    with: "The exact same level of 24/7 monitoring and optimization applied every day",
+  },
 ]
 
-export function ComparisonTable() {
+export function ComparisonTable({ className }: { className?: string }) {
   return (
-    <div className="w-full max-w-5xl mx-auto">
+    <div className={cn("w-full max-w-6xl mx-auto", className)}>
       {/* Desktop view */}
-      <div className="hidden md:block overflow-hidden rounded-[2rem] border border-[var(--color-border-strong)] bg-[var(--color-surface)] shadow-2xl">
-        <div className="grid grid-cols-3">
-          {/* Header */}
-          <div className="p-8 border-b border-[var(--color-border-subtle)]" />
-          <div className="p-8 border-b border-[var(--color-border-subtle)] border-l border-[var(--color-border-subtle)] bg-[var(--color-surface-alt)]/50">
-            <h3 className="font-display text-xl font-semibold text-body-muted">Without Growcin</h3>
+      <div className="hidden md:block overflow-hidden rounded-[2rem] border border-[var(--color-border-subtle)] bg-white/80 shadow-[0_20px_60px_-30px_rgba(144,48,248,0.25)] backdrop-blur-xl">
+        <div className="grid grid-cols-[1fr_1.3fr_1.3fr] border-b border-slate-100">
+          {/* Headers */}
+          <div className="bg-slate-50/90 px-6 py-5 flex items-center">
+            <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-slate-400">
+              Dimension
+            </span>
           </div>
-          <div className="p-8 border-b border-[var(--color-border-subtle)] border-l border-[var(--color-border-subtle)] bg-[var(--color-brand-blue)]/5 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)]" />
-            <h3 className="font-display text-xl font-semibold text-[var(--color-ink)] flex items-center gap-2">
+          <div className="border-l border-slate-100 bg-red-50/60 px-6 py-5 flex items-center">
+            <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-red-600">
+              Without Growcin
+            </span>
+          </div>
+          <div className="border-l border-slate-100 bg-emerald-50/60 px-6 py-5 flex items-center justify-between">
+            <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-emerald-700 flex items-center gap-2">
               With Growcin
-              <span className="material-symbols-outlined text-[var(--color-brand-blue)] text-xl">bolt</span>
-            </h3>
+              <span className="material-symbols-outlined text-[18px] text-emerald-600">bolt</span>
+            </span>
+            <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+              Autonomous
+            </span>
           </div>
-
-          {/* Rows */}
-          {COMPARISON_DATA.map((row, i) => (
-            <React.Fragment key={i}>
-              <div className="p-6 md:p-8 border-b border-[var(--color-border-subtle)] flex items-center">
-                <span className="font-medium text-[var(--color-ink)]">{row.feature}</span>
-              </div>
-              <div className="p-6 md:p-8 border-b border-[var(--color-border-subtle)] md:border-l bg-[var(--color-surface-alt)]/30 flex items-start gap-3">
-                <span className="material-symbols-outlined text-[var(--color-status-bad)] mt-0.5 shrink-0 text-xl">close</span>
-                <span className="text-[var(--color-text-secondary)]">{row.without}</span>
-              </div>
-              <div className="p-6 md:p-8 border-b border-[var(--color-border-subtle)] md:border-l bg-[var(--color-brand-blue)]/5 flex items-start gap-3">
-                <span className="material-symbols-outlined text-[var(--color-status-good)] mt-0.5 shrink-0 text-xl">check_circle</span>
-                <span className="text-[var(--color-ink)] font-medium">{row.with}</span>
-              </div>
-            </React.Fragment>
-          ))}
         </div>
+
+        {/* Rows */}
+        {COMPARISON_DATA.map((row, i) => (
+          <div
+            key={row.feature}
+            className={cn(
+              "grid grid-cols-[1fr_1.3fr_1.3fr] border-b border-slate-100 transition-colors last:border-b-0 hover:bg-purple-500/[0.02]",
+              i % 2 === 1 ? "bg-slate-50/30" : "bg-white"
+            )}
+          >
+            <div className="flex items-start px-6 py-5">
+              <span className="text-sm font-bold text-slate-900">{row.feature}</span>
+            </div>
+            <div className="flex items-start gap-3 border-l border-slate-100 bg-red-50/20 px-6 py-5">
+              <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-red-100 text-red-500">
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                  <path d="M1 1l6 6M7 1L1 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+              </span>
+              <p className="text-sm leading-relaxed text-slate-600">{row.without}</p>
+            </div>
+            <div className="flex items-start gap-3 border-l border-slate-100 bg-emerald-50/20 px-6 py-5">
+              <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                  <path d="M1 4l2.5 2.5L7 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <p className="text-sm leading-relaxed text-slate-900 font-medium">{row.with}</p>
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* Mobile view */}
-      <div className="md:hidden space-y-6">
-        {COMPARISON_DATA.map((row, i) => (
-          <div key={i} className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-6 space-y-4 text-left">
-            <h4 className="font-semibold text-[var(--color-ink)] text-lg border-b border-[var(--color-border-subtle)] pb-2">{row.feature}</h4>
-            <div className="space-y-3">
-              <div className="bg-[var(--color-surface-alt)]/30 p-4 rounded-xl flex items-start gap-3">
-                <span className="material-symbols-outlined text-[var(--color-status-bad)] mt-0.5 shrink-0 text-xl">close</span>
+      <div className="md:hidden space-y-4">
+        {COMPARISON_DATA.map((row) => (
+          <div
+            key={row.feature}
+            className="rounded-2xl border border-[var(--color-border-subtle)] bg-white p-5 space-y-3.5 text-left shadow-sm"
+          >
+            <h4 className="font-bold text-slate-900 text-base border-b border-slate-100 pb-2">
+              {row.feature}
+            </h4>
+            <div className="space-y-2.5">
+              <div className="bg-red-50/60 p-3.5 rounded-xl flex items-start gap-2.5 border border-red-100">
+                <span className="material-symbols-outlined text-red-500 mt-0.5 shrink-0 text-base">
+                  close
+                </span>
                 <div>
-                  <div className="text-[10px] font-bold text-[var(--color-text-muted)] uppercase mb-1">Without Growcin</div>
-                  <div className="text-[var(--color-text-secondary)] text-sm">{row.without}</div>
+                  <div className="text-[10px] font-bold text-red-600 uppercase mb-0.5 tracking-wider">
+                    Without Growcin
+                  </div>
+                  <div className="text-slate-600 text-xs leading-relaxed">{row.without}</div>
                 </div>
               </div>
-              <div className="bg-[var(--color-brand-blue)]/5 p-4 rounded-xl flex items-start gap-3 border border-[var(--color-brand-blue)]/10">
-                <span className="material-symbols-outlined text-[var(--color-status-good)] mt-0.5 shrink-0 text-xl">check_circle</span>
+              <div className="bg-emerald-50/60 p-3.5 rounded-xl flex items-start gap-2.5 border border-emerald-100">
+                <span className="material-symbols-outlined text-emerald-600 mt-0.5 shrink-0 text-base">
+                  check_circle
+                </span>
                 <div>
-                  <div className="text-[10px] font-bold text-[var(--color-brand-cyan)] uppercase mb-1">With Growcin</div>
-                  <div className="text-[var(--color-ink)] text-sm font-medium">{row.with}</div>
+                  <div className="text-[10px] font-bold text-emerald-700 uppercase mb-0.5 tracking-wider">
+                    With Growcin
+                  </div>
+                  <div className="text-slate-900 text-xs font-medium leading-relaxed">{row.with}</div>
                 </div>
               </div>
             </div>

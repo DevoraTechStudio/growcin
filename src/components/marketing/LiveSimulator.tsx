@@ -47,7 +47,7 @@ export function LiveSimulator() {
     if (step === 0) {
       if (!initializedRef.current) {
         initializedRef.current = true
-        addLog("Initializing Growcin real-time ad account indexer...", "neutral")
+        addLog("Initializing Growcin real-time ad account radar...", "neutral")
       }
       const t = setTimeout(() => {
         addLog("Connected to Meta Ads Manager OAuth. Reading active feeds...", "info")
@@ -110,19 +110,19 @@ export function LiveSimulator() {
   }
 
   return (
-    <div className="w-full rounded-2xl border border-[var(--color-border-strong)] bg-[var(--color-surface)] shadow-2xl overflow-hidden flex flex-col h-[520px]">
+    <div className="w-full rounded-2xl border border-[var(--color-border-strong)] bg-[var(--color-surface)] shadow-2xl overflow-hidden flex flex-col min-h-[480px] sm:h-[520px]">
       {/* Simulator Window Header */}
-      <div className="bg-[var(--color-surface-alt)] px-6 py-4 border-b border-[var(--color-border-subtle)] flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="flex gap-1.5 mr-2">
-            <span className="w-3 h-3 rounded-full bg-[var(--color-status-bad)]/60" />
-            <span className="w-3 h-3 rounded-full bg-[var(--color-status-warn)]/60" />
-            <span className="w-3 h-3 rounded-full bg-[var(--color-status-good)]/60" />
+      <div className="bg-[var(--color-surface-alt)] px-4 py-3 sm:px-6 sm:py-4 border-b border-[var(--color-border-subtle)] flex items-center justify-between gap-2">
+        <div className="flex items-center gap-2 min-w-0">
+          <div className="flex gap-1.5 mr-1 sm:mr-2 shrink-0">
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[var(--color-status-bad)]/60" />
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[var(--color-status-warn)]/60" />
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[var(--color-status-good)]/60" />
           </div>
-          <span className="material-symbols-outlined text-[var(--color-brand-cyan)] text-lg">terminal</span>
-          <span className="text-xs font-mono font-semibold tracking-wide text-[var(--color-text-secondary)] uppercase">Growcin Live Anomaly Simulator</span>
+          <img src="/growcin-logo.png?v=2" alt="Growcin" className="w-4 h-4 object-contain shrink-0" />
+          <span className="text-[11px] sm:text-xs font-mono font-semibold tracking-wide text-[var(--color-text-secondary)] uppercase truncate">Growcin Signal Simulator</span>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           {isScanning ? (
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-widest bg-[var(--color-brand-cyan)]/10 text-[var(--color-brand-cyan)] animate-pulse">
               <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-brand-cyan)]" />
@@ -163,14 +163,14 @@ export function LiveSimulator() {
       </div>
 
       {/* Terminal Log Output */}
-      <div ref={containerRef} className="flex-1 p-6 font-mono text-xs overflow-y-auto space-y-3 bg-[var(--color-base)]/40 flex flex-col justify-start">
+      <div ref={containerRef} className="flex-1 p-4 sm:p-6 font-mono text-[11px] sm:text-xs overflow-y-auto space-y-3 bg-[var(--color-base)]/40 flex flex-col justify-start">
         <AnimatePresence>
           {logs.map((log) => (
             <motion.div
               key={log.id}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex items-start gap-3"
+              className="flex items-start gap-2.5 sm:gap-3"
             >
               <span className="text-[var(--color-text-muted)] shrink-0 select-none">[{log.time}]</span>
               <span
@@ -192,28 +192,28 @@ export function LiveSimulator() {
       </div>
 
       {/* Interactive Trigger Control Bar */}
-      <div className="bg-[var(--color-surface-alt)]/50 px-6 py-4 border-t border-[var(--color-border-subtle)] flex items-center justify-between gap-4">
+      <div className="bg-[var(--color-surface-alt)]/50 px-4 py-3 sm:px-6 sm:py-4 border-t border-[var(--color-border-subtle)] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
         <div>
           {step < 3 ? (
             <p className="text-xs text-[var(--color-text-muted)] font-medium">Simulation automatically running... Wait for scanner alert.</p>
           ) : step === 3 ? (
             <p className="text-xs text-[var(--color-status-warn)] font-semibold flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm">warning</span> Action Required: Spiking CPA exposing ad budget.
+              <span className="material-symbols-outlined text-sm shrink-0">warning</span> Action Required: Spiking CPA exposing ad budget.
             </p>
           ) : (
             <p className="text-xs text-[var(--color-status-good)] font-semibold flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm">check_circle</span> Budget Protection Active. Spills stopped.
+              <span className="material-symbols-outlined text-sm shrink-0">check_circle</span> Budget Protection Active. Spills stopped.
             </p>
           )}
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2 justify-end sm:justify-start">
           {step === 3 && (
             <Button
               size="sm"
               onClick={handleEngage}
               disabled={buttonLoading}
-              className="bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] hover:opacity-90 font-semibold"
+              className="bg-gradient-to-r from-[var(--color-brand-blue)] to-[var(--color-brand-cyan)] hover:opacity-90 font-semibold w-full sm:w-auto"
             >
               {buttonLoading ? "Executing API..." : "Engage Guardrail"}
             </Button>
@@ -225,6 +225,7 @@ export function LiveSimulator() {
               variant="secondary"
               onClick={handleReset}
               disabled={buttonLoading}
+              className="w-full sm:w-auto"
             >
               Restart Simulation
             </Button>

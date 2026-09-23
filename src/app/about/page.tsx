@@ -3,158 +3,195 @@
 import * as React from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/Button"
-
-const PRINCIPLES = [
-  {
-    title: "Simple & clear design",
-    desc: "Growcin is built to be clean and effortless — easy menus, zero clutter, and clear information at a glance.",
-  },
-  {
-    title: "AI you can trust",
-    desc: "Every AI suggestion comes with simple explanations: what changed, why it matters, and what step to take next.",
-  },
-  {
-    title: "Built by experts",
-    desc: "Growcin is created by Devora Tech Studio — bringing top-quality engineering to help your business scale safely.",
-  },
-]
 
 const TIMELINE = [
   {
-    tag: "Origin",
-    title: "From marketing chaos",
-    desc: "Managing marketing manually created constant headaches: rising ad costs, repetitive work, and tools scattered everywhere.",
+    era: "Era 01 / Brute Force",
+    title: "Manual Campaign Slog",
+    desc: "Fragmented spreadsheets, manual hourly monitoring, reliance on individual media buyers, and inevitable weekend budget burn.",
   },
   {
-    tag: "Build",
-    title: "The Growcin platform",
-    desc: "We combined content writing, ad management, analytics, and sales leads into one easy, automated AI system.",
+    era: "Era 02 / The Synthesis",
+    title: "The First Automation Layers",
+    desc: "Development of early API scripts, custom CPA anomaly webhooks, and unified data pipelines across client ad accounts.",
   },
   {
-    tag: "Today",
-    title: "Growth without the busywork",
-    desc: "Businesses use Growcin to run marketing automatically, avoid wasted ad budget, and grow without daily stress.",
+    era: "Era 03 / Calm Scale",
+    title: "Autonomous Campaign Intelligence",
+    desc: "Growcin is deployed globally — an intelligent growth radar that guards ad spend, flags creative fatigue, and qualifies leads 24/7.",
+  },
+]
+
+const PRINCIPLES = [
+  {
+    title: "Data-Driven over Guesswork",
+    desc: "We rely on statistical confidence over hunches. An alert or recommendation is only surfaced when clear thresholds are triggered.",
+    icon: "balance",
+  },
+  {
+    title: "Transparent over Black-Box",
+    desc: "No confusing mysteries. Every insight arrives with 3 clear facts: what changed, why it happened, and the exact recommendation.",
+    icon: "visibility",
+  },
+  {
+    title: "Protect Your Budget First",
+    desc: "The primary job of growth software is stopping waste before spend compounds. Fix leaks before throwing more money at ads.",
+    icon: "shield",
   },
 ]
 
 export default function AboutPage() {
   return (
     <div className="flex flex-col w-full overflow-hidden">
-      <section className="relative hero-atmosphere pt-28 sm:pt-32 pb-14 sm:pb-20 md:pt-40 md:pb-28 px-4 sm:px-6 overflow-hidden">
-        <div className="absolute inset-0 hero-grid-pattern pointer-events-none" />
-        <div className="container mx-auto max-w-4xl relative z-10 text-center">
-          <motion.div
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--color-brand-blue)] mb-4">
-              About Growcin
-            </p>
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-[var(--color-ink)] leading-[1.05] mb-5">
-              AI marketing made simple for your business
-            </h1>
-            <p className="text-base md:text-lg text-body font-medium leading-relaxed max-w-2xl mx-auto mb-8">
-              Growcin is an easy-to-use AI platform that handles your social posts, ads, email, and reports automatically—so you can grow without the confusion.
-            </p>
-            <Button size="lg" asChild>
-              <Link href="/signup">Start Free Trial</Link>
-            </Button>
-          </motion.div>
+      {/* ========================================================================= */}
+      {/* 1. HERO SECTION                                                           */}
+      {/* ========================================================================= */}
+      <section className="relative overflow-hidden pt-36 pb-20 lg:pt-48 lg:pb-28 bg-[linear-gradient(180deg,#FBF9FF_0%,#FFFFFF_40%,#FBF9FE_100%)]">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-40 left-1/2 h-[700px] w-[1100px] -translate-x-1/2"
+          style={{
+            background:
+              "radial-gradient(50% 50% at 50% 50%, rgba(168,85,247,0.14) 0%, rgba(168,85,247,0.04) 50%, rgba(168,85,247,0) 75%)",
+          }}
+        />
+
+        <div className="container relative z-10 mx-auto px-6 max-w-5xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-purple-100 bg-white/80 px-3.5 py-1.5 shadow-sm backdrop-blur-sm mb-6">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#A855F7]" />
+            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-purple-900">
+              Our Mission
+            </span>
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-6">
+            Built for{" "}
+            <span className="font-serif-accent italic font-normal text-[#A855F7]">
+              Calm, Predictable
+            </span>{" "}
+            Growth
+          </h1>
+
+          <p className="mx-auto max-w-2xl text-lg sm:text-xl text-slate-600 leading-relaxed mb-10">
+            We replace manual media-buying burnout with intelligent automated monitoring. Growcin lets founders and agencies scale spend with total peace of mind.
+          </p>
+
+          <div className="flex items-center justify-center gap-4">
+            <a
+              href="/signup/"
+              className="px-8 py-4 bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-full shadow-lg shadow-purple-500/25 transition-all hover:-translate-y-0.5"
+            >
+              Get Started Free
+            </a>
+          </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28 px-4 sm:px-6 bg-white border-y border-[var(--color-border-subtle)]">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      {/* ========================================================================= */}
+      {/* 2. ARCHITECTURE FOR THE AMBITIOUS                                         */}
+      {/* ========================================================================= */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto max-w-6xl px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--color-brand-blue)] mb-3">
-                Mission
-              </p>
-              <h2 className="font-display text-3xl md:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-[1.1] mb-5">
-                Replace confusing marketing chores with clear, automated growth
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#A855F7] block mb-2">
+                Why Growcin
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">
+                Built for High-Growth Teams.
               </h2>
-              <p className="text-base md:text-lg text-body leading-relaxed">
-                You shouldn&apos;t have to spend hours tweaking ads, writing repetitive posts, or decoding complex reports. Growcin turns all of that work into simple, automated next steps.
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-6">
+                We replace manual chaos with automated intelligence. When ad spend scales from $10,000 to $500,000 a month, manual media buyers burn out. Spreadsheets break. Alerts get missed.
+              </p>
+              <p className="text-slate-600 text-base leading-relaxed">
+                Growcin was created to provide a calm, non-stop nervous system for performance marketing. It watches frequency drift, attribution decay, and conversion anomalies every minute of the day.
               </p>
             </div>
-            <div className="grid sm:grid-cols-2 gap-6 lg:pt-8">
-              <div className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-base)] p-6">
-                <h3 className="font-display font-bold text-[var(--color-ink)] mb-2">For business owners</h3>
-                <p className="text-sm text-body leading-relaxed">
-                  Run all your marketing in one place without needing an expensive full team.
-                </p>
+
+            <div className="p-8 rounded-3xl bg-[#FAF8FD] border border-purple-100 space-y-4">
+              <div className="flex items-center justify-between border-b border-purple-100/60 pb-3">
+                <span className="text-xs font-mono font-semibold text-slate-500">ENGINE STATE</span>
+                <span className="text-xs font-mono font-bold text-emerald-600">LOGIC CORE v.05</span>
               </div>
-              <div className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-base)] p-6">
-                <h3 className="font-display font-bold text-[var(--color-ink)] mb-2">For agencies</h3>
-                <p className="text-sm text-body leading-relaxed">
-                  Manage multiple clients easily while protecting ad budgets and boosting results.
-                </p>
+              <div className="flex items-center justify-between border-b border-purple-100/60 pb-3">
+                <span className="text-xs font-mono font-semibold text-slate-500">SURVEILLANCE COVERAGE</span>
+                <span className="text-xs font-mono font-bold text-purple-700">100% OF CONNECTED SETS</span>
+              </div>
+              <div className="flex items-center justify-between border-b border-purple-100/60 pb-3">
+                <span className="text-xs font-mono font-semibold text-slate-500">PLATFORM UPTIME</span>
+                <span className="text-xs font-mono font-bold text-slate-900">99.98%</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-mono font-semibold text-slate-500">REST ENFORCEMENT</span>
+                <span className="text-xs font-mono font-bold text-purple-700">ACTIVE</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28 px-4 sm:px-6 bg-[var(--color-base)]">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-16">
-            <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--color-brand-blue)] mb-3">
-              Story
-            </p>
-            <h2 className="font-display text-3xl md:text-4xl font-extrabold tracking-tight text-[var(--color-ink)]">
-              How Growcin came to be
+      {/* ========================================================================= */}
+      {/* 3. SYSTEM HISTORY                                                         */}
+      {/* ========================================================================= */}
+      <section className="py-24 bg-[#FAF8FD] border-t border-slate-100">
+        <div className="container mx-auto max-w-5xl px-6">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#A855F7] block mb-2">
+              Evolution
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+              System History
             </h2>
+            <p className="text-slate-600 text-base">
+              Hardened through real agency spend across millions of dollars in live ad inventory.
+            </p>
           </div>
 
           <div className="space-y-6">
-            {TIMELINE.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="rounded-2xl border border-[var(--color-border-subtle)] bg-white p-6 md:p-8 flex flex-col sm:flex-row gap-4 sm:gap-8"
+            {TIMELINE.map((item, idx) => (
+              <div
+                key={idx}
+                className="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm"
               >
-                <div className="sm:w-28 shrink-0">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-[var(--color-brand-blue)]">
-                    {item.tag}
-                  </span>
-                </div>
-                <div>
-                  <h3 className="font-display text-xl font-bold text-[var(--color-ink)] mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm md:text-[15px] text-body leading-relaxed">{item.desc}</p>
-                </div>
-              </motion.div>
+                <span className="text-xs font-mono text-purple-700 font-bold uppercase tracking-wider block mb-1">
+                  {item.era}
+                </span>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{item.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28 px-4 sm:px-6 bg-white border-t border-[var(--color-border-subtle)]">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-14">
-            <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--color-brand-blue)] mb-3">
-              Principles
-            </p>
-            <h2 className="font-display text-3xl md:text-4xl font-extrabold tracking-tight text-[var(--color-ink)]">
-              How we build
+      {/* ========================================================================= */}
+      {/* 4. PRINCIPLES OF OUR OPERATION                                            */}
+      {/* ========================================================================= */}
+      <section className="py-24 bg-white border-t border-slate-100">
+        <div className="container mx-auto max-w-6xl px-6">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#A855F7] block mb-2">
+              Foundations
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+              Principles of Our Operation
             </h2>
+            <p className="text-slate-600 text-base">
+              The core rules that govern our code, models, and product direction.
+            </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-5">
-            {PRINCIPLES.map((p) => (
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {PRINCIPLES.map((p, idx) => (
               <div
-                key={p.title}
-                className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-base)] p-7"
+                key={idx}
+                className="p-8 rounded-3xl bg-[#FAF8FD] border border-purple-100/70"
               >
-                <h3 className="font-display text-xl font-bold text-[var(--color-ink)] mb-3">
-                  {p.title}
-                </h3>
-                <p className="text-sm text-body leading-relaxed">{p.desc}</p>
+                <span className="material-symbols-outlined text-3xl text-[#A855F7] mb-4">
+                  {p.icon}
+                </span>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">{p.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>

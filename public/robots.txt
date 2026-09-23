@@ -1,0 +1,23 @@
+User-Agent: GPTBot
+User-Agent: ChatGPT-User
+User-Agent: ClaudeBot
+User-Agent: anthropic-ai
+User-Agent: PerplexityBot
+User-Agent: Google-Extended
+User-Agent: Googlebot
+User-Agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /private/
+Disallow: /api/
+
+User-Agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /private/
+Disallow: /api/
+
+Host: https://www.growcin.com
+Sitemap: https://www.growcin.com/sitemap.xml

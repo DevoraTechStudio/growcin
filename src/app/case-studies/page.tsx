@@ -3,166 +3,154 @@
 import * as React from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { LogoMarquee } from "@/components/marketing/LogoMarquee"
-import { Button } from "@/components/ui/Button"
 
-const STORIES = [
+const CASE_STUDIES = [
   {
-    initials: "BI",
-    company: "Bliss International",
-    sector: "Education · Budget automation",
+    client: "Bliss International",
+    sector: "Education Sector • Automated Budgeting",
     quote:
-      "We shifted from evenly distributed budgets to Smart Budget Optimization. Spend now moves to high-conversion hours automatically.",
-    stats: [
-      { label: "Inquiries", val: "+39%" },
-      { label: "Walk-ins", val: "+33%" },
-      { label: "Calls", val: "+28%" },
-      { label: "Conv. lift", val: "30%" },
+      "We shifted from evenly distributed budgets to Smart Budget Optimization. The system now autonomously reallocates spend to high-conversion hours.",
+    badge: "SMART_ALLOCATION_V2",
+    metrics: [
+      { label: "Inquiries", value: "+39%" },
+      { label: "Walk-ins", value: "+33%" },
+      { label: "Calls", value: "+28%" },
+      { label: "Conv. Lift", value: "30%" },
     ],
   },
   {
-    initials: "BP",
-    company: "Best Prop Deal",
-    sector: "Real estate · Creative refresh",
+    client: "The Travel Saga",
+    sector: "Hospitality • Intent Targeting",
     quote:
-      "Before Growcin, creative refresh was gut feel. Now we rotate before CTR falls — clients see steadier CPA.",
-    stats: [
-      { label: "CPA variance", val: "−41%" },
-      { label: "Refresh speed", val: "3×" },
-      { label: "Escalations", val: "0" },
-      { label: "ROAS", val: "+22%" },
+      "We moved from broad targeting to Intent-based Optimization. This allowed us to capture high-intent travelers right when they were ready to book.",
+    badge: "INTENT_RADAR_ACTIVE",
+    metrics: [
+      { label: "Qualified Leads", value: "+41%" },
+      { label: "CPL Reduced", value: "29%" },
+      { label: "Booking Lift", value: "34%" },
+      { label: "ROAS", value: "2.3x" },
     ],
   },
   {
-    initials: "AS",
-    company: "AI Soch Studio",
-    sector: "Agency · Multi-account triage",
+    client: "BestPropDeal",
+    sector: "Real Estate • Decision Mapping",
     quote:
-      "Growcin flagged a CPA spike within 36 hours. We'd have caught it in the weekly review — four days later.",
-    stats: [
-      { label: "Detection", val: "36h" },
-      { label: "Accounts", val: "18" },
-      { label: "Spend saved", val: "$48k" },
-      { label: "Retention", val: "↑" },
+      "We implemented Decision Density Mapping. By aligning bids with high-decision hours, we dramatically improved site visit quality.",
+    badge: "HEATMAP_3D_VIEW",
+    metrics: [
+      { label: "Qual. Leads", value: "+35%" },
+      { label: "CPL Cut", value: "27%" },
+      { label: "Site Visits", value: "+30%" },
+      { label: "ROAS", value: "2.5x" },
     ],
   },
 ]
 
-export default function CaseStudiesIndexPage() {
+export default function CaseStudiesPage() {
   return (
     <div className="flex flex-col w-full overflow-hidden">
-      <section className="relative hero-atmosphere pt-28 sm:pt-32 pb-12 sm:pb-16 md:pt-40 md:pb-24 px-4 sm:px-6 text-center overflow-hidden">
-        <div className="absolute inset-0 hero-grid-pattern pointer-events-none" />
-        <div className="container mx-auto max-w-4xl relative z-10">
-          <motion.div
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+      {/* ========================================================================= */}
+      {/* 1. HERO SECTION                                                           */}
+      {/* ========================================================================= */}
+      <section className="relative overflow-hidden pt-36 pb-20 lg:pt-48 lg:pb-28 bg-[linear-gradient(180deg,#FBF9FF_0%,#FFFFFF_40%,#FBF9FE_100%)]">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-40 left-1/2 h-[700px] w-[1100px] -translate-x-1/2"
+          style={{
+            background:
+              "radial-gradient(50% 50% at 50% 50%, rgba(168,85,247,0.14) 0%, rgba(168,85,247,0.04) 50%, rgba(168,85,247,0) 75%)",
+          }}
+        />
+
+        <div className="container relative z-10 mx-auto px-6 max-w-5xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-purple-100 bg-white/80 px-3.5 py-1.5 shadow-sm backdrop-blur-sm mb-6">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#A855F7]" />
+            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-purple-900">
+              Verified Outcomes
+            </span>
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-6">
+            When{" "}
+            <span className="font-serif-accent italic font-normal text-[#A855F7]">
+              Structure
+            </span>{" "}
+            Replaces Stress.
+          </h1>
+
+          <p className="mx-auto max-w-2xl text-lg sm:text-xl text-slate-600 leading-relaxed mb-10">
+            Architectural breakdowns of how deterministic campaign intelligence protects capital and drives predictable customer acquisition.
+          </p>
+
+          <a
+            href="/signup/"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-full shadow-lg shadow-purple-500/25 transition-all hover:-translate-y-0.5"
           >
-            <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--color-brand-blue)] mb-4">
-              Case studies
-            </p>
-            <h1 className="font-display text-4xl md:text-6xl font-extrabold tracking-tight text-[var(--color-ink)] leading-[1.05] mb-5">
-              Real teams. Measurable growth.
-            </h1>
-            <p className="text-base md:text-lg text-body font-medium max-w-2xl mx-auto leading-relaxed">
-              How founders and agencies reduced wasted spend, improved lead quality, and stopped babysitting ads with Growcin.
-            </p>
-          </motion.div>
+            <span>Run Free Account Audit</span>
+            <span className="material-symbols-outlined text-base">arrow_forward</span>
+          </a>
         </div>
       </section>
 
-      <LogoMarquee />
-
-      <section id="stories" className="py-20 md:py-28 px-4 sm:px-6 bg-white border-t border-[var(--color-border-subtle)]">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-3xl md:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] mb-4">
-              Performance transformations
+      {/* ========================================================================= */}
+      {/* 2. PERFORMANCE TRANSFORMATIONS                                            */}
+      {/* ========================================================================= */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto max-w-6xl px-6">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#A855F7] block mb-2">
+              Transformations
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight">
+              Performance{" "}
+              <span className="font-serif-accent italic font-normal text-[#A855F7] underline decoration-[#A855F7]/10 underline-offset-[16px]">
+                Transformations
+              </span>
             </h2>
-            <p className="text-base md:text-lg text-body max-w-xl mx-auto leading-relaxed">
-              Structural wins — not vanity metrics.
+            <p className="mt-6 text-slate-600 text-lg">
+              Architectural breakdowns of how structural logic replaces manual chaos.
             </p>
           </div>
 
-          <div className="space-y-16">
-            {STORIES.map((story, i) => (
-              <motion.div
-                key={story.company}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5 }}
-                className={`grid lg:grid-cols-2 gap-10 items-center ${
-                  i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
-                }`}
+          <div className="space-y-12">
+            {CASE_STUDIES.map((cs, idx) => (
+              <div
+                key={idx}
+                className="p-8 sm:p-12 rounded-3xl bg-[#FAF8FD] border border-purple-100/70 shadow-sm"
               >
-                <div>
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className="w-11 h-11 rounded-full brand-gradient-bg flex items-center justify-center font-display font-bold text-white text-sm shrink-0">
-                      {story.initials}
-                    </div>
-                    <div>
-                      <h3 className="font-display font-bold text-xl text-[var(--color-ink)]">
-                        {story.company}
-                      </h3>
-                      <p className="text-[11px] uppercase tracking-widest text-body-muted font-semibold mt-0.5">
-                        {story.sector}
-                      </p>
-                    </div>
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-8 border-b border-purple-100/60 pb-6">
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-1">
+                      {cs.client}
+                    </h3>
+                    <p className="text-xs font-mono text-purple-700 font-semibold uppercase tracking-wider">
+                      {cs.sector}
+                    </p>
                   </div>
-
-                  <blockquote className="text-base md:text-lg text-body leading-relaxed border-l-4 border-[var(--color-brand-blue)] pl-5 mb-8">
-                    &quot;{story.quote}&quot;
-                  </blockquote>
-
-                  <div className="grid grid-cols-2 gap-3">
-                    {story.stats.map((stat) => (
-                      <div
-                        key={stat.label}
-                        className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-base)] p-4"
-                      >
-                        <span className="text-[10px] uppercase tracking-widest text-body-muted font-bold block mb-1">
-                          {stat.label}
-                        </span>
-                        <div className="font-display text-2xl font-extrabold text-[var(--color-ink)]">
-                          {stat.val}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                  <span className="text-xs font-mono font-bold bg-white px-3 py-1.5 rounded-full border border-purple-100 text-slate-700 self-start lg:self-auto">
+                    {cs.badge}
+                  </span>
                 </div>
 
-                <div className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-product)] p-6 md:p-8 min-h-[260px] flex flex-col justify-between shadow-[0_30px_80px_-40px_rgba(15,23,42,0.5)]">
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                      Outcome snapshot
-                    </span>
-                    <span className="text-[10px] font-semibold text-[var(--color-status-good)] bg-[var(--color-status-good)]/10 px-2 py-1 rounded-full">
-                      Verified
-                    </span>
-                  </div>
-                  <div className="flex items-end gap-2 h-32">
-                    {[40, 55, 48, 72, 65, 88, 92].map((h, idx) => (
-                      <div
-                        key={idx}
-                        className="flex-1 rounded-t-md bg-gradient-to-t from-[var(--color-brand-blue)] to-[var(--color-brand-accent)] opacity-80"
-                        style={{ height: `${h}%` }}
-                      />
-                    ))}
-                  </div>
-                  <p className="text-xs text-slate-400 mt-4">
-                    Performance trend after Growcin activation
-                  </p>
+                <p className="text-base sm:text-lg text-slate-700 italic leading-relaxed mb-8">
+                  &ldquo;{cs.quote}&rdquo;
+                </p>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {cs.metrics.map((m, mIdx) => (
+                    <div
+                      key={mIdx}
+                      className="p-5 rounded-2xl bg-white border border-purple-50 text-center shadow-sm"
+                    >
+                      <span className="text-2xl sm:text-3xl font-extrabold text-purple-900 font-mono">
+                        {m.value}
+                      </span>
+                      <p className="text-xs font-medium text-slate-500 mt-1">{m.label}</p>
+                    </div>
+                  ))}
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </div>
-
-          <div className="text-center mt-16">
-            <Button size="lg" asChild>
-              <Link href="/signup">Start Free Trial</Link>
-            </Button>
           </div>
         </div>
       </section>

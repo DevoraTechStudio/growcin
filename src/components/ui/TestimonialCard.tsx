@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
@@ -5,47 +7,94 @@ interface TestimonialCardProps {
   name: string
   title: string
   quote: string
+  image?: string
   className?: string
+  onPlay?: () => void
 }
 
-export function TestimonialCard({ name, title, quote, className }: TestimonialCardProps) {
-  const initials = name
-    .split(" ")
-    .map((n) => n[0])
-    .join("")
-    .slice(0, 2)
-
+export function TestimonialCard({
+  name,
+  title,
+  quote,
+  image,
+  className,
+  onPlay,
+}: TestimonialCardProps) {
   return (
     <div
       className={cn(
-        "h-full flex flex-col rounded-2xl border border-[var(--color-border-subtle)] bg-white p-5 sm:p-7 md:p-8 shadow-[0_1px_0_rgba(15,23,42,0.04)]",
+        "group relative rounded-[2.5rem] bg-white p-3 sm:p-4 shadow-[0_20px_50px_-15px_rgba(168,85,247,0.08),0_10px_20px_-5px_rgba(0,0,0,0.03)] border border-slate-100/90 overflow-hidden flex flex-col hover:-translate-y-1 transition-all duration-500",
         className
       )}
     >
-      <div className="flex gap-0.5 mb-4 sm:mb-5 text-[var(--color-brand-blue)]">
-        {[...Array(5)].map((_, i) => (
-          <span
-            key={i}
-            className="material-symbols-outlined text-[16px] sm:text-[18px]"
-            style={{ fontVariationSettings: "'FILL' 1" }}
+      {/* Video Thumbnail Area */}
+      {image ? (
+        <div className="relative w-full aspect-video rounded-[2rem] overflow-hidden bg-slate-900 mb-6">
+          <img
+            alt={`${name}, ${title}`}
+            src={image}
+            className="w-full h-full object-cover grayscale contrast-105 group-hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+
+          {/* Frosted Glass Play Button */}
+          <button
+            type="button"
+            onClick={onPlay}
+            aria-label={`Play video walkthrough from ${name}`}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center text-[#A855F7] shadow-xl hover:scale-110 hover:bg-[#A855F7] hover:text-white transition-all duration-300 cursor-pointer group/btn"
           >
-            star
-          </span>
-        ))}
-      </div>
+            <span
+              className="material-symbols-outlined text-3xl ml-1 text-[#A855F7] group-hover/btn:text-white transition-colors"
+              style={{ fontVariationSettings: "'FILL' 1" }}
+            >
+              play_arrow
+            </span>
+          </button>
 
-      <p className="text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed text-body mb-6 sm:mb-8 flex-grow">
-        &quot;{quote}&quot;
-      </p>
+          {/* Founder Name & Title bottom left */}
+          <div className="absolute bottom-5 left-6 text-left">
+            <h3 className="text-white font-bold text-lg sm:text-xl tracking-tight leading-tight">{name}</h3>
+            <p className="text-white/80 text-xs sm:text-sm font-medium mt-0.5">{title}</p>
+          </div>
 
-      <div className="flex items-center gap-3.5 mt-auto">
-        <div className="h-11 w-11 rounded-full brand-gradient-bg flex items-center justify-center text-white text-xs font-bold">
-          {initials}
+          {/* Tech Emblem bottom right */}
+          <div className="absolute bottom-5 right-6 text-white/70">
+            <span className="material-symbols-outlined text-2xl">token</span>
+          </div>
         </div>
+      ) : null}
+
+      {/* Quote & Stars */}
+      <div className="px-3 sm:px-4 pb-4 flex-1 flex flex-col justify-between text-left">
         <div>
-          <div className="font-semibold text-[var(--color-ink)] text-sm">{name}</div>
-          <div className="text-sm text-[var(--color-text-muted)]">{title}</div>
+          {/* 5 Purple Stars */}
+          <div className="flex gap-1 text-[#A855F7] mb-4">
+            {[...Array(5)].map((_, i) => (
+              <span
+                key={i}
+                className="material-symbols-outlined text-lg text-[#A855F7]"
+                style={{ fontVariationSettings: "'FILL' 1" }}
+              >
+                star
+              </span>
+            ))}
+          </div>
+
+          <p
+            className="text-slate-800 text-sm sm:text-base leading-relaxed font-normal"
+            style={{ color: "#1e293b" }}
+          >
+            &ldquo;{quote}&rdquo;
+          </p>
         </div>
+
+        {!image && (
+          <div className="mt-6 pt-4 border-t border-slate-100">
+            <div className="font-bold text-slate-900 text-base">{name}</div>
+            <div className="text-xs text-slate-400 font-medium">{title}</div>
+          </div>
+        )}
       </div>
     </div>
   )

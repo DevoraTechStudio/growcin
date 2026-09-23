@@ -1,0 +1,243 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.growcin.com#organization",
+    "name": "Growcin",
+    "url": "https://www.growcin.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.growcin.com/logo.png"
+    },
+    "description": "Campaign intelligence platform for paid advertising agencies and solopreneurs.",
+    "sameAs": [
+      "https://twitter.com/growcin",
+      "https://www.linkedin.com/company/growcin"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "url": "https://www.growcin.com"
+    },
+    "alternateName": "Growcin AI",
+    "areaServed": "Global",
+    "knowsAbout": [
+      "Meta Ads automation",
+      "CPA guardrails",
+      "AI campaign management",
+      "lead qualification",
+      "ad budget optimization"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.growcin.com#website",
+    "url": "https://www.growcin.com",
+    "name": "Growcin",
+    "description": "Growcin automates Meta ad campaigns \u2014 budget allocation, A/B testing, and CPA guardrails \u2014 so agencies and founders get qualified leads without the manual work.",
+    "inLanguage": "en",
+    "publisher": {
+      "@id": "https://www.growcin.com#organization"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Free Meta Ads Audit & AI Campaign Manager | Growcin",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [
+        ".speakable-hero",
+        ".speakable-faq-answer"
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": "https://www.growcin.com#software",
+    "name": "Growcin",
+    "alternateName": "Growcin AI",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "MarketingAutomation",
+    "description": "Connects read-only to a Meta ad account and scores every hour, audience and ad set in it \u2014 surfacing CPA spikes, creative fatigue, budget risk and lead quality issues, ranked by what to fix first.",
+    "url": "https://www.growcin.com",
+    "screenshot": "https://www.growcin.com/og-image.webp",
+    "operatingSystem": "Web",
+    "publisher": {
+      "@id": "https://www.growcin.com#organization"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "124",
+      "bestRating": "5"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "39",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/OnlineOnly"
+    },
+    "featureList": [
+      "Free read-only Meta ad account audit",
+      "CPA spike detection",
+      "Creative fatigue monitoring",
+      "CPA guardrails",
+      "Hour, audience and ad set scoring",
+      "Real-time performance monitoring",
+      "Campaign intelligence reporting",
+      "WhatsApp integration",
+      "Lead qualification filtering"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "How Growcin Surfaces Meta Campaign Performance Risks",
+    "description": "Watch how Growcin surfaces CPA spikes, creative fatigue, budget risk, and lead quality signals so teams know what to review next.",
+    "thumbnailUrl": "https://i.ytimg.com/vi/i2UuGd84ZJU/maxresdefault.jpg",
+    "uploadDate": "2024-01-01T00:00:00+00:00",
+    "embedUrl": "https://www.youtube.com/embed/i2UuGd84ZJU",
+    "contentUrl": "https://www.youtube.com/watch?v=i2UuGd84ZJU",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Growcin",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.growcin.com/logo.png"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://www.growcin.com#faq",
+    "url": "https://www.growcin.com",
+    "name": "Free Meta Ads Audit & AI Campaign Manager | Growcin - FAQs",
+    "inLanguage": "en",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://www.growcin.com#website",
+      "url": "https://www.growcin.com",
+      "name": "Growcin"
+    },
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "@id": "https://www.growcin.com#faq-q1-how-does-budget-risk-detection-work",
+        "url": "https://www.growcin.com#faq-q1-how-does-budget-risk-detection-work",
+        "name": "How does budget risk detection work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "@id": "https://www.growcin.com#faq-q1-how-does-budget-risk-detection-work-answer",
+          "text": "Growcin monitors CPA movement, spend anomalies, creative fatigue, and lead quality signals across your Meta campaigns. When budget is exposed, the platform flags the affected campaign and explains what changed."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://www.growcin.com#faq-q2-what-is-a-cpa-guardrail",
+        "url": "https://www.growcin.com#faq-q2-what-is-a-cpa-guardrail",
+        "name": "What is a CPA guardrail?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "@id": "https://www.growcin.com#faq-q2-what-is-a-cpa-guardrail-answer",
+          "text": "A CPA guardrail is a maximum cost-per-lead threshold you set. When actual CPA moves beyond that threshold, Growcin surfaces the risk early so your team can review the campaign before spend compounds."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://www.growcin.com#faq-q3-how-does-creative-fatigue-monitoring-work",
+        "url": "https://www.growcin.com#faq-q3-how-does-creative-fatigue-monitoring-work",
+        "name": "How does creative fatigue monitoring work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "@id": "https://www.growcin.com#faq-q3-how-does-creative-fatigue-monitoring-work-answer",
+          "text": "The platform watches signals such as CTR decline, frequency increases, hook-rate decay, and CPA movement. When a creative starts deteriorating, it shows the likely cause and recommended next action."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://www.growcin.com#faq-q4-what-does-lead-qualification-do",
+        "url": "https://www.growcin.com#faq-q4-what-does-lead-qualification-do",
+        "name": "What does lead qualification do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "@id": "https://www.growcin.com#faq-q4-what-does-lead-qualification-do-answer",
+          "text": "Every lead passes through an AI qualification layer. The platform asks pre-set questions via chatbot, and only routes high-intent leads to your sales team."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://www.growcin.com#faq-q5-does-ai-chat-assist-replace-my-meta-ads-manager",
+        "url": "https://www.growcin.com#faq-q5-does-ai-chat-assist-replace-my-meta-ads-manager",
+        "name": "Does Growcin replace my Meta Ads Manager?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "@id": "https://www.growcin.com#faq-q5-does-ai-chat-assist-replace-my-meta-ads-manager-answer",
+          "text": "No. Growcin connects to your existing Meta Ads Manager account - it does not replace it. You keep full access to Ads Manager while adding a campaign intelligence layer on top."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://www.growcin.com#faq-q6-why-not-just-use-meta-alerts",
+        "url": "https://www.growcin.com#faq-q6-why-not-just-use-meta-alerts",
+        "name": "Why not just use Meta alerts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "@id": "https://www.growcin.com#faq-q6-why-not-just-use-meta-alerts-answer",
+          "text": "Meta alerts tell you something happened. Growcin adds context by explaining why it happened, which campaigns are affected, and what action your team should consider next."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Avtar Singh",
+            "jobTitle": "CEO, AI Soch Studio"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "We were running 18 campaigns across three client accounts. Growcin flagged a CPA spike on a real estate campaign within 36 hours of it starting. We'd have caught it in the weekly review \u2014 four days later. That's the difference between a professional conversation and a difficult one.",
+          "itemReviewed": {
+            "@id": "https://www.growcin.com#software"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Abhishek Dhakoliya",
+            "jobTitle": "Marketing Head, Best Prop Deal"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Before Growcin, creative refresh decisions were gut feel and spreadsheets. Now I can see exactly when frequency is hurting performance and rotate before CTR falls. My clients see more consistent CPA and I spend less time explaining variance.",
+          "itemReviewed": {
+            "@id": "https://www.growcin.com#software"
+          }
+        }
+      }
+    ]
+  }
+]
