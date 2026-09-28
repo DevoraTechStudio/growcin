@@ -38,11 +38,12 @@ export default function SignupPage() {
             <span className="material-symbols-outlined text-base">arrow_forward</span>
           </a>
 
-          <div className="relative flex items-center justify-center">
-            <div className="border-t border-slate-200 w-full" />
-            <span className="bg-white px-3 text-xs text-slate-400 font-mono uppercase tracking-wider">
+          <div className="flex items-center gap-3 my-1">
+            <div className="h-px flex-1 bg-slate-200" />
+            <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 shrink-0 select-none">
               or enter work email
             </span>
+            <div className="h-px flex-1 bg-slate-200" />
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">

@@ -177,6 +177,32 @@ export default function RootLayout({
         <Script id="aca-bot-styles-activate" strategy="lazyOnload">
           {`document.getElementById('aca-bot-styles')?.setAttribute('media','all');`}
         </Script>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              html body app-kawaii-bot,
+              html body .ai-chatbot-container app-kawaii-bot {
+                right: 0px !important;
+                bottom: 12px !important;
+              }
+              html body .assistant-container,
+              html body .assistant-container.right {
+                right: 0 !important;
+                align-items: flex-end !important;
+              }
+              html body .simple-help-message,
+              html body .right .simple-help-message {
+                right: 16px !important;
+              }
+              html body .ai-chatbot-interface,
+              html body .ai-chatbot-container .ai-chatbot-interface {
+                right: 16px !important;
+                bottom: 16px !important;
+                margin: 0 !important;
+              }
+            `,
+          }}
+        />
         <Script id="helper" src="https://aichatassist.pages.dev/bundle.js?key=abc1234" strategy="lazyOnload" />
       </body>
     </html>
