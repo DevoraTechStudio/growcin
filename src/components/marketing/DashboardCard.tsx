@@ -4,7 +4,6 @@ import * as React from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 
-import { MascotAvatar } from "@/components/ui/MascotAvatar"
 
 export function HeroIntelligenceShowcase() {
   const [applied, setApplied] = React.useState(false)
@@ -470,13 +469,6 @@ export function HeroIntelligenceShowcase() {
           </div>
         </div>
 
-        {/* Floating 3D Mascot Speech Bubble - Growcin */}
-        <div className="absolute bottom-[24%] right-[-14%] z-30 flex items-center gap-2.5 animate-float-slow">
-          <div className="bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl border border-purple-100 shadow-[0_8px_25px_-5px_rgba(124,58,237,0.15)] text-[12px] font-semibold text-slate-800 whitespace-nowrap">
-            I can help you scale
-          </div>
-          <MascotAvatar size={52} />
-        </div>
 
         {/* Ambient Pulsing Glow Dots */}
         <div className="absolute top-[40%] right-[10%] w-2.5 h-2.5 rounded-full bg-[#f472b6] opacity-60 animate-pulse" />
