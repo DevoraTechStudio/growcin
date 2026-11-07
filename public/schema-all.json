@@ -203,15 +203,15 @@
           "@type": "Review",
           "author": {
             "@type": "Person",
-            "name": "Avtar Singh",
-            "jobTitle": "CEO, AI Soch Studio"
+            "name": "Manish Manna",
+            "jobTitle": "Owner, Swastik Decor"
           },
           "reviewRating": {
             "@type": "Rating",
             "ratingValue": "5",
             "bestRating": "5"
           },
-          "reviewBody": "We were running 18 campaigns across three client accounts. Growcin flagged a CPA spike on a real estate campaign within 36 hours of it starting. We'd have caught it in the weekly review \u2014 four days later. That's the difference between a professional conversation and a difficult one.",
+          "reviewBody": "Growcin completely transformed our customer response system. Inquiries across our Instagram and Meta accounts get instant auto-replies and qualification. We save countless hours of manual work and can stay 100% focused on business growth. Highly recommended!",
           "itemReviewed": {
             "@id": "https://www.growcin.com#software"
           }
@@ -224,15 +224,15 @@
           "@type": "Review",
           "author": {
             "@type": "Person",
-            "name": "Abhishek Dhakoliya",
-            "jobTitle": "Marketing Head, Best Prop Deal"
+            "name": "Vasu Patel",
+            "jobTitle": "Founder, Royal Crown Laminates"
           },
           "reviewRating": {
             "@type": "Rating",
             "ratingValue": "5",
             "bestRating": "5"
           },
-          "reviewBody": "Before Growcin, creative refresh decisions were gut feel and spreadsheets. Now I can see exactly when frequency is hurting performance and rotate before CTR falls. My clients see more consistent CPA and I spend less time explaining variance.",
+          "reviewBody": "Integrating Growcin with our Meta and Instagram handles was one of the best marketing decisions we've made. From AI auto-replies to complete campaign management, it runs smoothly and consistently delivers qualified leads while drastically cutting down manual effort.",
           "itemReviewed": {
             "@id": "https://www.growcin.com#software"
           }

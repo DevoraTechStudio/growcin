@@ -8,6 +8,7 @@ import { ProductDashboard } from "@/components/marketing/ProductDashboard"
 import { HeroIntelligenceShowcase } from "@/components/marketing/DashboardCard"
 import { ComparisonTable } from "@/components/marketing/ComparisonTable"
 import { LiveSimulator } from "@/components/marketing/LiveSimulator"
+import { PLATFORMS } from "@/components/marketing/PlatformLogos"
 import { TestimonialCard } from "@/components/ui/TestimonialCard"
 import { Accordion } from "@/components/ui/Accordion"
 import { cn } from "@/lib/utils"
@@ -54,16 +55,6 @@ const STATS_DATA = [
   { value: "$18M+", label: "Ad spend monitored monthly" },
 ]
 
-const PLATFORMS = [
-  { name: "Meta", icon: "campaign" },
-  { name: "Instagram", icon: "photo_camera" },
-  { name: "WhatsApp", icon: "chat" },
-  { name: "Google Ads", icon: "ads_click" },
-  { name: "LinkedIn", icon: "work" },
-  { name: "TikTok", icon: "play_circle" },
-  { name: "Snapchat", icon: "filter_drama" },
-  { name: "Pinterest", icon: "push_pin" },
-]
 
 export default function Home() {
   const [wordIndex, setWordIndex] = React.useState(0)
@@ -786,18 +777,18 @@ export default function Home() {
           {/* Video Testimonial Cards - 2 Column Layout identical to aichatassist.com */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-6xl mx-auto">
             <TestimonialCard
-              image="/partners/aisochstudio.jpg"
-              quote="We were running 18 campaigns across three client accounts. Growcin flagged a CPA spike on a real estate campaign within 36 hours of it starting. We'd have caught it in the weekly review — four days later. That's the difference between a professional conversation and a difficult one."
-              name="Avtar Singh"
-              title="CEO, AI Soch Studio"
-              onPlay={() => setDemoPlaying(true)}
+              image="/partners/manish-manna.jpg"
+              videoSrc="/videos/manish-manna-swastik-decor.mp4"
+              quote="Growcin completely transformed our customer response system. Inquiries across our Instagram and Meta accounts get instant auto-replies and qualification. We save countless hours of manual work and can stay 100% focused on business growth. Highly recommended!"
+              name="Manish Manna"
+              title="Owner, Swastik Decor"
             />
             <TestimonialCard
-              image="/partners/abhishek.jpg"
-              quote="Before Growcin, creative refresh decisions were gut feel and spreadsheets. Now I can see exactly when frequency is hurting performance and rotate before CTR falls. My clients see more consistent CPA and I spend less time explaining variance."
-              name="Abhishek Dhakoliya"
-              title="Marketing Head, Best Prop Deal"
-              onPlay={() => setDemoPlaying(true)}
+              image="/partners/vasu-patel.jpg"
+              videoSrc="/videos/vasu-patel-royal-crown.mp4"
+              quote="Integrating Growcin with our Meta and Instagram handles was one of the best marketing decisions we've made. From AI auto-replies to complete campaign management, it runs smoothly and consistently delivers qualified leads while drastically cutting down manual effort."
+              name="Vasu Patel"
+              title="Founder, Royal Crown Laminates"
             />
           </div>
 
@@ -833,12 +824,14 @@ export default function Home() {
               {PLATFORMS.map((platform) => (
                 <div
                   key={platform.name}
-                  className="flex flex-col items-center gap-2 text-slate-400 hover:text-[#A855F7] transition-colors duration-300 group cursor-default"
+                  className="flex flex-col items-center gap-2.5 text-slate-500 hover:text-slate-900 transition-all duration-300 group cursor-default"
                 >
-                  <span className="material-symbols-outlined text-2xl opacity-60 group-hover:opacity-100 transition-opacity">
-                    {platform.icon}
+                  <div className="w-8 h-8 flex items-center justify-center opacity-85 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
+                    {platform.logo}
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400 group-hover:text-slate-800 transition-colors">
+                    {platform.name}
                   </span>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.15em]">{platform.name}</span>
                 </div>
               ))}
             </div>
