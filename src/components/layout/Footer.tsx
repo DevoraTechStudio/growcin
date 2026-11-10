@@ -49,7 +49,6 @@ const FOOTER_COLUMNS: FooterColumn[] = [
     links: [
       { name: "Our Story", href: "/about/" },
       { name: "Methodology", href: "/methodology/" },
-      { name: "Blog", href: "/blog/" },
       { name: "Security & Trust", href: "/security/" },
       { name: "Case Studies", href: "/case-studies/" },
       { name: "Partners", href: "/partners/" },

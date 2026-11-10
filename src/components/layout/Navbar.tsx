@@ -12,7 +12,6 @@ const NAV_LINKS = [
   { name: "Methodology", href: "/methodology/" },
   { name: "About Us", href: "/about/" },
   { name: "Case Studies", href: "/case-studies/" },
-  { name: "Blog", href: "/blog/" },
 ]
 
 export function Navbar() {

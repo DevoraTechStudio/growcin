@@ -61,7 +61,6 @@ export default function Home() {
   const [dashView, setDashView] = React.useState<"dashboard" | "analytics" | "writer" | "campaigns">(
     "dashboard"
   )
-  const [demoPlaying, setDemoPlaying] = React.useState(false)
 
   React.useEffect(() => {
     const timer = setInterval(() => {
@@ -137,7 +136,7 @@ export default function Home() {
                 </Link>
 
                 <Link
-                  href="#demo"
+                  href="#product"
                   className="group flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-purple-600 transition-colors duration-300"
                 >
                   <span className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-purple-300 group-hover:bg-purple-50 transition-all duration-300">
@@ -710,50 +709,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* 11. VIDEO WALKTHROUGH (#demo)                                             */}
-      {/* ========================================================================= */}
-      <section id="demo" className="py-20 sm:py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">See it in 3 minutes</h2>
-          <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
-            Watch how the system flagged a creative fatigue event, identified the cause, and surfaced the recommended action &mdash; before a single rupee of additional budget was wasted.
-          </p>
-
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-[#1a1d2e] aspect-video">
-            {demoPlaying ? (
-              <iframe
-                src="https://www.youtube.com/embed/i2UuGd84ZJU?autoplay=1&rel=0&modestbranding=1"
-                title="How It Works Demo"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              />
-            ) : (
-              <button
-                type="button"
-                onClick={() => setDemoPlaying(true)}
-                className="absolute inset-0 w-full h-full flex items-center justify-center bg-[#1a1d2e]/70 transition-opacity hover:bg-[#1a1d2e]/50 cursor-pointer group"
-              >
-                <div className="w-16 h-16 rounded-full bg-[#A855F7] flex items-center justify-center shadow-lg shadow-purple-500/40 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-              </button>
-            )}
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-            <Link
-              href="#audit"
-              className="px-8 py-3.5 border-2 border-[#A855F7] text-[#A855F7] font-semibold rounded-full hover:bg-purple-50 hover:-translate-y-0.5 transition-all text-base"
-            >
-              Get a Free Audit
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* ========================================================================= */}
       {/* 12. SOCIAL PROOF & VIDEO TESTIMONIALS                                      */}
@@ -761,10 +716,20 @@ export default function Home() {
       <section className="relative overflow-hidden bg-[#fafafa] py-20 sm:py-24 lg:py-32">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
           <div className="text-center max-w-3xl mx-auto mb-16 md:mb-28">
-            <div className="mb-6 inline-flex items-center gap-4">
-              <span className="h-px w-10 bg-[#A855F7]" />
-              <span className="text-[11px] font-black uppercase tracking-[0.45em] text-[#A855F7]">Client Stories</span>
-              <span className="h-px w-10 bg-[#A855F7]" />
+            <div className="mb-6 inline-flex items-center gap-3 sm:gap-4">
+              <span className="h-px w-8 sm:w-10 bg-[#0668E1]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/90 border border-blue-200/70 shadow-sm">
+                <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none">
+                  <path
+                    fill="#0668E1"
+                    d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"
+                  />
+                </svg>
+                <span className="text-[11px] font-black uppercase tracking-[0.22em] text-[#0668E1]">
+                  Meta Partner Case Studies
+                </span>
+              </div>
+              <span className="h-px w-8 sm:w-10 bg-[#0668E1]" />
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-[1.1] tracking-tight text-slate-900 mb-6">
               Trusted by teams that needed<br />
@@ -777,18 +742,18 @@ export default function Home() {
           {/* Video Testimonial Cards - 2 Column Layout identical to aichatassist.com */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-6xl mx-auto">
             <TestimonialCard
-              image="/partners/manish-manna.jpg"
+              image="/partners/meta-partner-1.jpg"
               videoSrc="/videos/manish-manna-swastik-decor.mp4"
               quote="Growcin completely transformed our customer response system. Inquiries across our Instagram and Meta accounts get instant auto-replies and qualification. We save countless hours of manual work and can stay 100% focused on business growth. Highly recommended!"
               name="Manish Manna"
-              title="Owner, Swastik Decor"
+              title="Owner, Swastik Decor • Meta Verified Client"
             />
             <TestimonialCard
-              image="/partners/vasu-patel.jpg"
+              image="/partners/meta-partner-2.jpg"
               videoSrc="/videos/vasu-patel-royal-crown.mp4"
               quote="Integrating Growcin with our Meta and Instagram handles was one of the best marketing decisions we've made. From AI auto-replies to complete campaign management, it runs smoothly and consistently delivers qualified leads while drastically cutting down manual effort."
               name="Vasu Patel"
-              title="Founder, Royal Crown Laminates"
+              title="Founder, Royal Crown Laminates • Meta Campaign Client"
             />
           </div>
 
