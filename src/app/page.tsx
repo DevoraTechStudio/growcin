@@ -75,7 +75,7 @@ export default function Home() {
       {/* 1. HERO SECTION WITH EXACT BACKGROUND ORBS & TYPOGRAPHY                   */}
       {/* ========================================================================= */}
       <section className="relative overflow-hidden pt-24 sm:pt-36 lg:pt-44 pb-12 sm:pb-16 lg:pb-24">
-        {/* Background Grid & Ambient Orbs identical to aichatassist.com */}
+        {/* Background Grid & Ambient Orbs */}
         <div className="absolute inset-0 hero-grid-pattern pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-purple-50/60 via-white to-white pointer-events-none" />
         <div className="absolute top-20 left-[10%] w-[400px] h-[400px] bg-gradient-to-br from-purple-200/30 to-violet-300/20 rounded-full blur-[100px] animate-orb-1 pointer-events-none" />
@@ -739,7 +739,7 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* Video Testimonial Cards - 2 Column Layout identical to aichatassist.com */}
+          {/* Video Testimonial Cards - 2 Column Layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-6xl mx-auto">
             <TestimonialCard
               image="/partners/meta-partner-1.jpg"

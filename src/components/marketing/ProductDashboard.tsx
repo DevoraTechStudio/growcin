@@ -49,7 +49,7 @@ export function ProductDashboard({ className, activeView = "dashboard" }: Produc
         <div className="ml-2 sm:ml-3 flex-1 flex justify-center min-w-0">
           <div className="h-6 px-2.5 sm:px-4 rounded-md bg-white/5 border border-white/8 text-[9px] sm:text-[10px] text-slate-400 flex items-center gap-1.5 max-w-full sm:max-w-sm w-full justify-center truncate">
             <span className="material-symbols-outlined text-[11px] sm:text-[12px] shrink-0">lock</span>
-            <span className="truncate">app.growcin.com</span>
+            <span className="truncate">growcin.com/analytics</span>
           </div>
         </div>
       </div>

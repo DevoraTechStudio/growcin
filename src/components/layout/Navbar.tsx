@@ -92,12 +92,12 @@ export function Navbar() {
 
         {/* Desktop Actions & Mobile Trigger */}
         <div className="flex items-center gap-3 sm:gap-4">
-          <a
-            href="https://app.aichatassist.com/auth/sign-in"
+          <Link
+            href="/login"
             className="hidden sm:inline-flex items-center text-sm font-semibold text-slate-600 hover:text-slate-900 px-3 py-1.5 transition-colors"
           >
             Log in
-          </a>
+          </Link>
 
           <Link
             href="/signup/"
@@ -167,13 +167,13 @@ export function Navbar() {
                   <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
                 </Link>
 
-                <a
-                  href="https://app.aichatassist.com/auth/sign-in"
+                <Link
+                  href="/login"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full py-2.5 px-4 rounded-full border border-slate-200 text-slate-700 hover:bg-slate-50 text-center text-xs font-bold uppercase tracking-wider transition-colors"
+                  className="w-full py-2.5 px-4 rounded-full border border-slate-200 text-slate-700 hover:bg-slate-50 text-center text-xs font-bold uppercase tracking-wider transition-colors block"
                 >
                   Log in
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>
