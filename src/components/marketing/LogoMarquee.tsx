@@ -4,6 +4,12 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 const BRAND_LOGOS = [
+  { src: "/brands/virmax.png", name: "Virmax Engineering" },
+  { src: "/brands/swastik-decor.png", name: "Swastik Decor" },
+  { src: "/brands/royal-crown.png", name: "Royal Crown" },
+  { src: "/brands/edc-leather.png", name: "EDC Custom Leather" },
+  { src: "/brands/indie-grooves.png", name: "Indie Grooves" },
+  { src: "/brands/ethera-ethnics.png", name: "Ethera Ethnics" },
   { src: "/brands/Daga_Logo.webp", name: "Daga" },
   { src: "/brands/abbhyas.png", name: "Abbhyas" },
   { src: "/brands/almughamer.png", name: "Almughamer" },
