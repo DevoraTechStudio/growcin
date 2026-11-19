@@ -10,33 +10,16 @@ const BRAND_LOGOS = [
   { src: "/brands/edc-leather.png", name: "EDC Custom Leather" },
   { src: "/brands/indie-grooves.png", name: "Indie Grooves" },
   { src: "/brands/ethera-ethnics.png", name: "Ethera Ethnics" },
-  { src: "/brands/Daga_Logo.webp", name: "Daga" },
-  { src: "/brands/abbhyas.png", name: "Abbhyas" },
-  { src: "/brands/almughamer.png", name: "Almughamer" },
-  { src: "/brands/bestpropdeal.png", name: "BestPropDeal" },
-  { src: "/brands/bliss.png", name: "Bliss" },
-  { src: "/brands/core.png", name: "Core" },
-  { src: "/brands/deepauth.png", name: "DeepAuth" },
-  { src: "/brands/dsk.png", name: "DSK" },
-  { src: "/brands/Hirakani_Logo_2-removebg-preview.png", name: "Hirakani" },
-  { src: "/brands/alpha.png", name: "Alpha" },
-  { src: "/brands/the_entrepreneur_times_logo-removebg-preview.png", name: "Entrepreneur Times" },
-  { src: "/brands/japalouppe.png", name: "Japalouppe" },
-  { src: "/brands/jnanaprabodhini.png", name: "Jnanaprabodhini" },
-  { src: "/brands/mantra.png", name: "Mantra" },
-  { src: "/brands/ltrek.png", name: "LTrek" },
-  { src: "/brands/svi.png", name: "SVI" },
-  { src: "/brands/vtrek.png", name: "VTrek" },
-  { src: "/brands/ninsmart.png", name: "Ninsmart" },
-  { src: "/brands/thetravelsaga.png", name: "The Travel Saga" },
-  { src: "/brands/Procommun Google News.png", name: "Procommun" },
-  { src: "/brands/cropped-cropped-Admission-bharat-removebg-preview.png", name: "Admission Bharat" },
-  { src: "/brands/mvs-logo-removebg-preview.png", name: "MVS Media" },
-  { src: "/brands/hp-jwellers.jpg", name: "HP Jewellers" },
 ]
 
 export function LogoMarquee({ className }: { className?: string }) {
-  const marqueeLogos = [...BRAND_LOGOS, ...BRAND_LOGOS]
+  // Quadruple the 6 logos so the marquee seamlessly fills any screen width and loops infinitely
+  const marqueeLogos = [
+    ...BRAND_LOGOS,
+    ...BRAND_LOGOS,
+    ...BRAND_LOGOS,
+    ...BRAND_LOGOS,
+  ]
 
   return (
     <section
@@ -55,20 +38,20 @@ export function LogoMarquee({ className }: { className?: string }) {
       </p>
 
       <div className="hero-marquee-viewport hero-marquee-mask w-full overflow-hidden">
-        <div className="hero-marquee-track flex w-max items-center gap-8 sm:gap-12 md:gap-14">
+        <div className="hero-marquee-track flex w-max items-center gap-10 sm:gap-14 md:gap-16 py-1">
           {marqueeLogos.map((logo, idx) => (
             <div
               key={`${logo.name}-${idx}`}
-              className="flex h-7 w-[100px] shrink-0 items-center justify-center sm:h-8 sm:w-[124px]"
+              className="flex h-10 sm:h-12 w-[140px] sm:w-[170px] shrink-0 items-center justify-center transition-transform duration-300 hover:scale-105"
             >
               <img
                 src={logo.src}
                 alt={logo.name}
-                width={124}
-                height={32}
+                width={170}
+                height={56}
                 loading="lazy"
                 decoding="async"
-                className="max-h-7 w-auto max-w-full object-contain sm:max-h-8 [filter:grayscale(1)_brightness(0.55)_contrast(1.15)] transition-[filter] duration-500 hover:[filter:none]"
+                className="h-10 sm:h-12 w-auto max-w-full object-contain [filter:grayscale(1)_brightness(0.55)_contrast(1.15)] transition-[filter] duration-500 hover:[filter:none]"
               />
             </div>
           ))}
