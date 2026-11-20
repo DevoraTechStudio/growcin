@@ -75,7 +75,7 @@ export function TestimonialCard({
             <img
               alt={`${name}, ${title}`}
               src={image}
-              className="w-full h-full object-cover contrast-105 group-hover/thumb:scale-105 transition-all duration-700"
+              className="w-full h-full object-cover object-center contrast-105 group-hover/thumb:scale-105 transition-all duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/30 pointer-events-none" />
 

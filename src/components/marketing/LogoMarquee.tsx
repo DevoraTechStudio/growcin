@@ -10,6 +10,9 @@ const BRAND_LOGOS = [
   { src: "/brands/edc-leather.png", name: "EDC Custom Leather" },
   { src: "/brands/indie-grooves.png", name: "Indie Grooves" },
   { src: "/brands/ethera-ethnics.png", name: "Ethera Ethnics" },
+  { src: "/brands/devora.png", name: "Devora" },
+  { src: "/brands/emble-pcb.png", name: "EmblePCB" },
+  { src: "/brands/acdc.png", name: "ACDC" },
 ]
 
 export function LogoMarquee({ className }: { className?: string }) {

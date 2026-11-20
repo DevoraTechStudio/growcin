@@ -245,7 +245,7 @@ export function HeroIntelligenceShowcase() {
                   </div>
                   <div className="min-w-0">
                     <p className="text-[12px] font-bold text-slate-900 leading-snug">Lead quality &uarr; 22%</p>
-                    <p className="text-[10px] text-slate-500 font-sans">WhatsApp: Pune segment &middot; 1h ago</p>
+                    <p className="text-[10px] text-slate-500 font-sans">WhatsApp: Ahmedabad segment &middot; 1h ago</p>
                   </div>
                 </div>
               </motion.div>
@@ -418,7 +418,7 @@ export function HeroIntelligenceShowcase() {
               </div>
               <div className="min-w-0">
                 <p className="text-[14px] font-bold text-slate-900 leading-snug">Lead quality &uarr; 22%</p>
-                <p className="text-[11px] text-slate-500 mt-0.5 font-sans">WhatsApp: Pune segment &middot; 1h ago</p>
+                <p className="text-[11px] text-slate-500 mt-0.5 font-sans">WhatsApp: Ahmedabad segment &middot; 1h ago</p>
               </div>
             </div>
           </div>

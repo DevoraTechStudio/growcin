@@ -82,7 +82,7 @@ export default function Home() {
         <div className="absolute top-40 right-[5%] w-[350px] h-[350px] bg-gradient-to-bl from-fuchsia-200/25 to-purple-200/15 rounded-full blur-[90px] animate-orb-2 pointer-events-none" />
         <div className="absolute bottom-20 left-[30%] w-[300px] h-[300px] bg-gradient-to-tr from-indigo-100/20 to-purple-100/10 rounded-full blur-[80px] animate-orb-1 pointer-events-none" />
 
-        <div className="container relative z-10 mx-auto px-4 sm:px-6 max-w-7xl">
+        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="grid lg:grid-cols-[1fr_0.9fr] gap-12 lg:gap-16 items-center">
             {/* Left Content Column */}
             <div className="space-y-8 lg:text-left text-center">
@@ -189,7 +189,7 @@ export default function Home() {
         <div className="absolute left-0 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-purple-500/5 blur-3xl" />
         <div className="absolute bottom-0 right-0 h-96 w-96 translate-x-1/3 rounded-full bg-purple-500/5 blur-3xl" />
 
-        <div className="container relative z-10 mx-auto px-4 sm:px-6">
+        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="text-center mb-16 sm:mb-20 max-w-5xl mx-auto">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-4 sm:mb-6 text-slate-900 leading-[1.1]">
               Agencies And Serious Operators<br />
@@ -204,7 +204,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="relative mt-8 sm:mt-12 max-w-6xl mx-auto">
+          <div className="relative mt-8 sm:mt-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative z-10">
               {/* The CPA Creep */}
               <div className="flex flex-col gap-4 group">
@@ -299,7 +299,7 @@ export default function Home() {
       {/* 4. REAL ESTATE AGENCY RUNNING 22 META CAMPAIGNS                            */}
       {/* ========================================================================= */}
       <section className="relative overflow-hidden bg-[#FDFBFF] py-20 lg:py-32">
-        <div className="container relative z-10 mx-auto px-4 sm:px-6">
+        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="mx-auto mb-16 sm:mb-20 max-w-5xl text-center">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1] text-slate-900 mb-4 sm:mb-6">
               A Real Estate Agency Running{" "}
@@ -312,7 +312,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto">
             <div className="rounded-[2rem] border border-slate-100 bg-white/80 p-5 sm:p-8 md:p-12 shadow-[0_18px_50px_-24px_rgba(15,23,42,0.35)] backdrop-blur mb-6">
               <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-10 items-start">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-purple-50">
@@ -389,7 +389,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
               <div className="flex justify-between items-start mb-4">
                 <h3 className="font-bold text-slate-900">Campaign health</h3>
@@ -670,7 +670,7 @@ export default function Home() {
       {/* 10. PRODUCT DASHBOARD WORKSPACE SHOWCASE                                   */}
       {/* ========================================================================= */}
       <section id="product" className="py-20 sm:py-24 bg-[#FAF8FD] border-y border-slate-100">
-        <div className="container mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-3">
               Explore the Workspace
@@ -714,7 +714,7 @@ export default function Home() {
       {/* 12. SOCIAL PROOF & VIDEO TESTIMONIALS                                      */}
       {/* ========================================================================= */}
       <section className="relative overflow-hidden bg-[#fafafa] py-20 sm:py-24 lg:py-32">
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 md:mb-28">
             <div className="mb-6 inline-flex items-center gap-3 sm:gap-4">
               <span className="h-px w-8 sm:w-10 bg-[#0668E1]" />
@@ -740,16 +740,16 @@ export default function Home() {
           </div>
 
           {/* Video Testimonial Cards - 2 Column Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <TestimonialCard
-              image="/partners/meta-partner-1.jpg"
+              image="/partners/manish-manna-ai.jpg"
               videoSrc="/videos/manish-manna-swastik-decor.mp4"
               quote="Growcin completely transformed our customer response system. Inquiries across our Instagram and Meta accounts get instant auto-replies and qualification. We save countless hours of manual work and can stay 100% focused on business growth. Highly recommended!"
               name="Manish Manna"
               title="Owner, Swastik Decor • Meta Verified Client"
             />
             <TestimonialCard
-              image="/partners/meta-partner-2.jpg"
+              image="/partners/vasu-patel-ai.jpg"
               videoSrc="/videos/vasu-patel-royal-crown.mp4"
               quote="Integrating Growcin with our Meta and Instagram handles was one of the best marketing decisions we've made. From AI auto-replies to complete campaign management, it runs smoothly and consistently delivers qualified leads while drastically cutting down manual effort."
               name="Vasu Patel"

@@ -35,6 +35,18 @@ const FOOTER_COLUMNS: FooterColumn[] = [
     ],
   },
   {
+    title: "Gujarat Cities",
+    links: [
+      { name: "Ahmedabad", href: "/#cities" },
+      { name: "Surat", href: "/#cities" },
+      { name: "Vadodara", href: "/#cities" },
+      { name: "Rajkot", href: "/#cities" },
+      { name: "Gandhinagar", href: "/#cities" },
+      { name: "Bhavnagar", href: "/#cities" },
+      { name: "Jamnagar", href: "/#cities" },
+    ],
+  },
+  {
     title: "Features",
     links: [
       { name: "Campaign Audit", href: "/signup/" },
@@ -116,7 +128,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-y-0 md:gap-y-12 gap-x-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-y-0 md:gap-y-12 gap-x-6">
             {FOOTER_COLUMNS.map((col) => {
               const isOpen = openAccordion === col.title
               return (

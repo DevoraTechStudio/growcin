@@ -29,15 +29,14 @@ export function FinalCTA() {
               >
                 Audit My Campaigns
               </a>
-              <a
-                href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ13LgvF5NejuXGRDqvS4VUR584JG2eqrImNEgVHMAWh9kqyTawLvPA3wSwpXWaOq7zhgGCHWkeq"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-3.5 bg-white/15 border border-white/30 text-white text-base font-semibold rounded-full hover:bg-white/25 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 w-full sm:w-auto backdrop-blur-sm"
+              <button
+                type="button"
+                onClick={(e) => e.preventDefault()}
+                className="px-8 py-3.5 bg-white/15 border border-white/30 text-white text-base font-semibold rounded-full hover:bg-white/25 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 w-full sm:w-auto backdrop-blur-sm cursor-pointer"
               >
                 <span className="material-symbols-outlined text-[20px]">play_circle</span>
                 Book Walkthrough
-              </a>
+              </button>
             </div>
             <p className="text-sm text-white/60 mt-8">
               100% free · Read-only access · No credit card required
