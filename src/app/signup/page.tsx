@@ -15,13 +15,45 @@ export default function SignupPage() {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const [isSubmitted, setIsSubmitted] = React.useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setIsSubmitted(true)
-    }, 600)
+
+    const payload = {
+      email,
+      company,
+      spend,
+      submittedAt: new Date().toISOString(),
+      page: typeof window !== "undefined" ? window.location.href : "",
+    }
+
+    // 1. Backup to browser storage so no lead is lost
+    try {
+      const stored = JSON.parse(localStorage.getItem("growcin_audit_leads") || "[]")
+      stored.push(payload)
+      localStorage.setItem("growcin_audit_leads", JSON.stringify(stored))
+    } catch {
+      // ignore storage errors
+    }
+
+    // 2. Post to webhook endpoint if configured in env
+    const webhookUrl = process.env.NEXT_PUBLIC_AUDIT_WEBHOOK_URL
+    if (webhookUrl) {
+      try {
+        await fetch(webhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        })
+      } catch {
+        // network failure, graceful fallback
+      }
+    } else {
+      await new Promise((r) => setTimeout(r, 600))
+    }
+
+    setIsSubmitting(false)
+    setIsSubmitted(true)
   }
 
   return (

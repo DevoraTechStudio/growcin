@@ -1,6 +1,10 @@
 "use client"
 
 import * as React from "react"
+import Link from "next/link"
+
+const CALENDAR_LINK =
+  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ13LgvF5NejuXGRDqvS4VUR584JG2eqrImNEgVHMAWh9kqyTawLvPA3wSwpXWaOq7zhgGCHWkeq"
 
 export function FinalCTA() {
   return (
@@ -23,20 +27,21 @@ export function FinalCTA() {
               Get an instant audit of your ad accounts. Growcin spots CPA spikes, tired creatives, and lost leads — then gives you an exact, step-by-step fix.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
+              <Link
                 href="/signup/"
                 className="px-8 py-3.5 bg-white text-slate-900 text-base font-bold rounded-full shadow-lg hover:bg-white/90 hover:-translate-y-0.5 transition-all w-full sm:w-auto"
               >
                 Audit My Campaigns
-              </a>
-              <button
-                type="button"
-                onClick={(e) => e.preventDefault()}
+              </Link>
+              <a
+                href={CALENDAR_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-8 py-3.5 bg-white/15 border border-white/30 text-white text-base font-semibold rounded-full hover:bg-white/25 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 w-full sm:w-auto backdrop-blur-sm cursor-pointer"
               >
                 <span className="material-symbols-outlined text-[20px]">play_circle</span>
                 Book Walkthrough
-              </button>
+              </a>
             </div>
             <p className="text-sm text-white/60 mt-8">
               100% free · Read-only access · No credit card required

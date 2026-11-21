@@ -77,12 +77,12 @@ export default function AboutPage() {
           </p>
 
           <div className="flex items-center justify-center gap-4">
-            <a
+            <Link
               href="/signup/"
               className="px-8 py-4 bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-full shadow-lg shadow-purple-500/25 transition-all hover:-translate-y-0.5"
             >
               Get Started Free
-            </a>
+            </Link>
           </div>
         </div>
       </section>

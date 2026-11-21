@@ -76,7 +76,7 @@
     },
     "offers": {
       "@type": "Offer",
-      "price": "39",
+      "price": "49",
       "priceCurrency": "USD",
       "availability": "https://schema.org/OnlineOnly"
     },

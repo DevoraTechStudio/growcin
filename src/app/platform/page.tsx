@@ -71,12 +71,12 @@ export default function PlatformPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
+            <Link
               href="/signup/"
               className="px-8 py-4 bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-full shadow-lg shadow-purple-500/25 transition-all hover:-translate-y-0.5"
             >
               Run My Free Audit
-            </a>
+            </Link>
             <a
               href="#architecture"
               className="px-6 py-4 rounded-full border border-slate-200 text-slate-700 font-medium hover:bg-slate-50 transition-colors"
@@ -202,13 +202,13 @@ export default function PlatformPage() {
               <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-6">
                 Clients don&apos;t want data. They want reassurance. Give them reports that explain the &apos;Why&apos; behind the &apos;What&apos; — turning potential tension into confidence.
               </p>
-              <a
+              <Link
                 href="/signup/"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#A855F7] text-white font-semibold text-sm hover:bg-purple-600 transition-colors"
               >
                 <span>Preview Client Reports</span>
                 <span className="material-symbols-outlined text-base">arrow_forward</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

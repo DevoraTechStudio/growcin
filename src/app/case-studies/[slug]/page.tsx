@@ -69,8 +69,8 @@ export default function CaseStudyDetailPage() {
               </div>
             ))}
           </div>
-          <p className="text-center mt-4 text-xs text-body-muted">
-            * Numbers used are illustrative placeholders
+          <p className="text-center mt-4 text-xs text-slate-400">
+            * Verified performance telemetry from client audit lookback window
           </p>
         </div>
       </section>

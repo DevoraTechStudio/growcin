@@ -216,7 +216,7 @@ export default function LoginPage() {
                       Password
                     </label>
                     <Link
-                      href="#"
+                      href="mailto:support@growcin.com?subject=Growcin%20Account%20Password%20Reset"
                       className="text-xs text-[#A855F7] hover:underline font-semibold"
                     >
                       Forgot password?

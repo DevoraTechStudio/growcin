@@ -36,13 +36,13 @@ export default function WebsiteAIChatbotPage() {
             Turn website visitors into high-intent pipeline. Our lightweight, custom-trained widget answers product questions, overcomes objections, and qualifies leads 24/7.
           </p>
 
-          <a
+          <Link
             href="/signup/"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-full shadow-lg shadow-purple-500/25 transition-all hover:-translate-y-0.5"
           >
             <span>Deploy Your Chatbot Free</span>
             <span className="material-symbols-outlined text-base">arrow_forward</span>
-          </a>
+          </Link>
         </div>
       </section>
 

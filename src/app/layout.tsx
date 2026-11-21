@@ -4,6 +4,7 @@ import { Inter, Instrument_Serif, Playfair_Display, JetBrains_Mono, Manrope, Beb
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FinalCTA } from "@/components/layout/FinalCTA";
+// import { FloatingAssistant } from "@/components/ui/FloatingAssistant";
 import schemas from "../../public/schema-all.json";
 import "./globals.css";
 
@@ -145,7 +146,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0&display=swap"
           rel="stylesheet"
         />
         {schemas.map((schema, index) => (
@@ -169,8 +170,7 @@ export default function RootLayout({
         <main className="flex-1 relative z-10">{children}</main>
         <FinalCTA />
         <Footer />
-
-
+        {/* <FloatingAssistant /> */}
       </body>
     </html>
   );

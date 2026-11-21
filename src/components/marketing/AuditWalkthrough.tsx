@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Link from "next/link"
 import { cn } from "@/lib/utils"
 
 export function AuditWalkthrough() {
@@ -408,7 +409,7 @@ export function AuditWalkthrough() {
                 </p>
 
                 <div className="pt-2">
-                  <a
+                  <Link
                     href="/signup/"
                     className="group inline-flex items-center gap-2 text-base font-semibold text-purple-600 transition-colors hover:text-purple-700"
                   >
@@ -416,7 +417,7 @@ export function AuditWalkthrough() {
                     <span className="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">
                       arrow_forward
                     </span>
-                  </a>
+                  </Link>
                 </div>
               </div>
 

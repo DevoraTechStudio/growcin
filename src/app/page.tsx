@@ -10,7 +10,6 @@ import { ComparisonTable } from "@/components/marketing/ComparisonTable"
 import { LiveSimulator } from "@/components/marketing/LiveSimulator"
 import { PLATFORMS } from "@/components/marketing/PlatformLogos"
 import { TestimonialCard } from "@/components/ui/TestimonialCard"
-import { Accordion } from "@/components/ui/Accordion"
 import { cn } from "@/lib/utils"
 
 const CYCLING_WORDS = ["Revenue", "Profit", "Budget", "Pipeline", "Leads"]
@@ -125,7 +124,7 @@ export default function Home() {
               {/* Button CTAs */}
               <div className="flex flex-col sm:flex-row items-center lg:justify-start justify-center gap-4 pt-2">
                 <Link
-                  href="#audit"
+                  href="/signup/"
                   className="group relative pl-7 pr-2 py-2 bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white text-base font-semibold rounded-full shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/35 hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-3 overflow-hidden cursor-pointer"
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer pointer-events-none" />
@@ -843,6 +842,38 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 14. REGIONAL PRESENCE / GUJARAT CITIES SECTION                            */}
+      {/* ========================================================================= */}
+      <section id="cities" className="py-16 sm:py-20 bg-[#FAF8FD] border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="h-px w-6 bg-purple-400" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#A855F7]">
+              Regional Presence
+            </span>
+            <span className="h-px w-6 bg-purple-400" />
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-3">
+            Powering Performance Marketers Across Gujarat &amp; India
+          </h2>
+          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto mb-8">
+            Supporting fast-growing D2C, B2B, and real estate brands with 24/7 campaign intelligence, budget leak detection, and WhatsApp qualification.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-2.5 max-w-4xl mx-auto">
+            {["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Gandhinagar", "Bhavnagar", "Jamnagar"].map((city) => (
+              <span
+                key={city}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-purple-100 text-xs font-semibold text-slate-700 shadow-xs hover:border-[#A855F7] hover:text-[#A855F7] transition-all cursor-default"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#A855F7]" />
+                {city}
+              </span>
+            ))}
           </div>
         </div>
       </section>

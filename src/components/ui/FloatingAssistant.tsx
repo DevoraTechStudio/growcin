@@ -225,7 +225,7 @@ export function FloatingAssistant() {
               </form>
 
               <Link
-                href="#audit"
+                href="/signup/"
                 onClick={() => setIsOpen(false)}
                 className="text-center text-[11px] font-bold text-[#A855F7] hover:underline"
               >
