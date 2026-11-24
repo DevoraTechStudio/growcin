@@ -60,6 +60,7 @@ export default function Home() {
   const [dashView, setDashView] = React.useState<"dashboard" | "analytics" | "writer" | "campaigns">(
     "dashboard"
   )
+  const [pricingCurrency, setPricingCurrency] = React.useState<"USD" | "INR">("USD")
 
   React.useEffect(() => {
     const timer = setInterval(() => {
@@ -804,7 +805,329 @@ export default function Home() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 13. FAQ SECTION WITH SCHEMA-ALIGNED ARCHITECTURE                           */}
+      {/* 11. HOMEPAGE PRICING PREVIEW                                              */}
+      {/* ========================================================================= */}
+      <section id="pricing" className="py-24 sm:py-32 bg-[#FAF8FD] border-t border-purple-100/60">
+        <div className="container mx-auto max-w-5xl px-6 text-center">
+          <div className="mb-5 inline-flex items-center gap-3">
+            <span className="h-px w-8 bg-[#A855F7]/50" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#A855F7]">
+              Predictable Pricing
+            </span>
+            <span className="h-px w-8 bg-[#A855F7]/50" />
+          </div>
+
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-slate-900 mb-6">
+            Free to connect.{" "}
+            <span className="font-serif-accent italic font-normal text-[#A855F7]">
+              Plans from {pricingCurrency === "USD" ? "$129" : "₹10,999"} a month.
+            </span>
+          </h2>
+
+          <p className="mx-auto max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600 mb-8">
+            Connecting your ad account is 100% free with read-only diagnostics. Paid plans protect your spend from CPA creep, fatigued creatives, and dead hours.
+          </p>
+
+          {/* Currency Switcher */}
+          <div className="inline-flex items-center p-1 rounded-full bg-white border border-purple-100 text-xs font-semibold shadow-xs mb-12">
+            <button
+              type="button"
+              onClick={() => setPricingCurrency("USD")}
+              className={cn(
+                "px-4 py-1.5 rounded-full transition-all cursor-pointer",
+                pricingCurrency === "USD" ? "bg-purple-600 text-white shadow-xs" : "text-slate-500 hover:text-slate-900"
+              )}
+            >
+              USD ($)
+            </button>
+            <button
+              type="button"
+              onClick={() => setPricingCurrency("INR")}
+              className={cn(
+                "px-4 py-1.5 rounded-full transition-all cursor-pointer",
+                pricingCurrency === "INR" ? "bg-purple-600 text-white shadow-xs" : "text-slate-500 hover:text-slate-900"
+              )}
+            >
+              INR (₹)
+            </button>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-3 text-left items-stretch">
+            {/* Entry Plan */}
+            <div className="rounded-3xl border border-purple-100 bg-white p-7 shadow-sm flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#A855F7]">
+                  Entry
+                </p>
+                <p className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 font-mono">
+                  {pricingCurrency === "USD" ? "$129" : "₹10,999"}
+                  <span className="ml-1 text-sm font-normal text-slate-500 font-sans">
+                    /month
+                  </span>
+                </p>
+                <p className="text-xs text-slate-500 mt-2">
+                  For single brands needing continuous read-only audit &amp; waste alerts.
+                </p>
+                <ul className="mt-6 space-y-3 border-t border-slate-100 pt-5 text-xs sm:text-sm text-slate-700">
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">ads_click</span>
+                    <span className="font-semibold text-slate-900">1 Meta Ad Account</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">warning</span>
+                    <span>Waste &amp; fatigue alerts</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">query_stats</span>
+                    <span>Dead-hour analysis</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">person</span>
+                    <span>1 Team seat</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="mt-8">
+                <Link
+                  href="/signup/"
+                  className="w-full block text-center py-3 rounded-full border border-purple-200 text-purple-900 font-bold text-xs uppercase tracking-widest hover:bg-purple-50 transition-colors"
+                >
+                  Choose Entry
+                </Link>
+              </div>
+            </div>
+
+            {/* Starter Plan */}
+            <div className="rounded-3xl border border-purple-100 bg-white p-7 shadow-sm flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#A855F7]">
+                  Starter
+                </p>
+                <p className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 font-mono">
+                  {pricingCurrency === "USD" ? "$235" : "₹19,999"}
+                  <span className="ml-1 text-sm font-normal text-slate-500 font-sans">
+                    /month
+                  </span>
+                </p>
+                <p className="text-xs text-slate-500 mt-2">
+                  For small performance teams needing auto-pause CPA guardrails.
+                </p>
+                <ul className="mt-6 space-y-3 border-t border-slate-100 pt-5 text-xs sm:text-sm text-slate-700">
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">ads_click</span>
+                    <span className="font-semibold text-slate-900">3 Meta Ad Accounts</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">pause_circle</span>
+                    <span className="font-semibold text-purple-900">Auto-pause on CPA guardrail</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">speed</span>
+                    <span>Creative fatigue scoring &amp; fixes</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">group</span>
+                    <span>2 Team seats</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="mt-8">
+                <Link
+                  href="/signup/"
+                  className="w-full block text-center py-3 rounded-full border border-purple-200 text-purple-900 font-bold text-xs uppercase tracking-widest hover:bg-purple-50 transition-colors"
+                >
+                  Choose Starter
+                </Link>
+              </div>
+            </div>
+
+            {/* Agency Plan (Featured) */}
+            <div className="rounded-3xl border-2 border-[#A855F7] bg-gradient-to-b from-purple-50/70 via-white to-white p-7 shadow-xl shadow-purple-500/10 flex flex-col justify-between relative transition-all duration-300 hover:-translate-y-1">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#A855F7] text-white text-[9px] font-extrabold uppercase tracking-widest shadow-md">
+                Featured
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-purple-700 mt-1">
+                  Agency
+                </p>
+                <p className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 font-mono">
+                  {pricingCurrency === "USD" ? "$779" : "₹66,000"}
+                  <span className="ml-1 text-sm font-normal text-slate-500 font-sans">
+                    /month
+                  </span>
+                </p>
+                <p className="text-xs text-slate-500 mt-2">
+                  For scaling agencies running multi-account operations &amp; WhatsApp qualification.
+                </p>
+                <ul className="mt-6 space-y-3 border-t border-purple-100 pt-5 text-xs sm:text-sm text-slate-700">
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">ads_click</span>
+                    <span className="font-semibold text-slate-900">15 Meta Ad Accounts</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">pause_circle</span>
+                    <span className="font-semibold text-purple-900">Auto-pause CPA guardrail</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">chat</span>
+                    <span>1 WhatsApp number / account</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">smart_toy</span>
+                    <span>3,000 AI qualified chats / mo</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">hub</span>
+                    <span>10 Team seats, CRM sync &amp; API</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="mt-8">
+                <Link
+                  href="/signup/"
+                  className="w-full block text-center py-3 rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-purple-700 hover:to-indigo-700 text-white font-bold text-xs uppercase tracking-widest shadow-md transition-all hover:scale-[1.02]"
+                >
+                  Choose Agency
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10">
+            <Link
+              href="/pricing/"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[#A855F7] hover:text-purple-800 transition-colors"
+            >
+              <span>Compare all features, enterprise plans &amp; annual discounts</span>
+              <span className="material-symbols-outlined text-base">arrow_forward</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 12. FOUNDER / OPERATOR ORIGIN NOTE                                        */}
+      {/* ========================================================================= */}
+      <section className="py-20 bg-white border-t border-slate-100">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="rounded-3xl border border-purple-100 bg-[#FBF9FE] p-8 sm:p-10 shadow-sm">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
+              <span
+                aria-hidden="true"
+                className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#7C3AED] to-[#A855F7] text-xl font-bold text-white shadow-md"
+              >
+                GC
+              </span>
+              <div>
+                <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.28em] text-[#A855F7]">
+                  Who built this
+                </p>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-[1.15] tracking-tight text-slate-900">
+                  Built by people who{" "}
+                  <span className="font-serif-accent italic font-normal text-[#A855F7]">
+                    run Meta ads
+                  </span>
+                </h2>
+                <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-600">
+                  Growcin was engineered from the frontlines of performance marketing. Having managed high-volume Meta ad budgets across D2C, B2B, and real estate campaigns, we experienced the daily friction: waking up to unexpected CPA spikes, dead hours silently draining ad spend overnight, and spending 20+ hours each week pulling manual spreadsheets instead of focusing on high-converting strategy.
+                </p>
+                <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
+                  We built Growcin to be the deterministic intelligence layer Meta Ads Manager never provided — diagnosing CPA drift early, preventing unmonitored budget leakage, and qualifying inbound leads automatically.
+                </p>
+                <div className="mt-6 flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-700">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-purple-100">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    Continuous Signal Engine
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-purple-100">
+                    <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
+                    Zero Black-Box Guesswork
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 13. PRE-FAQ DIAGNOSTIC GUIDES                                             */}
+      {/* ========================================================================= */}
+      <section className="py-20 lg:py-24 bg-[#FAF8FD] border-t border-slate-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 max-w-2xl">
+            <div className="mb-4 inline-flex items-center gap-3">
+              <span className="h-px w-8 bg-[#A855F7]/50" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#A855F7]">
+                Meta Ads Diagnosis
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] text-slate-900">
+              Learn where Meta ads leak money{" "}
+              <span className="font-serif-accent italic font-normal text-[#A855F7]">
+                before the report does
+              </span>
+            </h2>
+            <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-600">
+              Practical diagnostic guides for agencies and media buyers, built on real campaign telemetry and battle-tested protocols.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {[
+              {
+                tag: "Diagnostic Guide",
+                title: "Why Meta ads lose money, and how to catch it early",
+                desc: "The four structural leaks: dead hours, creative saturation, audience overlap, and silent algorithm learning traps.",
+                href: "/blog/",
+              },
+              {
+                tag: "Troubleshooting",
+                title: "Why is my Meta ads CPA increasing?",
+                desc: "A step-by-step diagnostic checklist to isolate whether the increase is creative fatigue, landing page drop, or bidding drift.",
+                href: "/blog/",
+              },
+              {
+                tag: "Fatigue Analysis",
+                title: "Creative fatigue detection & frequency curves",
+                desc: "How to track first-time impression ratio decay and frequency curves before your blended account return collapses.",
+                href: "/blog/",
+              },
+              {
+                tag: "Budget Protection",
+                title: "CPA drift and automated guardrails explained",
+                desc: "Why relying on weekly client reporting causes budget leakage, and how automated halts protect agency profit margins.",
+                href: "/blog/",
+              },
+            ].map((guide, idx) => (
+              <Link
+                key={idx}
+                href={guide.href}
+                className="group flex flex-col justify-between rounded-3xl border border-purple-100 bg-white p-7 sm:p-8 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-purple-300 hover:shadow-md"
+              >
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#A855F7] bg-purple-50 px-2.5 py-1 rounded-full border border-purple-100">
+                    {guide.tag}
+                  </span>
+                  <h3 className="mt-4 text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#A855F7] transition-colors leading-snug">
+                    {guide.title}
+                  </h3>
+                  <p className="mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {guide.desc}
+                  </p>
+                </div>
+                <div className="mt-6 flex items-center gap-1.5 text-xs font-bold text-[#A855F7] group-hover:translate-x-1 transition-transform">
+                  <span>Read diagnostic guide</span>
+                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 14. FAQ SECTION WITH SCHEMA-ALIGNED ARCHITECTURE                           */}
       {/* ========================================================================= */}
       <section id="faq" className="relative py-20 lg:py-28 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:4rem_4rem]">
         <div className="container mx-auto max-w-5xl px-4 sm:px-6">

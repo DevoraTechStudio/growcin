@@ -22,15 +22,52 @@ const PRICING_FAQS = [
       "No credit card is required. The free audit is 100% free and read-only. We never get write access to spend your budget or make changes without your consent.",
   },
   {
+    question: "How does the auto-pause CPA guardrail work?",
+    answer:
+      "On Starter and Agency plans, you can optionally enable CPA guardrails. If a campaign or ad set drifts past your defined maximum allowable CPA, Growcin halts spend to prevent budget bleeding. Every action is logged and you retain full override authority in Ads Manager.",
+  },
+  {
     question: "Is there a limit on the number of leads qualified?",
     answer:
-      "All active plans include unthrottled WhatsApp qualification for your connected campaigns, with safety rate-limiting to protect your phone number reputation.",
+      "Agency plans include 3,000 AI qualified chats per month with dedicated WhatsApp numbers per account. Enterprise plans include volume custom allocations.",
+  },
+]
+
+const FEATURE_SECTIONS = [
+  {
+    title: "Ad Account Monitoring",
+    rows: [
+      { label: "Ad accounts connected", values: ["1 account", "3 accounts", "15 accounts", "Unlimited"] },
+      { label: "Account access level", values: ["Read-only audit", "Opt-in auto-pause", "Opt-in auto-pause", "Custom permissions"] },
+      { label: "Waste & creative fatigue alerts", hint: "CPA drift & fatigue detection", values: [true, true, true, true] },
+      { label: "CPA guardrail auto-pause", hint: "Halt bleeding ad sets automatically", values: [false, true, true, true] },
+      { label: "Audience cannibalization alerts", hint: "Internal campaign overlap check", values: [false, true, true, true] },
+      { label: "Creative scores & suggested fixes", values: [false, true, true, true] },
+      { label: "Autonomous budget recommendations", hint: "Budget allocation intelligence", values: [false, false, true, true] },
+    ],
+  },
+  {
+    title: "Lead Qualification & Messaging",
+    rows: [
+      { label: "Dedicated WhatsApp numbers", values: ["None", "None", "1 per ad account", "Multiple / Custom"] },
+      { label: "AI lead qualification chats", hint: "Automated qualification on WhatsApp & IG", values: ["None", "None", "3,000 chats / mo", "Volume custom"] },
+      { label: "Shared lead inbox & CRM sync", values: [false, false, true, true] },
+    ],
+  },
+  {
+    title: "Team & Support",
+    rows: [
+      { label: "Team seats included", values: ["1 seat", "2 seats", "10 seats", "Custom / SSO"] },
+      { label: "Google Sheets & CSV export", values: [false, true, true, true] },
+      { label: "API access & webhook triggers", values: [false, false, true, true] },
+      { label: "Dedicated growth manager", values: [false, false, "Priority Support", "Dedicated SLA"] },
+    ],
   },
 ]
 
 export default function PricingPage() {
   const [isAnnual, setIsAnnual] = React.useState(true)
-  const [currency, setCurrency] = React.useState<"INR" | "USD">("INR")
+  const [currency, setCurrency] = React.useState<"INR" | "USD">("USD")
 
   return (
     <div className="flex flex-col w-full overflow-hidden">
@@ -57,30 +94,20 @@ export default function PricingPage() {
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-6">
             Simple Pricing.{" "}
-            <span className="font-serif-accent italic font-normal text-[#A855F7]">
+            <span className="italic font-normal text-[#A855F7]">
               The Certainty
             </span>{" "}
             of Scale.
           </h1>
 
           <p className="mx-auto max-w-2xl text-lg sm:text-xl text-slate-600 leading-relaxed mb-10">
-            Transparent investment. No surprise fees. Connect your account and let autonomous intelligence guard your ad spend.
+            Connecting an ad account is free. Paid plans protect your spend from CPA creep, tired creatives, and dead-hour waste.
           </p>
 
           {/* Toggle Switches */}
           <div className="flex flex-wrap items-center justify-center gap-6">
             {/* Currency Toggle */}
             <div className="inline-flex items-center p-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold">
-              <button
-                type="button"
-                onClick={() => setCurrency("INR")}
-                className={cn(
-                  "px-4 py-1.5 rounded-full transition-all cursor-pointer",
-                  currency === "INR" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-900"
-                )}
-              >
-                INR (₹)
-              </button>
               <button
                 type="button"
                 onClick={() => setCurrency("USD")}
@@ -90,6 +117,16 @@ export default function PricingPage() {
                 )}
               >
                 USD ($)
+              </button>
+              <button
+                type="button"
+                onClick={() => setCurrency("INR")}
+                className={cn(
+                  "px-4 py-1.5 rounded-full transition-all cursor-pointer",
+                  currency === "INR" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-900"
+                )}
+              >
+                INR (₹)
               </button>
             </div>
 
@@ -118,7 +155,7 @@ export default function PricingPage() {
                   "text-[9px] px-1.5 py-0.5 rounded-full uppercase font-bold",
                   isAnnual ? "bg-white/25 text-white" : "bg-purple-100 text-purple-700"
                 )}>
-                  Save 25%
+                  2 Months Free
                 </span>
               </button>
             </div>
@@ -127,61 +164,61 @@ export default function PricingPage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. PRICING TIERS                                                          */}
+      {/* 2. PRICING TIERS (4-COLUMNS WITH +30% HIKE)                               */}
       {/* ========================================================================= */}
       <section className="pb-24 bg-white">
         <div className="container mx-auto max-w-7xl px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-            {/* 1. Starter */}
-            <div className="rounded-3xl p-8 bg-[#FAF8FD] border border-purple-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+            
+            {/* 1. Entry */}
+            <div className="rounded-3xl p-7 bg-[#FAF8FD] border border-purple-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/10">
               <div>
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-xl font-bold text-slate-900">Starter</h3>
+                <div className="flex justify-between items-center mb-3">
+                  <h3 className="text-xl font-bold text-slate-900">Entry</h3>
                   <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 bg-white px-2.5 py-1 rounded-full border border-purple-100">
-                    Solopreneur Baseline
+                    For One Brand
                   </span>
                 </div>
 
                 <div className="mb-6">
                   <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono">
-                    {currency === "INR"
-                      ? isAnnual ? "₹42,000" : "₹4,200"
-                      : isAnnual ? "$490" : "$49"}
-                    <span className="text-sm font-normal text-slate-500 font-sans">
-                      {isAnnual ? " / yearly" : " / month"}
+                    {currency === "USD"
+                      ? isAnnual ? "$1,290" : "$129"
+                      : isAnnual ? "₹1,09,999" : "₹10,999"}
+                    <span className="text-xs font-normal text-slate-500 font-sans ml-1">
+                      {isAnnual ? "/year" : "/mo"}
                     </span>
                   </div>
                   {isAnnual && (
                     <p className="text-xs text-purple-700 font-medium mt-1">
-                      Approx. {currency === "INR" ? "₹3,500" : "$40"} / month
+                      Approx. {currency === "USD" ? "$107" : "₹9,166"} / month
                     </p>
                   )}
+                  <p className="text-xs text-slate-500 mt-2 leading-relaxed">
+                    Essential read-only audit and ad waste detection for a single brand.
+                  </p>
                 </div>
 
-                <ul className="space-y-3.5 text-sm text-slate-700 mb-8">
-                  <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-base text-[#A855F7]">rocket_launch</span>
-                    <span>Upto 3 High-Performance Campaigns</span>
-                  </li>
+                <ul className="space-y-3 text-xs sm:text-sm text-slate-700 mb-8 border-t border-purple-100/70 pt-5">
                   <li className="flex items-center gap-2.5">
                     <span className="material-symbols-outlined text-base text-[#A855F7]">ads_click</span>
-                    <span>Instagram &amp; Facebook Ads Management</span>
+                    <span className="font-semibold text-slate-900">1 Meta Ad Account</span>
                   </li>
                   <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-base text-[#A855F7]">summarize</span>
-                    <span>Daily Updates</span>
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">warning</span>
+                    <span>Waste &amp; fatigue alerts</span>
                   </li>
                   <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-base text-[#A855F7]">share</span>
-                    <span>Website, WhatsApp &amp; Instagram Integration</span>
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">query_stats</span>
+                    <span>Dead-hour spend analytics</span>
                   </li>
                   <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-base text-[#A855F7]">person_search</span>
-                    <span>Lead Qualification</span>
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">lock</span>
+                    <span>100% Read-only diagnostics</span>
                   </li>
                   <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-base text-[#A855F7]">support_agent</span>
-                    <span>Dedicated Support &amp; Free Training</span>
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">person</span>
+                    <span>1 Team seat</span>
                   </li>
                 </ul>
               </div>
@@ -189,72 +226,139 @@ export default function PricingPage() {
               <div>
                 <Link
                   href="/signup/"
-                  className="w-full block text-center py-3.5 rounded-full border border-purple-200 text-purple-900 font-bold text-xs uppercase tracking-widest hover:bg-purple-50 transition-colors"
+                  className="w-full block text-center py-3 rounded-full border border-purple-200 text-purple-900 font-bold text-xs uppercase tracking-widest hover:bg-purple-50 transition-colors"
                 >
-                  Initialize Plan
+                  Choose Entry
                 </Link>
                 <p className="text-[10px] text-center text-slate-400 mt-2">Prices exclusive of taxes</p>
               </div>
             </div>
 
-            {/* 2. Professional (Recommended) */}
-            <div className="rounded-3xl p-8 bg-gradient-to-b from-purple-50/80 via-white to-purple-50/40 border-2 border-[#A855F7] flex flex-col justify-between shadow-xl shadow-purple-500/15 relative transition-all duration-300 hover:-translate-y-1">
-              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#A855F7] text-white text-[10px] font-extrabold uppercase tracking-widest shadow-md">
-                Recommended for Agencies
-              </div>
-
+            {/* 2. Starter */}
+            <div className="rounded-3xl p-7 bg-[#FAF8FD] border border-purple-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/10">
               <div>
-                <div className="flex justify-between items-center mb-4 mt-2">
-                  <h3 className="text-xl font-bold text-slate-900">Professional</h3>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-purple-700 bg-purple-100 px-2.5 py-1 rounded-full font-bold">
-                    Agency-Grade Leverage
+                <div className="flex justify-between items-center mb-3">
+                  <h3 className="text-xl font-bold text-slate-900">Starter</h3>
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 bg-white px-2.5 py-1 rounded-full border border-purple-100">
+                    For Small Teams
                   </span>
                 </div>
 
                 <div className="mb-6">
                   <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono">
-                    {currency === "INR"
-                      ? isAnnual ? "₹66,000" : "₹6,600"
-                      : isAnnual ? "$790" : "$79"}
-                    <span className="text-sm font-normal text-slate-500 font-sans">
-                      {isAnnual ? " / yearly" : " / month"}
+                    {currency === "USD"
+                      ? isAnnual ? "$2,330" : "$235"
+                      : isAnnual ? "₹1,99,999" : "₹19,999"}
+                    <span className="text-xs font-normal text-slate-500 font-sans ml-1">
+                      {isAnnual ? "/year" : "/mo"}
+                    </span>
+                  </div>
+                  {isAnnual && (
+                    <p className="text-xs text-purple-700 font-medium mt-1">
+                      Approx. {currency === "USD" ? "$194" : "₹16,666"} / month
+                    </p>
+                  )}
+                  <p className="text-xs text-slate-500 mt-2 leading-relaxed">
+                    Adds opt-in auto-pause CPA guardrails and creative fatigue scoring.
+                  </p>
+                </div>
+
+                <ul className="space-y-3 text-xs sm:text-sm text-slate-700 mb-8 border-t border-purple-100/70 pt-5">
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">ads_click</span>
+                    <span className="font-semibold text-slate-900">3 Meta Ad Accounts</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">pause_circle</span>
+                    <span className="font-semibold text-purple-900">Auto-pause on CPA guardrail</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">speed</span>
+                    <span>Creative fatigue scoring &amp; fixes</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">group_work</span>
+                    <span>Cannibalization overlap check</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">table_view</span>
+                    <span>Google Sheets data export</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">group</span>
+                    <span>2 Team seats</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <Link
+                  href="/signup/"
+                  className="w-full block text-center py-3 rounded-full border border-purple-200 text-purple-900 font-bold text-xs uppercase tracking-widest hover:bg-purple-50 transition-colors"
+                >
+                  Choose Starter
+                </Link>
+                <p className="text-[10px] text-center text-slate-400 mt-2">Prices exclusive of taxes</p>
+              </div>
+            </div>
+
+            {/* 3. Agency (Featured) */}
+            <div className="rounded-3xl p-7 bg-gradient-to-b from-purple-50/90 via-white to-purple-50/50 border-2 border-[#A855F7] flex flex-col justify-between shadow-xl shadow-purple-500/15 relative transition-all duration-300 hover:-translate-y-1">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full bg-[#A855F7] text-white text-[9px] font-extrabold uppercase tracking-widest shadow-md">
+                Featured For Agencies
+              </div>
+
+              <div>
+                <div className="flex justify-between items-center mb-3 mt-1">
+                  <h3 className="text-xl font-bold text-slate-900">Agency</h3>
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-purple-700 bg-purple-100 px-2.5 py-1 rounded-full font-bold">
+                    Multi-Client
+                  </span>
+                </div>
+
+                <div className="mb-6">
+                  <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono">
+                    {currency === "USD"
+                      ? isAnnual ? "$7,790" : "$779"
+                      : isAnnual ? "₹6,60,000" : "₹66,000"}
+                    <span className="text-xs font-normal text-slate-500 font-sans ml-1">
+                      {isAnnual ? "/year" : "/mo"}
                     </span>
                   </div>
                   {isAnnual && (
                     <p className="text-xs text-purple-700 font-bold mt-1">
-                      Approx. {currency === "INR" ? "₹5,500" : "$65"} / month
+                      Approx. {currency === "USD" ? "$649" : "₹55,000"} / month
                     </p>
                   )}
+                  <p className="text-xs text-slate-500 mt-2 leading-relaxed">
+                    Autonomous budget moves, WhatsApp qualification, and agency reporting.
+                  </p>
                 </div>
 
-                <ul className="space-y-3.5 text-sm text-slate-700 mb-8">
-                  <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-base text-[#A855F7]">rocket_launch</span>
-                    <span className="font-semibold text-slate-900">Upto 5 High-Performance Campaigns</span>
-                  </li>
+                <ul className="space-y-3 text-xs sm:text-sm text-slate-700 mb-8 border-t border-purple-200/70 pt-5">
                   <li className="flex items-center gap-2.5">
                     <span className="material-symbols-outlined text-base text-[#A855F7]">ads_click</span>
-                    <span>Instagram &amp; Facebook Ads Management</span>
+                    <span className="font-semibold text-slate-900">15 Meta Ad Accounts</span>
                   </li>
                   <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-base text-[#A855F7]">summarize</span>
-                    <span>Daily Updates</span>
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">pause_circle</span>
+                    <span className="font-semibold text-purple-900">Auto-pause CPA guardrail</span>
                   </li>
                   <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-base text-[#A855F7]">share</span>
-                    <span>Website, WhatsApp &amp; Instagram Integration</span>
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">auto_awesome</span>
+                    <span className="font-semibold text-purple-900">Budget move suggestions</span>
                   </li>
                   <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-base text-[#A855F7]">analytics</span>
-                    <span className="font-semibold text-slate-900">Weekly / Monthly Reports</span>
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">chat</span>
+                    <span>1 WhatsApp number / account</span>
                   </li>
                   <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-base text-[#A855F7]">person_search</span>
-                    <span>Lead Qualification</span>
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">smart_toy</span>
+                    <span>3,000 AI qualified chats / mo</span>
                   </li>
                   <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-base text-[#A855F7]">support_agent</span>
-                    <span>Dedicated Support &amp; Free Training</span>
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">hub</span>
+                    <span>10 Team seats, CRM sync &amp; API</span>
                   </li>
                 </ul>
               </div>
@@ -262,90 +366,75 @@ export default function PricingPage() {
               <div>
                 <Link
                   href="/signup/"
-                  className="w-full block text-center py-3.5 rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-purple-700 hover:to-indigo-700 text-white font-bold text-xs uppercase tracking-widest shadow-md shadow-purple-500/30 transition-all hover:scale-[1.02]"
+                  className="w-full block text-center py-3 rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-purple-700 hover:to-indigo-700 text-white font-bold text-xs uppercase tracking-widest shadow-md shadow-purple-500/30 transition-all hover:scale-[1.02]"
                 >
-                  Initialize Plan
+                  Choose Agency
                 </Link>
                 <p className="text-[10px] text-center text-slate-400 mt-2">Prices exclusive of taxes</p>
               </div>
             </div>
 
-            {/* 3. Enterprise */}
-            <div className="rounded-3xl p-8 bg-[#FAF8FD] border border-purple-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/10">
+            {/* 4. Enterprise */}
+            <div className="rounded-3xl p-7 bg-[#FAF8FD] border border-purple-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/10">
               <div>
-                <div className="flex justify-between items-center mb-4">
+                <div className="flex justify-between items-center mb-3">
                   <h3 className="text-xl font-bold text-slate-900">Enterprise</h3>
                   <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 bg-white px-2.5 py-1 rounded-full border border-purple-100">
-                    Infrastructure Unlimited
+                    Large Teams
                   </span>
                 </div>
 
                 <div className="mb-6">
-                  <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono">
-                    {currency === "INR"
-                      ? isAnnual ? "₹126,000" : "₹12,600"
-                      : isAnnual ? "$1,490" : "$149"}
-                    <span className="text-sm font-normal text-slate-500 font-sans">
-                      {isAnnual ? " / yearly" : " / month"}
-                    </span>
+                  <div className="text-3xl sm:text-4xl font-extrabold text-slate-900">
+                    Custom
                   </div>
-                  {isAnnual && (
-                    <p className="text-xs text-purple-700 font-medium mt-1">
-                      Billed annually
-                    </p>
-                  )}
+                  <p className="text-xs text-purple-700 font-medium mt-1">
+                    Volume pricing &amp; custom SLAs
+                  </p>
+                  <p className="text-xs text-slate-500 mt-2 leading-relaxed">
+                    Custom scale for multi-brand conglomerates and performance holding groups.
+                  </p>
                 </div>
 
-                <ul className="space-y-3.5 text-sm text-slate-700 mb-8">
+                <ul className="space-y-3 text-xs sm:text-sm text-slate-700 mb-8 border-t border-purple-100/70 pt-5">
                   <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-base text-[#A855F7]">rocket_launch</span>
-                    <span className="font-semibold text-slate-900">Upto 10 High-Performance Campaigns</span>
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">all_inclusive</span>
+                    <span className="font-semibold text-slate-900">Unlimited Ad Accounts</span>
                   </li>
                   <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-base text-[#A855F7]">ads_click</span>
-                    <span>Instagram &amp; Facebook Ads Management</span>
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">mark_chat_read</span>
+                    <span>Multiple WhatsApp numbers</span>
                   </li>
                   <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-base text-[#A855F7]">summarize</span>
-                    <span>Daily Updates</span>
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">forum</span>
+                    <span>Custom volume AI lead chats</span>
                   </li>
                   <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-base text-[#A855F7]">share</span>
-                    <span>Website, WhatsApp &amp; Instagram Integration</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-base text-[#A855F7]">analytics</span>
-                    <span>Weekly / Monthly Reports</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-base text-[#A855F7]">person_search</span>
-                    <span>Lead Qualification</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-base text-[#A855F7]">wb_incandescent</span>
-                    <span className="font-bold text-purple-700">AI Suggestions &amp; Custom Rules</span>
+                    <span className="material-symbols-outlined text-base text-[#A855F7]">admin_panel_settings</span>
+                    <span>SSO, SAML &amp; audit logging</span>
                   </li>
                   <li className="flex items-center gap-2.5">
                     <span className="material-symbols-outlined text-base text-[#A855F7]">support_agent</span>
-                    <span>Dedicated Support &amp; Free Training</span>
+                    <span>Dedicated growth manager</span>
                   </li>
                 </ul>
               </div>
 
               <div>
                 <Link
-                  href="/signup/"
-                  className="w-full block text-center py-3.5 rounded-full border border-purple-200 text-purple-900 font-bold text-xs uppercase tracking-widest hover:bg-purple-50 transition-colors"
+                  href="/contact/"
+                  className="w-full block text-center py-3 rounded-full border border-purple-200 text-purple-900 font-bold text-xs uppercase tracking-widest hover:bg-purple-50 transition-colors"
                 >
-                  Initialize Plan
+                  Talk To Us
                 </Link>
-                <p className="text-[10px] text-center text-slate-400 mt-2">Prices exclusive of taxes</p>
+                <p className="text-[10px] text-center text-slate-400 mt-2">Tailored agreement</p>
               </div>
             </div>
+
           </div>
 
           {/* ========================================================================= */}
-          {/* FREE FOREVER READ-ONLY AUDIT CARD                                         */}
+          {/* FREE READ-ONLY AUDIT CARD                                                 */}
           {/* ========================================================================= */}
           <div className="mt-16 rounded-3xl p-8 sm:p-12 bg-gradient-to-r from-purple-900 via-indigo-950 to-slate-900 text-white shadow-2xl relative overflow-hidden">
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 items-center">
@@ -354,27 +443,27 @@ export default function PricingPage() {
                   No card needed
                 </div>
                 <h3 className="text-3xl sm:text-4xl font-bold mb-3">
-                  See real ROI before you spend a rupee
+                  See real ROI before you spend a single rupee or dollar
                 </h3>
                 <p className="text-purple-200 text-base max-w-2xl leading-relaxed mb-6">
                   <span className="text-2xl font-bold text-white font-mono mr-2">
-                    {currency === "INR" ? "₹0" : "$0"}
+                    {currency === "USD" ? "$0" : "₹0"}
                   </span>
-                  forever free. Connect your live Meta ad account in read-only mode. Receive creative fatigue scores, dead-hour analysis, and your revenue audit report in 24 hours.
+                  free forever. Connect your live Meta ad account in read-only mode. Receive creative fatigue scores, dead-hour analysis, and your revenue audit report in 24 hours.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-300">
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-emerald-400 text-base">check_circle</span>
-                    <span>1 Campaign Connected</span>
+                    <span>1 Meta Account Read-Only</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-emerald-400 text-base">check_circle</span>
-                    <span>Full Intelligence Dashboard</span>
+                    <span>Full Diagnostic Report</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-emerald-400 text-base">check_circle</span>
-                    <span>1 Revenue Audit Report</span>
+                    <span>Zero Write Permissions</span>
                   </div>
                 </div>
               </div>
@@ -384,7 +473,7 @@ export default function PricingPage() {
                   href="/signup/"
                   className="px-8 py-4 rounded-full bg-white text-slate-950 font-bold text-sm hover:bg-purple-50 transition-colors shadow-lg shadow-black/30 whitespace-nowrap block text-center"
                 >
-                  Get started free →
+                  Start free audit →
                 </Link>
                 <p className="text-[11px] text-center text-purple-300 mt-2">Takes 4 minutes to connect</p>
               </div>
@@ -394,9 +483,86 @@ export default function PricingPage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 3. THE COST OF STAYING MANUAL                                             */}
+      {/* 3. DETAILED FEATURE MATRIX COMPARISON                                      */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-[#FAF8FD] border-t border-slate-100">
+      <section className="py-20 bg-[#FAF8FD] border-t border-purple-100/60">
+        <div className="container mx-auto max-w-6xl px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#A855F7] block mb-2">
+              Feature Comparison
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+              Compare All Plan Capabilities
+            </h2>
+            <p className="text-slate-600 text-base sm:text-lg">
+              Every plan includes read-only audit diagnostics. Upgraded tiers add automated protection and lead qualification.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse bg-white rounded-2xl shadow-sm border border-purple-100/80 overflow-hidden">
+              <thead>
+                <tr className="border-b border-purple-100/80 bg-purple-50/50">
+                  <th className="py-4 px-6 text-sm font-bold text-slate-900 w-2/5">Capability</th>
+                  <th className="py-4 px-4 text-xs font-bold text-slate-700 text-center">Entry</th>
+                  <th className="py-4 px-4 text-xs font-bold text-slate-700 text-center">Starter</th>
+                  <th className="py-4 px-4 text-xs font-bold text-purple-900 bg-purple-100/60 text-center">Agency</th>
+                  <th className="py-4 px-4 text-xs font-bold text-slate-700 text-center">Enterprise</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 text-xs sm:text-sm">
+                {FEATURE_SECTIONS.map((section, sIdx) => (
+                  <React.Fragment key={sIdx}>
+                    <tr className="bg-slate-50/70">
+                      <td colSpan={5} className="py-3 px-6 text-xs font-bold uppercase tracking-wider text-purple-900">
+                        {section.title}
+                      </td>
+                    </tr>
+                    {section.rows.map((row, rIdx) => (
+                      <tr key={rIdx} className="hover:bg-purple-50/30 transition-colors">
+                        <td className="py-3.5 px-6 font-medium text-slate-900">
+                          {row.label}
+                          {row.hint && (
+                            <span className="block text-[11px] text-slate-400 font-normal">
+                              {row.hint}
+                            </span>
+                          )}
+                        </td>
+                        {row.values.map((val, vIdx) => (
+                          <td
+                            key={vIdx}
+                            className={cn(
+                              "py-3.5 px-4 text-center",
+                              vIdx === 2 ? "bg-purple-50/40 font-semibold text-purple-950" : "text-slate-700"
+                            )}
+                          >
+                            {typeof val === "boolean" ? (
+                              val ? (
+                                <span className="material-symbols-outlined text-base text-emerald-600 inline-block align-middle">
+                                  check_circle
+                                </span>
+                              ) : (
+                                <span className="text-slate-300 font-bold">—</span>
+                              )
+                            ) : (
+                              <span>{val}</span>
+                            )}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </React.Fragment>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 4. THE COST OF STAYING MANUAL                                             */}
+      {/* ========================================================================= */}
+      <section className="py-20 bg-white border-t border-slate-100">
         <div className="container mx-auto max-w-5xl px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#A855F7] block mb-2">
@@ -406,22 +572,22 @@ export default function PricingPage() {
               The Cost of Staying Manual
             </h2>
             <p className="text-slate-600 text-base sm:text-lg">
-              Subscription costs are visible. The cost of friction and missed opportunities are true architectural defects.
+              Subscription costs are visible. The cost of friction and unmonitored bid drifts are true architectural defects.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-            <div className="p-6 rounded-2xl bg-white border border-slate-100 shadow-sm">
+            <div className="p-6 rounded-2xl bg-[#FAF8FD] border border-purple-100/60 shadow-sm">
               <span className="text-3xl font-extrabold text-rose-500 font-mono">-15%</span>
               <h3 className="font-bold text-slate-900 mt-2 mb-1">Bid Drift Leakage</h3>
-              <p className="text-xs text-slate-500">Unmonitored sets drift beyond target CPA without immediate threshold halts.</p>
+              <p className="text-xs text-slate-500">Unmonitored ad sets drift beyond target CPA without immediate threshold halts.</p>
             </div>
-            <div className="p-6 rounded-2xl bg-white border border-slate-100 shadow-sm">
+            <div className="p-6 rounded-2xl bg-[#FAF8FD] border border-purple-100/60 shadow-sm">
               <span className="text-3xl font-extrabold text-rose-500 font-mono">20+ hrs</span>
               <h3 className="font-bold text-slate-900 mt-2 mb-1">Weekly Human Slog</h3>
-              <p className="text-xs text-slate-500">Time spent pulling numbers and writing manual reports instead of strategy.</p>
+              <p className="text-xs text-slate-500">Time spent pulling numbers and writing manual reports instead of creative strategy.</p>
             </div>
-            <div className="p-6 rounded-2xl bg-white border border-slate-100 shadow-sm">
+            <div className="p-6 rounded-2xl bg-[#FAF8FD] border border-purple-100/60 shadow-sm">
               <span className="text-3xl font-extrabold text-emerald-600 font-mono">3.4x</span>
               <h3 className="font-bold text-slate-900 mt-2 mb-1">Average ROI Protected</h3>
               <p className="text-xs text-slate-500">Capital recovered by pausing dead hours and auto-qualifying incoming leads.</p>
@@ -431,9 +597,9 @@ export default function PricingPage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 4. COMMON QUESTIONS                                                       */}
+      {/* 5. COMMON QUESTIONS                                                       */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-white border-t border-slate-100">
+      <section className="py-20 bg-[#FAF8FD] border-t border-slate-100">
         <div className="container mx-auto max-w-4xl px-6">
           <div className="text-center mb-16">
             <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#A855F7] block mb-2">
@@ -448,7 +614,7 @@ export default function PricingPage() {
             {PRICING_FAQS.map((faq, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-[#FAF8FD] border border-purple-100/60"
+                className="p-6 rounded-2xl bg-white border border-purple-100/70"
               >
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2">
                   {faq.question}
