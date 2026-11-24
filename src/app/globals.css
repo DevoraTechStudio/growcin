@@ -15,28 +15,23 @@
   --color-border-subtle: rgba(168, 85, 247, 0.08);
   --color-border-strong: rgba(168, 85, 247, 0.16);
 
-  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-manrope), "Manrope", sans-serif;
   --font-body: var(--font-manrope), "Manrope", sans-serif;
-  --font-headline: var(--font-manrope), "Manrope", sans-serif;
-  --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
-  --font-serif-accent: var(--font-instrument), "Instrument Serif", Georgia, serif;
-  --font-display: var(--font-bebas-neue), "Bebas Neue", sans-serif;
-  --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
+  --font-headline: var(--font-bricolage), "Bricolage Grotesque", sans-serif;
+  --font-display: var(--font-bricolage), "Bricolage Grotesque", sans-serif;
+  --font-bricolage: var(--font-bricolage), "Bricolage Grotesque", sans-serif;
+  --font-manrope: var(--font-manrope), "Manrope", sans-serif;
+  --font-serif: var(--font-bricolage), "Bricolage Grotesque", sans-serif;
+  --font-serif-accent: var(--font-bricolage), "Bricolage Grotesque", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 /* ========================================================================= */
 /* CSS CUSTOM PROPERTIES (Growcin Design System)                         */
 /* ========================================================================= */
 :root {
-  --font-inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-manrope: "Manrope", sans-serif;
-  --font-playfair: "Playfair Display", Georgia, serif;
-  --font-instrument: "Instrument Serif", Georgia, serif;
-  --font-bebas-neue: "Bebas Neue", sans-serif;
-  --font-jetbrains-mono: "JetBrains Mono", monospace;
-
-  --default-font-family: var(--font-manrope), "Manrope", "Inter", sans-serif;
-  --default-mono-font-family: var(--font-jetbrains-mono), monospace;
+  --default-font-family: var(--font-manrope), "Manrope", sans-serif;
+  --default-mono-font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --dur-instant: 0.12s;
   --dur-fast: 0.2s;
@@ -89,6 +84,10 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+html {
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+}
+
 body {
   cursor: default;
   background-color: var(--background);
@@ -102,6 +101,10 @@ body {
   max-width: 100%;
   overflow-x: hidden;
   position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-bricolage), "Bricolage Grotesque", sans-serif !important;
 }
 
 /* Mobile responsive resets */
@@ -124,37 +127,37 @@ body::selection {
 /* TYPOGRAPHY UTILITIES                                                      */
 /* ========================================================================= */
 .font-sans {
-  font-family: "Inter", var(--font-inter), ui-sans-serif, system-ui, sans-serif !important;
-}
-
-.font-body {
-  font-family: var(--font-inter), "Inter", sans-serif !important;
-}
-
-.font-headline {
   font-family: var(--font-manrope), "Manrope", sans-serif !important;
 }
 
+.font-body {
+  font-family: var(--font-manrope), "Manrope", sans-serif !important;
+}
+
+.font-headline {
+  font-family: var(--font-bricolage), "Bricolage Grotesque", sans-serif !important;
+}
+
 .font-display {
-  font-family: var(--font-bebas-neue), "Bebas Neue", sans-serif !important;
+  font-family: var(--font-bricolage), "Bricolage Grotesque", sans-serif !important;
 }
 
-.font-serif {
-  font-family: var(--font-playfair), "Playfair Display", Georgia, serif !important;
+.font-bricolage {
+  font-family: var(--font-bricolage), "Bricolage Grotesque", sans-serif !important;
 }
 
-.serif-italic {
-  font-family: var(--font-playfair), "Playfair Display", Georgia, serif !important;
-  font-style: italic !important;
+.font-manrope {
+  font-family: var(--font-manrope), "Manrope", sans-serif !important;
 }
 
+.font-serif,
+.serif-italic,
 .font-serif-accent {
-  font-family: var(--font-instrument), "Instrument Serif", Georgia, serif !important;
-  font-style: italic !important;
+  font-family: var(--font-bricolage), "Bricolage Grotesque", sans-serif !important;
 }
 
 .font-mono {
-  font-family: var(--font-jetbrains-mono), "JetBrains Mono", monospace !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
 }
 
 .monument {
@@ -514,7 +517,7 @@ body::selection {
   user-select: none;
   pointer-events: none;
   z-index: 0;
-  font-family: "Inter", var(--font-inter), sans-serif;
+  font-family: var(--font-bricolage), "Bricolage Grotesque", sans-serif;
 }
 
 .glass-btn {

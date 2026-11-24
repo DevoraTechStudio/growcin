@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Inter, Instrument_Serif, Playfair_Display, JetBrains_Mono, Manrope, Bebas_Neue } from "next/font/google";
+import { Manrope, Bricolage_Grotesque } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FinalCTA } from "@/components/layout/FinalCTA";
@@ -8,47 +8,15 @@ import { FinalCTA } from "@/components/layout/FinalCTA";
 import schemas from "../../public/schema-all.json";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  display: "swap",
-});
-
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument",
+const bricolageGrotesque = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const bebasNeue = Bebas_Neue({
-  variable: "--font-bebas-neue",
-  subsets: ["latin"],
-  weight: ["400"],
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -138,13 +106,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${manrope.variable} ${instrumentSerif.variable} ${playfair.variable} ${jetbrainsMono.variable} ${bebasNeue.variable} scroll-smooth h-full antialiased`}
+      className={`${bricolageGrotesque.variable} ${manrope.variable} scroll-smooth h-full antialiased`}
     >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content="#A855F7" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Manrope:wght@300..800&display=swap"
+          rel="stylesheet"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0&display=swap"
           rel="stylesheet"
