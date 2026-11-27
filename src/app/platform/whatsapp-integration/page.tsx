@@ -41,12 +41,12 @@ export default function WhatsAppIntegrationPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/signup/"
+            <a
+              href="https://forms.gle/36tzEAi9VzfcBD9EA" target="_blank" rel="noopener noreferrer"
               className="px-8 py-4 bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-full shadow-lg shadow-purple-500/25 transition-all hover:-translate-y-0.5"
             >
               Get Started with Growcin →
-            </Link>
+            </a>
           </div>
 
           {/* Feature Pills Marquee */}

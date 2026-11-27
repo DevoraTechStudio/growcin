@@ -224,12 +224,12 @@ export default function PricingPage() {
               </div>
 
               <div>
-                <Link
-                  href="/signup/"
+                <a
+                  href="https://forms.gle/36tzEAi9VzfcBD9EA" target="_blank" rel="noopener noreferrer"
                   className="w-full block text-center py-3 rounded-full border border-purple-200 text-purple-900 font-bold text-xs uppercase tracking-widest hover:bg-purple-50 transition-colors"
                 >
                   Choose Entry
-                </Link>
+                </a>
                 <p className="text-[10px] text-center text-slate-400 mt-2">Prices exclusive of taxes</p>
               </div>
             </div>
@@ -292,12 +292,12 @@ export default function PricingPage() {
               </div>
 
               <div>
-                <Link
-                  href="/signup/"
+                <a
+                  href="https://forms.gle/36tzEAi9VzfcBD9EA" target="_blank" rel="noopener noreferrer"
                   className="w-full block text-center py-3 rounded-full border border-purple-200 text-purple-900 font-bold text-xs uppercase tracking-widest hover:bg-purple-50 transition-colors"
                 >
                   Choose Starter
-                </Link>
+                </a>
                 <p className="text-[10px] text-center text-slate-400 mt-2">Prices exclusive of taxes</p>
               </div>
             </div>
@@ -364,12 +364,12 @@ export default function PricingPage() {
               </div>
 
               <div>
-                <Link
-                  href="/signup/"
+                <a
+                  href="https://forms.gle/36tzEAi9VzfcBD9EA" target="_blank" rel="noopener noreferrer"
                   className="w-full block text-center py-3 rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-purple-700 hover:to-indigo-700 text-white font-bold text-xs uppercase tracking-widest shadow-md shadow-purple-500/30 transition-all hover:scale-[1.02]"
                 >
                   Choose Agency
-                </Link>
+                </a>
                 <p className="text-[10px] text-center text-slate-400 mt-2">Prices exclusive of taxes</p>
               </div>
             </div>
@@ -469,12 +469,14 @@ export default function PricingPage() {
               </div>
 
               <div>
-                <Link
-                  href="/signup/"
+                <a
+                  href="https://forms.gle/36tzEAi9VzfcBD9EA"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-8 py-4 rounded-full bg-white text-slate-950 font-bold text-sm hover:bg-purple-50 transition-colors shadow-lg shadow-black/30 whitespace-nowrap block text-center"
                 >
                   Start free audit →
-                </Link>
+                </a>
                 <p className="text-[11px] text-center text-purple-300 mt-2">Takes 4 minutes to connect</p>
               </div>
             </div>

@@ -124,8 +124,10 @@ export default function Home() {
 
               {/* Button CTAs */}
               <div className="flex flex-col sm:flex-row items-center lg:justify-start justify-center gap-4 pt-2">
-                <Link
-                  href="/signup/"
+                <a
+                  href="https://forms.gle/36tzEAi9VzfcBD9EA"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group relative pl-7 pr-2 py-2 bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white text-base font-semibold rounded-full shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/35 hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-3 overflow-hidden cursor-pointer"
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer pointer-events-none" />
@@ -133,7 +135,7 @@ export default function Home() {
                   <div className="relative z-10 w-9 h-9 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 group-hover:rotate-45 transition-all duration-300">
                     <span className="material-symbols-outlined text-[18px]">arrow_outward</span>
                   </div>
-                </Link>
+                </a>
 
                 <Link
                   href="#product"
@@ -888,12 +890,14 @@ export default function Home() {
                 </ul>
               </div>
               <div className="mt-8">
-                <Link
-                  href="/signup/"
+                <a
+                  href="https://forms.gle/36tzEAi9VzfcBD9EA"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full block text-center py-3 rounded-full border border-purple-200 text-purple-900 font-bold text-xs uppercase tracking-widest hover:bg-purple-50 transition-colors"
                 >
                   Choose Entry
-                </Link>
+                </a>
               </div>
             </div>
 
@@ -932,12 +936,14 @@ export default function Home() {
                 </ul>
               </div>
               <div className="mt-8">
-                <Link
-                  href="/signup/"
+                <a
+                  href="https://forms.gle/36tzEAi9VzfcBD9EA"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full block text-center py-3 rounded-full border border-purple-200 text-purple-900 font-bold text-xs uppercase tracking-widest hover:bg-purple-50 transition-colors"
                 >
                   Choose Starter
-                </Link>
+                </a>
               </div>
             </div>
 
@@ -983,12 +989,14 @@ export default function Home() {
                 </ul>
               </div>
               <div className="mt-8">
-                <Link
-                  href="/signup/"
+                <a
+                  href="https://forms.gle/36tzEAi9VzfcBD9EA"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full block text-center py-3 rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-purple-700 hover:to-indigo-700 text-white font-bold text-xs uppercase tracking-widest shadow-md transition-all hover:scale-[1.02]"
                 >
                   Choose Agency
-                </Link>
+                </a>
               </div>
             </div>
           </div>

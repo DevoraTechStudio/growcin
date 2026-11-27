@@ -40,13 +40,13 @@ export default function AgencySolutionsPage() {
             For years, agencies scaled by adding people. That model is breaking. Autonomous campaign intelligence lets you handle 40+ ad accounts with zero additional headcount.
           </p>
 
-          <Link
-            href="/signup/"
+          <a
+            href="https://forms.gle/36tzEAi9VzfcBD9EA" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-full shadow-lg shadow-purple-500/25 transition-all hover:-translate-y-0.5"
           >
             <span>Run Free Agency Audit</span>
             <span className="material-symbols-outlined text-base">arrow_forward</span>
-          </Link>
+          </a>
         </div>
       </section>
 

@@ -58,13 +58,13 @@ export default function MethodologyPage() {
             Advertising moves businesses forward — or quietly drains them of their potential. We replace reactive firefighting with structural discipline.
           </p>
 
-          <Link
-            href="/signup/"
+          <a
+            href="https://forms.gle/36tzEAi9VzfcBD9EA" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-full shadow-lg shadow-purple-500/25 transition-all hover:-translate-y-0.5"
           >
             <span>Audit Your Account</span>
             <span className="material-symbols-outlined text-base">arrow_forward</span>
-          </Link>
+          </a>
         </div>
       </section>
 
@@ -213,13 +213,13 @@ export default function MethodologyPage() {
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
             The best campaign managers know when not to touch anything. Constant tweaking creates learning loop resets in Meta&apos;s delivery algorithms. Our system practices deliberate restraint: we only intervene when anomalies cross definitive statistical thresholds.
           </p>
-          <Link
-            href="/signup/"
+          <a
+            href="https://forms.gle/36tzEAi9VzfcBD9EA" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#A855F7] text-white font-semibold text-sm hover:bg-purple-600 transition-colors"
           >
             <span>Experience Calm Execution</span>
             <span className="material-symbols-outlined text-base">arrow_forward</span>
-          </Link>
+          </a>
         </div>
       </section>
     </div>

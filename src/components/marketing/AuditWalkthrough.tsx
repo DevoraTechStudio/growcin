@@ -409,15 +409,17 @@ export function AuditWalkthrough() {
                 </p>
 
                 <div className="pt-2">
-                  <Link
-                    href="/signup/"
+                  <a
+                    href="https://forms.gle/36tzEAi9VzfcBD9EA"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group inline-flex items-center gap-2 text-base font-semibold text-purple-600 transition-colors hover:text-purple-700"
                   >
                     <span>Get your free audit</span>
                     <span className="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">
                       arrow_forward
                     </span>
-                  </Link>
+                  </a>
                 </div>
               </div>
 

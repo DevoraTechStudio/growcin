@@ -107,7 +107,7 @@ export default function CaseStudyDetailPage() {
 
           <div className="pt-6">
             <Button size="lg" asChild>
-              <Link href="/signup">Start Free Trial</Link>
+              <a href="https://forms.gle/36tzEAi9VzfcBD9EA" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
             </Button>
           </div>
         </div>

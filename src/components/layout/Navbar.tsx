@@ -93,22 +93,24 @@ export function Navbar() {
 
         {/* Desktop Actions & Mobile Trigger */}
         <div className="flex items-center gap-3 sm:gap-4">
-          <Link
+          {/* <Link
             href="/login"
             className="hidden sm:inline-flex items-center text-sm font-semibold text-slate-600 hover:text-slate-900 px-3 py-1.5 transition-colors"
           >
             Log in
-          </Link>
+          </Link> */}
 
-          <Link
-            href="/signup/"
+          <a
+            href="https://forms.gle/36tzEAi9VzfcBD9EA"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-primary hover:bg-primary-dark transition-all duration-200 shadow-sm shadow-primary/20 active:scale-95"
           >
             <span>Get Free Audit</span>
             <span className="material-symbols-outlined text-[15px] leading-none -mr-0.5">
               arrow_forward
             </span>
-          </Link>
+          </a>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -159,22 +161,24 @@ export function Navbar() {
               })}
 
               <div className="pt-4 mt-2 border-t border-slate-100 flex flex-col gap-2.5">
-                <Link
-                  href="/signup/"
+                <a
+                  href="https://forms.gle/36tzEAi9VzfcBD9EA"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
                   className="w-full py-3 px-4 flex items-center justify-center gap-1.5 bg-primary hover:bg-primary-dark text-white rounded-full text-xs font-bold uppercase tracking-widest shadow-sm shadow-primary/25 active:scale-98 transition-all"
                 >
                   <span>Get Free Audit</span>
                   <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
-                </Link>
+                </a>
 
-                <Link
+                {/* <Link
                   href="/login"
                   onClick={() => setMobileMenuOpen(false)}
                   className="w-full py-2.5 px-4 rounded-full border border-slate-200 text-slate-700 hover:bg-slate-50 text-center text-xs font-bold uppercase tracking-wider transition-colors block"
                 >
                   Log in
-                </Link>
+                </Link> */}
               </div>
             </div>
           </motion.div>

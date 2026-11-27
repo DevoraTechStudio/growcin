@@ -24,7 +24,7 @@ const FOOTER_COLUMNS: FooterColumn[] = [
       { name: "WhatsApp Integration", href: "/platform/whatsapp-integration/" },
       { name: "Instagram Integration", href: "/platform/instagram-integration/" },
       { name: "Email Automation", href: "/platform/email-automation/" },
-      { name: "AI Chat Auto Reply Assistant", href: "/ai-chat-auto-reply-assistant/" },
+      // { name: "AI Chat Auto Reply Assistant", href: "/ai-chat-auto-reply-assistant/" },
     ],
   },
   {
@@ -49,7 +49,7 @@ const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: "Features",
     links: [
-      { name: "Campaign Audit", href: "/signup/" },
+      { name: "Campaign Audit", href: "https://forms.gle/36tzEAi9VzfcBD9EA", external: true },
       { name: "Budget Guardrails", href: "/platform/" },
       { name: "Fatigue Detection", href: "/platform/" },
       { name: "Live Simulator", href: "/#simulator" },
